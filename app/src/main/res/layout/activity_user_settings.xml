@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androida="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".kotlin.MVVM.UserSettings.UserSettingsActivity">
+    android:background="@color/darkGrey"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgHeader"
+        android:layout_width="300dip"
+        android:layout_height="75dip"
+        android:layout_gravity="center"
+        android:layout_margin="25dip"
+        android:background="@mipmap/header" />
+
+
+    <FrameLayout
+        android:id="@+id/fragment_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="25dip"
+        android:background="#555252"></FrameLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/darkGrey"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:text="@string/skip_setup"
+        />
+
+
+</LinearLayout>
