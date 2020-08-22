@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlin.MVVM.UserSettings.UserSettingsInstallationsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        android:layout_height="match_parent">
+
+        <!--contentent goes here-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/labelInstallations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What's your installation?"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+
+                />
+
+           <EditText
+               android:id="@+id/search_installations"
+               android:layout_width="300dp"
+               android:layout_height="60dp"
+               android:layout_below="@id/labelInstallations"
+               android:layout_marginTop="30dp"
+               android:layout_centerHorizontal="true"
+               android:layout_marginLeft="40dp"
+               android:layout_marginRight="40dp"
+               android:background="@drawable/usersettingsinstallationssearchbackground"
+               />
+
+            <Button
+                android:id="@+id/buttonUseLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                android:background="@color/cardview_dark_background"
+                android:textAllCaps="false"
+                android:text="@string/use_your_location"
+                android:textColor="@color/white"
+                android:layout_below="@id/search_installations"
+                />
+"
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="75dp"
+                android:layout_below="@id/buttonUseLocation"
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/page2pager" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

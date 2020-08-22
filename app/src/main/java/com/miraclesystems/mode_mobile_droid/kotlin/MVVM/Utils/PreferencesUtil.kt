@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 
 class PreferencesUtil {
 
-    private const val NAME = "_PREFERENCES"
-    private const val MODE = Context.MODE_PRIVATE
+    private  val NAME = "_PREFERENCES"
+    private  val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
     // list of app specific preferences

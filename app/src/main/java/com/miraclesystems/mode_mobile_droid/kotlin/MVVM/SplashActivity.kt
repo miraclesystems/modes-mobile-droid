@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings.UserSettingsActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -19,7 +20,13 @@ class SplashActivity : AppCompatActivity() {
             // This method will be executed once the timer is over
             // Start BaseActivity
 
-            startActivity(Intent(this,BaseActivity::class.java))
+           // startActivity(Intent(this,BaseActivity::class.java))
+
+            /// TODO: Check the user preferences to determine if UserSettings needs to presented
+
+            startActivity(Intent(this, UserSettingsActivity::class.java))
+
+
             // close the splash screen activity
             finish()
         }, SPLASH_TIME_OUT)

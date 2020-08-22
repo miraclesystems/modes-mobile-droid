@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlin.MVVM.UserSettings.UserSettingsBranchFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/cardview_dark_background"
+        android:layout_height="match_parent">
+
+        <!--contentent goes here-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/labelBranch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Branch of service?"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/white"
+                android:textSize="12pt"
+
+                />
+
+            <Spinner
+                android:id="@+id/branch_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelBranch"
+                android:layout_marginTop="30dp"
+                android:layout_centerHorizontal="true"
+                android:spinnerMode="dropdown"
+                android:background="@color/white"
+                android:layout_marginBottom="20dp"
+                 />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="150dp"
+                android:layout_below="@id/branch_spinner"
+                android:layout_alignParentBottom="true"
+                android:background="@mipmap/page3pager" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
