@@ -61,6 +61,20 @@ class UserSettingsDescriptionFragment : Fragment() {
             var userSettingsActivity = activity as UserSettingsActivity
             userSettingsActivity.loadPage2()
         }
+
+
+        view.button_page2.setOnClickListener { view ->
+
+            var userSettingsActivity = activity as UserSettingsActivity
+            userSettingsActivity.loadPage2()
+        }
+
+        view.button_page3.setOnClickListener { view ->
+
+            var userSettingsActivity = activity as UserSettingsActivity
+            userSettingsActivity.loadPage3()
+        }
+
         return view
     }
 

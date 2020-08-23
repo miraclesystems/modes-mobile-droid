@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter
 import com.miraclesystems.mode_mobile_droid.R
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.*
+import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.button_page1
+import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.button_page2
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +50,19 @@ class UserSettingsBranchFragment : Fragment() {
 
         view.branch_spinner.adapter = ArrayAdapter<String>(activity!!.applicationContext, android.R.layout.simple_list_item_1, branches)
 
+
+        view.button_page1.setOnClickListener { view ->
+
+            var userSettingsActivity = activity as UserSettingsActivity
+            userSettingsActivity.loadPage1()
+        }
+
+
+        view.button_page2.setOnClickListener { view ->
+
+            var userSettingsActivity = activity as UserSettingsActivity
+            userSettingsActivity.loadPage2()
+        }
 
         return view
     }

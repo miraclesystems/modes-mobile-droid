@@ -35,4 +35,5 @@ class PreferencesUtil {
             it.putBoolean(IS_FIRST_RUN_PREF.first, value)
         }
 
-}
+    }
+
