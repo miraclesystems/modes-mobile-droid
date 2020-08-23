@@ -43,8 +43,17 @@
                android:layout_centerHorizontal="true"
                android:layout_marginLeft="40dp"
                android:layout_marginRight="40dp"
+               android:imeOptions="actionDone"
+               android:inputType="text"
                android:background="@drawable/usersettingsinstallationssearchbackground"
                />
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50dp"
+                android:layout_below="@id/labelInstallations"
+                />
 
             <Button
                 android:id="@+id/buttonUseLocation"
@@ -58,18 +67,53 @@
                 android:textColor="@color/white"
                 android:layout_below="@id/search_installations"
                 />
-"
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="75dp"
+
+            <Button
+                android:id="@+id/button_page1"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/usersettings_unselected_round_button"
+                android:text="1"
+                android:textColor="@color/white"
                 android:layout_below="@id/buttonUseLocation"
-                android:layout_alignParentBottom="true"
-                android:background="@mipmap/page2pager" />
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/button_page2"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/usersettings_selected_round_button"
+                android:text="2"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/buttonUseLocation"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/button_page3"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/usersettings_unselected_round_button"
+                android:text="3"
+                android:textColor="@color/white"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/buttonUseLocation"
+                android:textAllCaps="false" />
+
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

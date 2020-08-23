@@ -1,6 +1,9 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM
 
 import android.os.AsyncTask
+import android.util.Base64
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.API_PASSWORD
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.API_USER
 
 import java.io.*
 import java.net.HttpURLConnection
@@ -244,6 +247,13 @@ class WebServiceConnector(urlString : String, delegate : WebServiceConnectorDele
                 if (!tokenString.isNullOrEmpty()) {
                     connection.setRequestProperty("Authorization", "Bearer " + tokenString);
                 }
+
+                val username = API_USER
+                val password = API_PASSWORD
+                val credentials = username + ":" + password
+                val AUTH = "Basic " + Base64.encodeToString(credentials.toByteArray(Charsets.UTF_8), Base64.DEFAULT).replace("\n", "")
+
+                connection.setRequestProperty("Authorization", AUTH);
 
                 val responseCode = connection.getResponseCode()
 
