@@ -8,50 +8,55 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGrey">
+    android:background="@drawable/gradient_background">
+
 
     <!-- Don't worry about the id names I have named the id's with reference to the file name for consistency -->
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:layout_marginTop="208dp"
         android:contentDescription="Milife logo for app"
-        android:src="@drawable/ic_launcher_background"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:srcCompat="@drawable/splash_modes_logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="393dp"
-        android:layout_height="180dp"
+        android:layout_height="80dp"
+        android:alpha=".5"
+        android:fontFamily="@font/worksans_regular"
         android:gravity="center"
-        android:padding="40dp"
         android:text="@string/splashHeaderText"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:layout_editor_absoluteX="41dp" />
+        android:textColor="#EFF4F7"
+        android:textSize="24sp"
+        android:lineSpacingExtra="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/dodLogo"
-        android:layout_width="100dp"
+        android:layout_width="132dp"
         android:layout_height="80dp"
         android:layout_marginBottom="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        app:srcCompat="@drawable/splash_dod_logo" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
