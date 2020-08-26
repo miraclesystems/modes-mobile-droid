@@ -24,6 +24,7 @@ import com.google.android.gms.location.LocationServices
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.BaseViewModel
 import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
 import java.util.*
@@ -52,6 +53,40 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
 
 
+    override fun onResume() {
+        super.onResume()
+
+        var userSettingsActivity = activity as UserSettingsActivity
+        if(userSettingsActivity.pager_page2 != null) {
+
+            if (userSettingsActivity.page2Completed) {
+                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector_checked)
+                userSettingsActivity.pager_page2.setText("")
+            } else {
+                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector_highlighted)
+                userSettingsActivity.pager_page2.setText("2")
+            }
+
+        }
+    }
+
+
+    override fun onStop() {
+        super.onStop()
+        var userSettingsActivity = activity as UserSettingsActivity
+        if(userSettingsActivity.pager_page2 != null) {
+
+            if (userSettingsActivity.page2Completed) {
+                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector_checked)
+                userSettingsActivity.pager_page2.setText("")
+            } else {
+                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector)
+                userSettingsActivity.pager_page2.setText("2")
+            }
+
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -68,6 +103,9 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
     }
 
     override fun update(o: Observable?, arg: Any?) {
+
+        var userSettingsActivity = activity as UserSettingsActivity
+        userSettingsActivity.viewModel.deleteObserver(this)
         when (o){
             is UserSettingsViewModel -> {
                     if (arg is Boolean){
@@ -96,6 +134,11 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                         // Set the drop down view resource
                         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
 
+
+                        userSettingsActivity.listNames = listNames
+                        userSettingsActivity.loadSearchByPostalCode()
+
+                        /*
                         // Finally, data bind the spinner object with dapter
                         spinner.adapter = adapter;
 
@@ -122,6 +165,8 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
                         spinner.visibility = View.VISIBLE
                         spinner.performClick()
+                        */
+
                         Log.d("debug", "stop")
                         true
                     } else {
@@ -176,6 +221,10 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
             inflater.inflate(R.layout.fragment_user_settings_installation, container, false)
 
 
+        var userSettingsActivity = activity as UserSettingsActivity
+
+
+
         fun getLastLocation() {
             fusedLocationClient!!.lastLocation
                 .addOnCompleteListener(activity!!) { task ->
@@ -183,6 +232,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                         Log.d(TAG, "getLastLocation")
                         val geocoder = Geocoder(activity!!.applicationContext, Locale.ENGLISH)
                         val addresses = geocoder.getFromLocation(task.result.latitude, task.result.longitude, 1)
+                        userSettingsActivity.city = addresses[0].locality
                         val zipcode = addresses[0].postalCode
                         Log.d("debug", addresses[0].postalCode)
 
@@ -207,11 +257,26 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
             }
         }
 
-        view.spinner.visibility = View.INVISIBLE
+        view.button_location.setOnClickListener(){
+            if (checkPermission(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+            ) {
+                getLastLocation()
+            }
+        }
+
+        //view.spinner.visibility = View.INVISIBLE
         view.search_installations.setOnFocusChangeListener(OnFocusChangeListener { v, hasFocus ->
 
         })
 
+
+
+        view.search_installations.setOnClickListener{view ->
+            var userSettingsActivity = activity as UserSettingsActivity
+            userSettingsActivity.loadSearch()
+        }
 
 
         view.search_installations.setOnEditorActionListener { _, actionId, _ ->
@@ -245,6 +310,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                 // Set the drop down view resource
                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
 
+                /*
                 // Finally, data bind the spinner object with dapter
                 spinner.adapter = adapter;
 
@@ -272,6 +338,8 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                 spinner.visibility = View.VISIBLE
                 spinner.performClick()
                 Log.d("debug", "stop")
+
+                 */
                 true
             } else {
                 false
@@ -300,6 +368,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
          */
 
+        /*
         view.button_page1.setOnClickListener { view ->
 
             var userSettingsActivity = activity as UserSettingsActivity
@@ -312,6 +381,8 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
             var userSettingsActivity = activity as UserSettingsActivity
             userSettingsActivity.loadPage3()
         }
+        */
+
         return view
     }
 

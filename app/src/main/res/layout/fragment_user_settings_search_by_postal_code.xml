@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".kotlin.MVVM.UserSettings.UserSetttingsSearchFragment">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="#12334A">
+
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/keyboard_backspace"
+                />
+
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="272dp"
+                android:layout_height="20dp"
+                android:layout_toRightOf="@id/button_back"
+                android:layout_marginTop="13dp"
+                android:layout_alignParentTop="true"
+                android:text="Showing Installations Near"
+                android:textColor="@color/white"
+                android:textSize="6pt"
+
+                />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="272dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/header"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@id/button_back"
+                android:text="Cityr"
+                android:textColor="@color/white"
+                android:textSize="8pt"
+
+                />
+
+
+            <Button
+                android:id="@+id/button_location"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+
+                android:background="@drawable/search"
+                />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/searchList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/white"
+
+            />
+
+    </LinearLayout>
+
+
+</FrameLayout>

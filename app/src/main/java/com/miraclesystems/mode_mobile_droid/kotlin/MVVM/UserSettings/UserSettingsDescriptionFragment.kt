@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.PreferencesUtil
+import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_description.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,6 +37,48 @@ class UserSettingsDescriptionFragment : Fragment() {
         print("debug")
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        var userSettingsActivity = activity as UserSettingsActivity
+        if(userSettingsActivity.pager_page1 != null) {
+
+            if (userSettingsActivity.page1Completed) {
+                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector_checked)
+                userSettingsActivity.pager_page1.setText("")
+            } else {
+                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector_highlighted)
+                userSettingsActivity.pager_page1.setText("1")
+            }
+
+        }
+    }
+
+
+    override fun onStop() {
+        super.onStop()
+        var userSettingsActivity = activity as UserSettingsActivity
+        if(userSettingsActivity.pager_page1 != null) {
+
+            if (userSettingsActivity.page1Completed) {
+                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector_checked)
+                userSettingsActivity.pager_page1.setText("")
+            } else {
+                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector)
+                userSettingsActivity.pager_page1.setText("1")
+            }
+
+        }
+    }
+    fun page2(desrciption : String){
+
+
+        PreferencesUtil.save("USER_DESCRIPTION", desrciption)
+        var userSettingsActivity = activity as UserSettingsActivity
+        userSettingsActivity.page1Completed = true
+        userSettingsActivity.loadPage2()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,23 +90,22 @@ class UserSettingsDescriptionFragment : Fragment() {
         view.button_serviceMember.setOnClickListener { view ->
             Log.d("usersetup", "Member")
 
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage2()
+            page2("member")
         }
 
         view.button_family.setOnClickListener { view ->
-            Log.d("usersetup", "Family Member")
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage2()
+            page2("family")
         }
 
         view.button_spouse.setOnClickListener { view ->
-            Log.d("usersetup", "Spouse")
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage2()
+            page2("spouse")
+        }
+        view.button_other.setOnClickListener{
+            page2("other")
         }
 
 
+        /*
         view.button_page2.setOnClickListener { view ->
 
             var userSettingsActivity = activity as UserSettingsActivity
@@ -74,6 +117,8 @@ class UserSettingsDescriptionFragment : Fragment() {
             var userSettingsActivity = activity as UserSettingsActivity
             userSettingsActivity.loadPage3()
         }
+
+         */
 
         return view
     }

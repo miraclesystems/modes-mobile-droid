@@ -2,8 +2,9 @@ package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.App
 
-class PreferencesUtil {
+object PreferencesUtil {
 
     private  val NAME = "_PREFERENCES"
     private  val MODE = Context.MODE_PRIVATE
@@ -12,8 +13,8 @@ class PreferencesUtil {
     // list of app specific preferences
     private val IS_FIRST_RUN_PREF = Pair("is_first_run", false)
 
-    fun init(context: Context) {
-        preferences = context.getSharedPreferences(NAME, MODE)
+    init {
+        preferences = App.applicationContext().getSharedPreferences(NAME, MODE)
     }
 
     /**
@@ -25,6 +26,21 @@ class PreferencesUtil {
         operation(editor)
         editor.apply()
     }
+
+
+    fun save(KEY_NAME: String, value: String) {
+        val editor: SharedPreferences.Editor = preferences.edit()
+
+        editor.putString(KEY_NAME, value)
+
+        editor.commit()
+    }
+
+   fun getValueString(KEY_NAME: String): String? {
+
+        return preferences.getString(KEY_NAME, null)
+    }
+
 
     var isFirstTimeLaunched: Boolean
         // custom getter to get a preference of a desired type, with a predefined default value

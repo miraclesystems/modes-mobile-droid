@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkGrey"
+    android:background="@android:color/transparent"
     tools:context=".kotlin.MVVM.UserSettings.UserSettingsDescriptionFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.cardview.widget.CardView
+    <!--<androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/cardview_dark_background"
-        android:layout_height="match_parent">
+        app:cardBackgroundColor="@android:color/transparent"
+        android:background="@android:color/transparent"
+        android:layout_height="match_parent"> -->
 
         <!--contentent goes here-->
 
@@ -23,27 +24,28 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/labelDescribesYou"
-                android:layout_width="200dip"
-                android:layout_height="100dp"
-                android:text="What best describes you?"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"
-                android:textColor="@color/white"
-                android:textSize="12pt"
-
+                android:id="@+id/what_best_d"
+                android:layout_width="280dp"
+                android:layout_height="31dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/what_best_d"
+                android:textAppearance="@style/what_best_d"
+                android:lineSpacingExtra="6sp"
+                android:translationY="-2.77sp"
+                android:gravity="center_horizontal|top"
                 />
 
             <Button
                 android:id="@+id/button_serviceMember"
                 android:layout_height="wrap_content"
                 android:layout_width="300dp"
-                android:background="@drawable/usersettingsdescriptionbuttonbackground"
+                android:background="@drawable/round_button"
                 android:text="I am a Service Member"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:textColor="@color/white"
-                android:layout_below="@id/labelDescribesYou"
+                android:layout_below="@id/what_best_d"
                 android:textAllCaps="false"
                 />
             <Button
@@ -53,7 +55,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/usersettingsdescriptionbuttonbackground"
+                android:background="@drawable/round_button"
                 android:text="I am a Military Spouse"
 
                 android:layout_gravity="center_horizontal"
@@ -68,60 +70,32 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/usersettingsdescriptionbuttonbackground"
+                android:background="@drawable/round_button"
                 android:text="I am a Family Member"
                 android:textColor="@color/white"
                 android:layout_below="@id/button_spouse"
                 android:textAllCaps="false" />
 
-
             <Button
-                android:id="@+id/button_page1"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_selected_round_button"
-                android:text="1"
-                android:textColor="@color/white"
-                android:layout_below="@id/button_family"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/button_page2"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
+                android:id="@+id/button_other"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_unselected_round_button"
-                android:text="2"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/round_button"
+                android:text="Other"
                 android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/button_family"
                 android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/button_page3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
 
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_unselected_round_button"
-                android:text="3"
-                android:textColor="@color/white"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/button_family"
-                android:textAllCaps="false" />
+
+
 
 
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+    <!--</androidx.cardview.widget.CardView>-->
 
 </FrameLayout>

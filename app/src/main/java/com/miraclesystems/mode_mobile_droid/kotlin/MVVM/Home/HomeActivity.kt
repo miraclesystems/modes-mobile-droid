@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity(), Observer {
 
         viewModel.addObserver(this)
 
-        viewModel.getValue()
+       // viewModel.getValue()
     }
 
     override fun update(o: Observable?, arg: Any?) {

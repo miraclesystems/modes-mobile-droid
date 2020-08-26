@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.PreferencesUtil
+import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.*
-import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.button_page1
-import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.button_page2
+
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +39,42 @@ class UserSettingsBranchFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        var userSettingsActivity = activity as UserSettingsActivity
+        userSettingsActivity.button_skip.setText("Done")
+        if(userSettingsActivity.pager_page3 != null) {
+
+            if (userSettingsActivity.page3Completed) {
+                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_checked)
+                userSettingsActivity.pager_page3.setText("")
+            } else {
+                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_highlighted)
+                userSettingsActivity.pager_page3.setText("3")
+            }
+
+        }
+    }
+
+
+    override fun onStop() {var userSettingsActivity = activity as UserSettingsActivity
+        super.onStop()
+
+        userSettingsActivity.button_skip.setText(R.string.skip_question)
+        if(userSettingsActivity.pager_page3 != null) {
+
+            if (userSettingsActivity.page3Completed) {
+                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_checked)
+                userSettingsActivity.pager_page3.setText("")
+            } else {
+                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector)
+                userSettingsActivity.pager_page3.setText("3")
+            }
+
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,25 +82,39 @@ class UserSettingsBranchFragment : Fragment() {
         // Inflate the layout for this fragment
         var view : View = inflater.inflate(R.layout.fragment_user_settings_branch, container, false)
 
-        var branches : Array<String> = arrayOf("Army", "Navy", "Air-Force", "Marines")
+        var branches : Array<String> = arrayOf("", "Army", "Navy", "Air-Force", "Marines")
         // Initializing an ArrayAdapter
 
 
+        view.branch.setOnClickListener {
+            branch_spinner.visibility = View.VISIBLE
+            branch_spinner.performClick()
+        }
+
         view.branch_spinner.adapter = ArrayAdapter<String>(activity!!.applicationContext, android.R.layout.simple_list_item_1, branches)
 
+        view.branch_spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
 
-        view.button_page1.setOnClickListener { view ->
+            }
 
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage1()
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+                branch_spinner.visibility = View.INVISIBLE
+                if(branch != null) {
+                    branch.setText(branches[position])
+
+                    var userSettingsActivity = activity as UserSettingsActivity
+                    userSettingsActivity.page3Completed = true
+                    PreferencesUtil.save("branch", branches[position])
+                }
+
+            }
+
         }
 
 
-        view.button_page2.setOnClickListener { view ->
 
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage2()
-        }
 
         return view
     }
