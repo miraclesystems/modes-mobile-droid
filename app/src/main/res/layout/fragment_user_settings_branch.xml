@@ -6,16 +6,7 @@
     tools:context=".kotlin.MVVM.UserSettings.UserSettingsBranchFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/cardview_dark_background"
-        android:layout_height="match_parent">
 
-        <!--contentent goes here-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -23,20 +14,38 @@
 
             <TextView
                 android:id="@+id/labelBranch"
-                android:layout_width="wrap_content"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:text="Branch of service?"
+                android:text="What is your brach of service?"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="25dp"
                 android:layout_centerHorizontal="true"
+                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="12pt"
 
                 />
 
+            
+            <TextView
+                android:id="@+id/branch"
+                android:layout_width="256dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/labelBranch"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:textColor="#747474"
+                android:background="@color/white"
+                style="?android:attr/spinnerItemStyle"
+                android:drawableRight="@drawable/dropdown_arrow"
+
+
+                />
+
+            
             <Spinner
                 android:id="@+id/branch_spinner"
-                android:layout_width="fill_parent"
+                android:layout_width="256dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/labelBranch"
                 android:layout_marginTop="30dp"
@@ -49,52 +58,8 @@
 
 
 
-            <Button
-                android:id="@+id/button_page1"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_unselected_round_button"
-                android:text="1"
-                android:textColor="@color/white"
-                android:layout_below="@id/branch_spinner"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/button_page2"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_unselected_round_button"
-                android:text="2"
-                android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/branch_spinner"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/button_page3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_selected_round_button"
-                android:text="3"
-                android:textColor="@color/white"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/branch_spinner"
-                android:textAllCaps="false" />
-
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
+
 
 </FrameLayout>

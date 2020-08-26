@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".kotlin.MVVM.UserSettings.UserSettingsInstallationsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/cardview_dark_background"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
 
         <!--contentent goes here-->
 
@@ -34,25 +33,31 @@
 
                 />
 
-           <EditText
+           <Button
                android:id="@+id/search_installations"
-               android:layout_width="300dp"
-               android:layout_height="60dp"
+               android:layout_width="wrap_content"
+               android:layout_height="40dp"
                android:layout_below="@id/labelInstallations"
                android:layout_marginTop="30dp"
                android:layout_centerHorizontal="true"
                android:layout_marginLeft="40dp"
                android:layout_marginRight="40dp"
-               android:imeOptions="actionDone"
-               android:inputType="text"
-               android:background="@drawable/usersettingsinstallationssearchbackground"
+               android:text="@string/search_inst"
+               android:textAllCaps="false"
+               android:textColor="#929292"
+               android:textAlignment="viewStart"
+               android:background="@drawable/search_w_icon"
                />
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="50dp"
-                android:layout_below="@id/labelInstallations"
+
+            <Button
+                android:id="@+id/button_location"
+                android:layout_width="30dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/near_me"
+                android:layout_below="@id/search_installations"
+                android:layout_toStartOf="@id/buttonUseLocation"
                 />
 
             <Button
@@ -61,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_centerHorizontal="true"
-                android:background="@color/cardview_dark_background"
+                android:background="@android:color/transparent"
                 android:textAllCaps="false"
                 android:text="@string/use_your_location"
                 android:textColor="@color/white"
@@ -69,53 +74,7 @@
                 />
 
 
-            <Button
-                android:id="@+id/button_page1"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_unselected_round_button"
-                android:text="1"
-                android:textColor="@color/white"
-                android:layout_below="@id/buttonUseLocation"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/button_page2"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_selected_round_button"
-                android:text="2"
-                android:textColor="@color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/buttonUseLocation"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/button_page3"
-                android:layout_height="40dp"
-                android:layout_width="40dp"
-
-                android:layout_marginRight="50dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/usersettings_unselected_round_button"
-                android:text="3"
-                android:textColor="@color/white"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/buttonUseLocation"
-                android:textAllCaps="false" />
-
-
         </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
-
+    </LinearLayout>
 </FrameLayout>
