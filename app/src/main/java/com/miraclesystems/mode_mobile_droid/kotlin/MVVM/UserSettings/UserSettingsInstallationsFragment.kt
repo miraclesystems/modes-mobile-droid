@@ -15,6 +15,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -104,6 +105,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
     override fun update(o: Observable?, arg: Any?) {
 
+        pbLoading.visibility = ProgressBar.INVISIBLE
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.deleteObserver(this)
         when (o){
@@ -226,6 +228,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
 
         fun getLastLocation() {
+            pbLoading.visibility = ProgressBar.VISIBLE
             fusedLocationClient!!.lastLocation
                 .addOnCompleteListener(activity!!) { task ->
                     if (task.isSuccessful && task.result != null) {
@@ -262,6 +265,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                     Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.ACCESS_FINE_LOCATION)
             ) {
+
                 getLastLocation()
             }
         }

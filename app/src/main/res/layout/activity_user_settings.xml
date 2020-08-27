@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/ic_splash_bg"
 
     android:orientation="vertical">
+
     <FrameLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -126,7 +128,7 @@
             <FrameLayout
                 android:id="@+id/fragment_placeholder"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="300dp"
                 android:layout_margin="25dip">
 
             </FrameLayout>
@@ -134,8 +136,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-
+                android:layout_height="35dp"
+                android:layout_marginBottom="60dp"
                 android:orientation="horizontal">
             <Button
                 android:id="@+id/button_skipAll"
@@ -144,7 +146,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="24dp"
-                android:layout_marginBottom="39dp"
+
                 android:textAllCaps="false"
                 android:textColor="#76B8E2"
                 android:text="@string/skip_setup"
@@ -171,5 +173,4 @@
 
         </LinearLayout>
     </FrameLayout>
-
 </LinearLayout>
