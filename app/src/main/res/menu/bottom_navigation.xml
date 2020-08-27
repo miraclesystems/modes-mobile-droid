@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_ic"
+        android:title="Home"
+        android:textColor="@color/bottom_nav_txt_color"
+        android:textSize="4sp"
+
+        />
+    <item
+        android:id="@+id/navigation_milife"
+        android:icon="@drawable/milife_ic"
+        android:title="MiLife Guides"
+        android:textColor="@color/bottom_nav_txt_color" />
+    <item
+        android:id="@+id/navigation_benefits"
+        android:icon="@drawable/benefits_ic"
+        android:title="Benefits Finder"
+        android:textColor="@color/bottom_nav_txt_color"
+        />
+    <item
+        android:id="@+id/navigation_favorties"
+        android:icon="@drawable/favorites_ic"
+        android:title="Favorites"
+        android:textColor="@color/bottom_nav_txt_color"/>
+    <item
+        android:id="@+id/navigation_connect"
+        android:icon="@drawable/connect_ic"
+        android:title="Connect"
+        android:textColor="@color/bottom_nav_txt_color" />
+</menu>
