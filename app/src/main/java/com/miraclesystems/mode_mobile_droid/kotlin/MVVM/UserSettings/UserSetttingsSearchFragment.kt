@@ -117,6 +117,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
     override fun update(o: Observable?, arg: Any?) {
 
+        pbLoading.visibility = ProgressBar.VISIBLE
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.deleteObserver(this)
         when (o){
@@ -194,6 +195,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
     fun getLastLocation() {
 
+
+        pbLoading.visibility = ProgressBar.VISIBLE
         var userSettingsActivity = activity as UserSettingsActivity
 
         fusedLocationClient!!.lastLocation
