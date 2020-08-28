@@ -253,7 +253,8 @@ class WebServiceConnector(urlString : String, delegate : WebServiceConnectorDele
                 val credentials = username + ":" + password
                 val AUTH = "Basic " + Base64.encodeToString(credentials.toByteArray(Charsets.UTF_8), Base64.DEFAULT).replace("\n", "")
 
-                connection.setRequestProperty("Authorization", AUTH);
+                //connection.setRequestProperty("Authorization", AUTH);
+                connection.setRequestProperty("Authorization", "Basic bWNmcFJFU1Q6IzByYWNsZVIzU1RBUCFzIw==")
 
                 val responseCode = connection.getResponseCode()
 

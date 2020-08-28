@@ -240,7 +240,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                         Log.d("debug", addresses[0].postalCode)
 
                         var userSettingsActivity = activity as UserSettingsActivity
-                        userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 50)
+                        userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
 
                     } else {
                         Log.w(TAG, "getLastLocation:exception", task.exception)

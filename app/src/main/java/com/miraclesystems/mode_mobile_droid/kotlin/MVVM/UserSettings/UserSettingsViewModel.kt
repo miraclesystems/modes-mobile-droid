@@ -25,7 +25,6 @@ class UserSettingsViewModel : Observable(), WebServiceConnectorDelegate {
         val webserviceConnector = WebServiceConnector(urlString, this )
         webserviceConnector.get()
 
-        loadingLocations = false
         loadingLocationsByPostal = true
 
     }
@@ -34,7 +33,7 @@ class UserSettingsViewModel : Observable(), WebServiceConnectorDelegate {
     fun getInstallations(){
 
         loadingLocations = true
-        loadingLocationsByPostal = false
+        //loadingLocationsByPostal = false
 
         var webServiceConnection = WebServiceConnector(
             BASE_URL + "/getInstallations/",this)
@@ -52,11 +51,13 @@ class UserSettingsViewModel : Observable(), WebServiceConnectorDelegate {
         val gson = Gson()
 
         if(loadingLocations){
+            loadingLocations = false
 
             val locationsModel : LocationsModel = gson.fromJson(jsonString, LocationsModel::class.java)
                 model = locationsModel
             }
         else{
+            loadingLocationsByPostal = false
             model = LocationsModel(null, null)
             model.items = ArrayList<Location?>()
 

@@ -82,7 +82,7 @@ class UserSettingsBranchFragment : Fragment() {
         // Inflate the layout for this fragment
         var view : View = inflater.inflate(R.layout.fragment_user_settings_branch, container, false)
 
-        var branches : Array<String> = arrayOf("", "Army", "Navy", "Air-Force", "Marines")
+        var branches : Array<String> = arrayOf("", "Army", "Marine Corps", "Navy", "Air-Force", "Coast Guard", "National Guard and reserve")
         // Initializing an ArrayAdapter
 
 
