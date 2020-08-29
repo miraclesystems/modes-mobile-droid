@@ -31,54 +31,52 @@
                 android:id="@+id/labelInstallations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="What's your installation?"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:text="What's your installation?"
                 android:textColor="@color/white"
                 android:textSize="12pt"
 
                 />
 
-           <Button
-               android:id="@+id/search_installations"
-               android:layout_width="wrap_content"
-               android:layout_height="40dp"
-               android:layout_below="@id/labelInstallations"
-               android:layout_marginTop="30dp"
-               android:layout_centerHorizontal="true"
-               android:layout_marginLeft="40dp"
-               android:layout_marginRight="40dp"
-               android:text="@string/search_inst"
-               android:textAllCaps="false"
-               android:textColor="#929292"
-               android:textAlignment="viewStart"
-               android:background="@drawable/search_w_icon"
-               />
+            <Button
+                android:id="@+id/search_installations"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/labelInstallations"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/search_w_icon"
+                android:text="@string/search_inst"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="#4A4A4A" />
 
             <Button
                 android:id="@+id/button_location"
                 android:layout_width="30dp"
                 android:layout_height="24dp"
+                android:layout_below="@id/search_installations"
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="12dp"
-                android:background="@drawable/near_me"
-                android:layout_below="@id/search_installations"
                 android:layout_toStartOf="@id/buttonUseLocation"
-                />
+                android:background="@drawable/near_me"
+                android:contentDescription="Use Current Location" />
 
             <Button
                 android:id="@+id/buttonUseLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_centerHorizontal="true"
-                android:background="@android:color/transparent"
-                android:textAllCaps="false"
-                android:text="@string/use_your_location"
-                android:textColor="@color/white"
                 android:layout_below="@id/search_installations"
-                />
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                android:text="@string/use_your_location"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
 
         </RelativeLayout>

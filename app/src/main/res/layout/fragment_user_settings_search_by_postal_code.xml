@@ -25,12 +25,12 @@
                 android:id="@+id/button_back"
                 android:layout_width="30dp"
                 android:layout_height="24dp"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/keyboard_backspace"
-                />
+                android:contentDescription="back" />
 
 
             <TextView
