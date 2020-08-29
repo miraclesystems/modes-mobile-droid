@@ -2,6 +2,7 @@ package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,17 +45,14 @@ class UserSettingsBranchFragment : Fragment() {
 
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.button_skip.setText("Done")
+
+
         if(userSettingsActivity.pager_page3 != null) {
 
-            if (userSettingsActivity.page3Completed) {
-                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_checked)
-                userSettingsActivity.pager_page3.setText("")
-            } else {
-                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_highlighted)
-                userSettingsActivity.pager_page3.setText("3")
-            }
 
+            userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3_highlighted)
         }
+
     }
 
 
@@ -66,10 +64,8 @@ class UserSettingsBranchFragment : Fragment() {
 
             if (userSettingsActivity.page3Completed) {
                 userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_checked)
-                userSettingsActivity.pager_page3.setText("")
             } else {
-                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector)
-                userSettingsActivity.pager_page3.setText("3")
+                userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3)
             }
 
         }
@@ -101,12 +97,14 @@ class UserSettingsBranchFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
                 branch_spinner.visibility = View.INVISIBLE
+
                 if(branch != null) {
                     branch.setText(branches[position])
-
                     var userSettingsActivity = activity as UserSettingsActivity
-                    userSettingsActivity.page3Completed = true
-                    PreferencesUtil.save("branch", branches[position])
+                   if(branches[position].length > 0) {
+                       userSettingsActivity.page3Completed = true
+                       PreferencesUtil.save("branch", branches[position])
+                   }
                 }
 
             }

@@ -41,17 +41,10 @@ class UserSettingsDescriptionFragment : Fragment() {
         super.onResume()
 
         var userSettingsActivity = activity as UserSettingsActivity
-        if(userSettingsActivity.pager_page1 != null) {
 
-            if (userSettingsActivity.page1Completed) {
-                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector_checked)
-                userSettingsActivity.pager_page1.setText("")
-            } else {
-                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector_highlighted)
-                userSettingsActivity.pager_page1.setText("1")
-            }
 
-        }
+                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector1_higlighted)
+
     }
 
 
@@ -62,10 +55,9 @@ class UserSettingsDescriptionFragment : Fragment() {
 
             if (userSettingsActivity.page1Completed) {
                 userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector_checked)
-                userSettingsActivity.pager_page1.setText("")
             } else {
-                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector)
-                userSettingsActivity.pager_page1.setText("1")
+                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector1)
+
             }
 
         }
