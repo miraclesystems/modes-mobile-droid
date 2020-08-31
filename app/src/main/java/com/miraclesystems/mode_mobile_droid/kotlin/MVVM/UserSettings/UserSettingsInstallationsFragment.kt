@@ -9,8 +9,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
 import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityNodeInfo
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -19,6 +21,8 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO
+import androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -29,7 +33,9 @@ import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.pbLoading
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.button_location
 import kotlinx.android.synthetic.main.fragment_user_setttings_search.*
+import kotlinx.android.synthetic.main.fragment_user_setttings_search.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -193,8 +199,9 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                     ActivityCompat.
                     shouldShowRequestPermissionRationale(activity!!, it)}
             ) {
-                val dialog = AlertDialog.Builder(activity!!.applicationContext)
-                    .setTitle("Permission")
+                val dialog = AlertDialog.Builder(activity!!.applicationContext, R.style.Theme_AppCompat_Light)
+
+                .setTitle("Permission")
                     .setMessage("Permission needed!")
                     .setPositiveButton("OK", {id, v ->
                         ActivityCompat.requestPermissions(
@@ -275,10 +282,11 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
         })
 
 
-
         view.search_installations.setOnClickListener{view ->
             var userSettingsActivity = activity as UserSettingsActivity
+
             userSettingsActivity.loadSearch()
+
         }
 
 

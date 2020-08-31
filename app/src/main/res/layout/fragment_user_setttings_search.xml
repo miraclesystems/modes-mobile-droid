@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:clickable="true"
     tools:context=".kotlin.MVVM.UserSettings.UserSetttingsSearchFragment">
+
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -49,6 +51,7 @@
                 android:background="@drawable/search_w_icon"
                 android:imeOptions="actionDone"
                 android:inputType="text"
+
                 />
 
 
@@ -56,21 +59,19 @@
                 android:id="@+id/button_location"
                 android:layout_width="30dp"
                 android:layout_height="24dp"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/near_me"
-                />
+                android:contentDescription="search installations button" />
         </RelativeLayout>
 
         <ListView
             android:id="@+id/searchList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:background="@color/white"
-
             />
 
     </LinearLayout>
