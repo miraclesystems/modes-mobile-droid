@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import java.io.File
 import java.io.FileOutputStream
 
@@ -15,7 +16,7 @@ class ActsDbHelper(val context: Context) : SQLiteOpenHelper(context, DATABASE_NA
     )
 
     private fun installedDatabaseIsOutdated(): Boolean {
-        return preferences.getInt(DATABASE_NAME, 0) < DATABASE_VERSION
+        return preferences.getInt(DATABASE_NAME, 0) != DATABASE_VERSION
     }
 
     private fun writeDatabaseVersionInPreferences() {
@@ -26,13 +27,38 @@ class ActsDbHelper(val context: Context) : SQLiteOpenHelper(context, DATABASE_NA
     }
 
     private fun installDatabaseFromAssets() {
-        val inputStream = context.assets.open("$ASSETS_PATH/$DATABASE_NAME.sqlite3")
+
+
+
+
+
+        val inputStream = context.assets.open("$ASSETS_PATH/$DATABASE_NAME")
 
         try {
+
+
+            var db = context.openOrCreateDatabase("$DATABASE_NAME", Context.MODE_PRIVATE, null )
+            if(db.isOpen){
+                db.close()
+            }
+
+
+
+
+
             val outputFile = File(context.getDatabasePath(DATABASE_NAME).path)
             val outputStream = FileOutputStream(outputFile)
 
-            inputStream.copyTo(outputStream)
+            //inputStream.copyTo(outputStream)
+
+            val buffer = ByteArray(1024)
+            while (inputStream.read(buffer) > 0) {
+                outputStream.write(buffer)
+                Log.d("#DB", "writing>>")
+            }
+
+
+
             inputStream.close()
 
             outputStream.flush()
@@ -57,6 +83,9 @@ class ActsDbHelper(val context: Context) : SQLiteOpenHelper(context, DATABASE_NA
 
     override fun getReadableDatabase(): SQLiteDatabase {
         installOrUpdateIfNecessary()
+
+
+        var db = super.getReadableDatabase()
         return super.getReadableDatabase()
     }
 
@@ -70,7 +99,7 @@ class ActsDbHelper(val context: Context) : SQLiteOpenHelper(context, DATABASE_NA
 
     companion object {
         const val ASSETS_PATH = "databases"
-        const val DATABASE_NAME = "modes"
+        const val DATABASE_NAME = "modes.sqlite3"
         const val DATABASE_VERSION = 1
     }
 

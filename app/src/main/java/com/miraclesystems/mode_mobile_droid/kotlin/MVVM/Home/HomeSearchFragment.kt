@@ -34,6 +34,7 @@ class HomeSearchFragment : Fragment() {
 
     var loadTopics = false
     var Me = this
+    var selectedTopic = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -82,6 +83,7 @@ class HomeSearchFragment : Fragment() {
                     loadTopics = true
                     var topic = homeActivity.viewModel.getSuggestedTopic()[position]
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
+                    selectedTopic = topic
 
                     var homeActivity = activity as HomeActivity
                     val adapter = ArrayAdapter(activity!!.applicationContext,
@@ -100,7 +102,7 @@ class HomeSearchFragment : Fragment() {
                     transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
                     homeActivity.supportFragmentManager.beginTransaction().remove(Me).commit()
 
-                    var topic = homeActivity.viewModel.getTopics("test")[position]
+                    var topic = homeActivity.viewModel.getTopics(selectedTopic)[position]
                     homeActivity.topic = topic
                     homeActivity.loadViewTopic()
                     loadTopics = false

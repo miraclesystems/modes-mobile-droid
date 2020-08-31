@@ -1,8 +1,10 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
+import android.util.Log
 import com.miraclesystems.mode_mobile_droid.R
 import java.util.*
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.*
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.ModesDb
 import kotlin.collections.ArrayList
 
 
@@ -16,6 +18,36 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
 
     fun getSuggestedCards():List<HomePageCardModel>{
+
+        var list =  mutableListOf<HomePageCardModel>()
+
+        ///testing code
+        var result = ModesDb.getBenefitsByAudience("spouse")
+
+        while(result!!.moveToNext()){
+
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var benefit = result.getString(result.getColumnIndex("Benefit"))
+
+            list.add(HomePageCardModel(id, "BENEFITS", benefit, recommended = true))
+        }
+
+
+
+        result = ModesDb.getGuidesByAudience("spouse")
+        while(result!!.moveToNext()){
+
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var guide = result.getString(result.getColumnIndex("Guide"))
+
+            list.add(HomePageCardModel(id, "MILLIFE GUIDES", guide, recommended = true))
+
+        }
+
+        list.add(HomePageCardModel(1, "CONNECT", "Speak with a consultant 24/7", recommended = false))
+        list.add(HomePageCardModel(1, "ABOUT US", "Give us your feedback", recommended = false))
+
+        /*
         var list = listOf(
             HomePageCardModel(1, "BENEFITS", "Accesss to Ancestry Lirary", recommended = true),
             HomePageCardModel(1, "MILLIFE GUIDES", "Moving in the Military", recommended = false),
@@ -24,42 +56,59 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
             HomePageCardModel(1, "ABOUT US", "Give us your feedback", recommended = false)
             )
 
+         */
+
         return list
 
     }
 
-    fun getBenefits():MutableList<String>{
+    fun getBenefits(topic: String):MutableList<String>{
+        var list = arrayListOf<String>()
+
+        var result = ModesDb.getBenefitsByKeyWordSearch(topic)
+        while(result!!.moveToNext()){
+
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var benefit = result.getString(result.getColumnIndex("Benefit"))
+
+            list.add(benefit)
+
+        }
+
+
+        return list
+
+    }
+    fun getGuides(topic: String): MutableList<String>{
+
         var list = arrayListOf<String>(
-            "Temporary Logding Allowance - TLA",
-            "Temporary Logding Expense - TLE",
-            "Shipping Household Good",
-            "Temporary Logding Allowance - TLA",
-            "Temporary Logding Expense - TLE",
-            "Shipping Household Good",
-            "Temporary Logding Allowance - TLA",
-            "Temporary Logding Expense - TLE",
-            "Shipping Household Good"
         )
-        return list
 
-    }
-    fun getGuides(): MutableList<String>{
+        var result = ModesDb.getGuidesByKeyWordSearch(topic)
+        while(result!!.moveToNext()){
 
-        var list = arrayListOf<String>(
-            "Moving in the Military",
-            "OCONUS Moves",
-            "Housing"
-        )
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var guide = result.getString(result.getColumnIndex("Guide"))
+            list.add(guide)
+
+        }
+
         return list
     }
 
-    fun getGuideImages(): MutableList<Int>{
+    fun getGuideImages(topic: String): MutableList<Int>{
 
         val imageId = arrayListOf<Int>(
-            R.drawable.guides_image_placeholder,
-            R.drawable.guides_image_placeholder,
-            R.drawable.guides_image_placeholder
+
         )
+
+
+        var result = ModesDb.getGuidesByKeyWordSearch(topic)
+        while(result!!.moveToNext()){
+
+            imageId.add(R.drawable.guides_image_placeholder)
+
+        }
 
         return imageId
 
@@ -68,11 +117,50 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
     fun getTopics(topic : String):MutableList<String>{
 
         var list = arrayListOf<String>()
+        /*
         list.add("Moving")
         list.add("OCONUS")
         list.add("Housing")
         list.add("Household Goods")
         list.add("PCS")
+
+
+         */
+
+
+        var result = ModesDb.getGuidesByKeyWordSearch(topic)
+        while(result!!.moveToNext()){
+
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var keywords = result.getString(result.getColumnIndex("MilLife Guide Topic Keywords"))
+
+
+
+            var keywords_array = keywords.split(',')
+
+            for (keyword in keywords_array){
+
+                list.add(keyword)
+            }
+        }
+
+        result = ModesDb.getBenefitsByKeyWordSearch(topic)
+        while(result!!.moveToNext()){
+
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var keywords = result.getString(result.getColumnIndex("Keywords"))
+
+
+
+            var keywords_array = keywords.split(',')
+
+            for (keyword in keywords_array){
+
+                list.add(keyword)
+            }
+        }
+
+
 
         return list
 

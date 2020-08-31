@@ -1,14 +1,17 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
 import kotlinx.android.synthetic.main.fragment_home_view_topic.*
 import kotlinx.android.synthetic.main.fragment_home_view_topic.view.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,7 +51,7 @@ class HomeViewTopicFragment : Fragment() {
        var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)
 
         var homeViewActivity = activity as HomeActivity
-        val adapter = HomeViewGuidesListAdapter(homeViewActivity, homeViewActivity.viewModel.getGuides().toTypedArray(), homeViewActivity.viewModel.getGuideImages().toTypedArray())
+        val adapter = HomeViewGuidesListAdapter(homeViewActivity, homeViewActivity.viewModel.getGuides(homeViewActivity.topic).toTypedArray(), homeViewActivity.viewModel.getGuideImages(homeViewActivity.topic).toTypedArray())
         view.listGuides.adapter = adapter
         view.listGuides.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)
@@ -57,7 +60,7 @@ class HomeViewTopicFragment : Fragment() {
         }
 
 
-        view.gridBenefits.adapter = HomeViewBenefitsListAdapter(homeViewActivity, homeViewActivity.viewModel.getBenefits().toTypedArray())
+        view.gridBenefits.adapter = HomeViewBenefitsListAdapter(homeViewActivity, homeViewActivity.viewModel.getBenefits(homeViewActivity.topic).toTypedArray())
         view.gridBenefits.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
@@ -73,6 +76,19 @@ class HomeViewTopicFragment : Fragment() {
             transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             homeActivity.supportFragmentManager.beginTransaction().remove(this).commit()
             homeViewActivity.loadSearch()
+        }
+
+
+        view.button_call.setOnClickListener {
+            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "800-3429647"))
+            startActivity(intent)
+        }
+
+        view.button_onesource.setOnClickListener {
+            val url = "https://www.militaryonesource.mil/"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
         }
 
         return view
