@@ -1,6 +1,8 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -64,7 +66,37 @@ class HomeSearchFragment : Fragment() {
         }
 
 
+        view.search_text.addTextChangedListener(object : TextWatcher {
 
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                if(s.count() >= 3){
+                    Log.d("dbug", "text entered -->" + s)
+
+                    var topic = s.toString()
+                    sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
+                    selectedTopic = topic as String
+
+                    var homeActivity = activity as HomeActivity
+                    val adapter = ArrayAdapter(activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getTopics(topic))
+
+
+                    searchList.adapter = adapter
+
+                    searchList.requestLayout()
+
+                    loadTopics = true
+
+                }
+            }
+        })
 
         var homeActivity = activity as HomeActivity
         val adapter = ArrayAdapter(activity!!.applicationContext,
