@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Guides.guidesActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings.UserSettingsActivity
 
@@ -26,8 +27,10 @@ class SplashActivity : AppCompatActivity() {
 
             /// TODO: Check the user preferences to determine if UserSettings needs to presented
 
-            startActivity(Intent(this, UserSettingsActivity::class.java))
+            //startActivity(Intent(this, UserSettingsActivity::class.java))
             //startActivity(Intent(this, HomeActivity::class.java))
+
+            startActivity(Intent(this, guidesActivity::class.java))
 
             // close the splash screen activity
             finish()
