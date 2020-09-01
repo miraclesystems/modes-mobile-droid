@@ -78,7 +78,7 @@ class UserSettingsBranchFragment : Fragment() {
         // Inflate the layout for this fragment
         var view : View = inflater.inflate(R.layout.fragment_user_settings_branch, container, false)
 
-        var branches : Array<String> = arrayOf("", "Army", "Marine Corps", "Navy", "Air-Force", "Coast Guard", "National Guard and reserve")
+        var branches : Array<String> = arrayOf("Select a Branch", "Army", "Marine Corps", "Navy", "Air-Force", "Coast Guard", "National Guard and reserve")
         // Initializing an ArrayAdapter
 
 
@@ -100,11 +100,17 @@ class UserSettingsBranchFragment : Fragment() {
 
                 if(branch != null) {
                     branch.setText(branches[position])
+
+
                     var userSettingsActivity = activity as UserSettingsActivity
-                   if(branches[position].length > 0) {
-                       userSettingsActivity.page3Completed = true
-                       PreferencesUtil.save("branch", branches[position])
-                   }
+
+                    if(branches[position] != "Select a Branch" ) {
+                        Log.d(branches[position],"debugpos")
+
+                        userSettingsActivity.page3Completed = true
+                        PreferencesUtil.save("branch", branches[position])
+                    }
+
                 }
 
             }
