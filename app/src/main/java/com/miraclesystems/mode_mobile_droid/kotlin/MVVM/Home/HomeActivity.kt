@@ -15,6 +15,7 @@ import java.util.*
 
 class HomeActivity : AppCompatActivity(), Observer {
 
+
     var viewModel = HomeViewModel()
 
     var topic = ""

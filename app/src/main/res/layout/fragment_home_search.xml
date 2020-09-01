@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:clickable="true"
     tools:context=".kotlin.MVVM.UserSettings.UserSetttingsSearchFragment">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -31,12 +32,12 @@
                 android:id="@+id/button_back"
                 android:layout_width="30dp"
                 android:layout_height="24dp"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/keyboard_backspace"
-                />
+                android:contentDescription="back" />
 
 
             <EditText
