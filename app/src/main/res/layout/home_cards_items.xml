@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="135dp"
+        android:layout_height="32dp"
+        android:background="#EFF4F7">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="32dp"
+            android:layout_toLeftOf="@id/header"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/milife_focused_ic"
+            />
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="15dp"
+            android:textSize="10sp"
+            android:text="HEADER"
+            android:textColor="#194867"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="64dp"
+            android:layout_marginTop="19dp"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:textAlignment="center"
+            android:text="Access to Ancestry Library"
+            android:textColor="#194867"
+            />
+        
+        <ImageButton
+            android:id="@+id/buttonRecommended"
+            android:layout_width="123dp"
+            android:layout_height="30dp"
+            android:paddingTop="0dp"
+            android:layout_below="@id/content"
+            android:layout_centerHorizontal="true"
+            android:text="Recommended for you"
+            android:textColor="@color/black"
+            android:textSize="8sp"
+            android:scaleType="fitXY"
+            android:src="@drawable/round_button_highlighted"
+            android:background="@android:color/transparent"/>
+        <TextView
+            android:id="@+id/buttontext"
+            android:layout_width="101dp"
+            android:layout_height="30dp"
+            android:paddingTop="0dp"
+            android:layout_below="@id/content"
+            android:layout_centerHorizontal="true"
+            android:text="RECOMMENDED FOR YOU"
+            android:textColor="@color/white"
+            android:textSize="8sp"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"/>
+
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

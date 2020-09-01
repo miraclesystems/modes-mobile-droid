@@ -27,7 +27,9 @@ import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.BaseViewModel
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.pbLoading
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
+import kotlinx.android.synthetic.main.fragment_user_setttings_search.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -62,10 +64,8 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
             if (userSettingsActivity.page2Completed) {
                 userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector_checked)
-                userSettingsActivity.pager_page2.setText("")
             } else {
-                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector_highlighted)
-                userSettingsActivity.pager_page2.setText("2")
+                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector2_highlighted)
             }
 
         }
@@ -79,10 +79,8 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
             if (userSettingsActivity.page2Completed) {
                 userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector_checked)
-                userSettingsActivity.pager_page2.setText("")
             } else {
-                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector)
-                userSettingsActivity.pager_page2.setText("2")
+                userSettingsActivity.pager_page2.setBackgroundResource(R.drawable.selector2)
             }
 
         }
@@ -104,6 +102,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
     }
 
     override fun update(o: Observable?, arg: Any?) {
+
 
         pbLoading.visibility = ProgressBar.INVISIBLE
         var userSettingsActivity = activity as UserSettingsActivity
@@ -240,7 +239,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                         Log.d("debug", addresses[0].postalCode)
 
                         var userSettingsActivity = activity as UserSettingsActivity
-                        userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 50)
+                        userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
 
                     } else {
                         Log.w(TAG, "getLastLocation:exception", task.exception)

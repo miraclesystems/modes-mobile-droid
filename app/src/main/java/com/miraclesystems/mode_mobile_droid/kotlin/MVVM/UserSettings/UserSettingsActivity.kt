@@ -108,10 +108,9 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
 
     fun loadPage1(){
 
-        pager_page1.setBackgroundResource( R.drawable.selector_highlighted)
-        pager_page1.setText("1")
+        pager_page1.setBackgroundResource( R.drawable.selector1_higlighted)
 
-        pager_page2.setBackgroundResource(R.drawable.selector)
+        pager_page2.setBackgroundResource(R.drawable.selector2)
 
         pageNumber = 1
         button_back.visibility = View.INVISIBLE
@@ -129,6 +128,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
     }
 
     fun loadPage2(){
+        pager_page3.setBackgroundResource(R.drawable.selector3)
+
         pageNumber = 2
         button_back.visibility = View.VISIBLE
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()

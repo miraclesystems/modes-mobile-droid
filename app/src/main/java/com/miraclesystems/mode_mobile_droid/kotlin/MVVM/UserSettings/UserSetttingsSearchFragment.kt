@@ -117,6 +117,10 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
     override fun update(o: Observable?, arg: Any?) {
 
+        if(pbLoading != null) {
+            pbLoading.visibility = ProgressBar.GONE
+        }
+
         pbLoading.visibility = ProgressBar.VISIBLE
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.deleteObserver(this)
@@ -210,7 +214,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     Log.d("debug", addresses[0].postalCode)
 
                     var userSettingsActivity = activity as UserSettingsActivity
-                    userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 50)
+                    userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
 
                 } else {
                     Log.w(ContentValues.TAG, "getLastLocation:exception", task.exception)

@@ -42,16 +42,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent">
+
                 <Button
                     android:id="@+id/button_back"
                     android:layout_width="30dp"
                     android:layout_height="24dp"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/keyboard_backspace"
-                    />
+                    android:contentDescription="back" />
 
             </RelativeLayout>
             <TextView
@@ -73,14 +74,14 @@
 
                android:layout_gravity="center_horizontal">
 
-               <Button
+               <ImageView
                    android:id="@+id/pager_page1"
                    android:layout_width="32dp"
                    android:layout_height="32dp"
                    android:layout_alignParentLeft="true"
-                   android:text="1"
-                   android:textColor="@color/white"
-                   android:background="@drawable/selector_highlighted"/>
+                   android:background="@drawable/selector1_higlighted"
+                   android:contentDescription="step 1 of 3"
+                   android:textColor="@color/white" />
 
                <ImageView
                    android:layout_width="wrap_content"
@@ -93,14 +94,14 @@
                    android:layout_toLeftOf="@id/pager_page2"
                    />
 
-               <Button
+               <ImageView
                    android:id="@+id/pager_page2"
                    android:layout_width="32dp"
                    android:layout_height="32dp"
                    android:layout_centerHorizontal="true"
-                   android:text="2"
-                   android:textColor="@color/white"
-                   android:background="@drawable/selector"/>
+                   android:background="@drawable/selector2"
+                   android:contentDescription="step 2 of 3"
+                   android:textColor="@color/white" />
 
                <ImageView
                    android:layout_width="wrap_content"
@@ -112,14 +113,14 @@
                    android:layout_toRightOf="@id/pager_page2"
                    android:layout_toLeftOf="@id/pager_page3"/>
 
-               <Button
+               <ImageView
                    android:id="@+id/pager_page3"
                    android:layout_width="32dp"
                    android:layout_height="32dp"
                    android:layout_alignParentRight="true"
-                   android:text="3"
-                   android:textColor="@color/white"
-                   android:background="@drawable/selector"/>
+                   android:background="@drawable/selector3"
+                   android:contentDescription="step 3 of 3"
+                   android:textColor="@color/white" />
            </RelativeLayout>
 
        
