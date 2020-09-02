@@ -13,6 +13,7 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
     var dataLoaded = false
 
 
+
     var listSuggestedTopics =   mutableListOf<String>()
     var model = HomeModel()
 
