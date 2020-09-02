@@ -2,8 +2,8 @@ package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings
 
 import android.Manifest
 import android.app.Activity
-import android.app.Presentation
 import android.content.ContentValues
+import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
@@ -13,22 +13,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.accessibility.AccessibilityEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.PreferencesUtil
-import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
 import kotlinx.android.synthetic.main.fragment_user_setttings_search.*
 import kotlinx.android.synthetic.main.fragment_user_setttings_search.view.*
-import kotlinx.android.synthetic.main.fragment_user_setttings_search.view.button_location
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -86,9 +89,9 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
     private var fullscreenContentControls: View? = null
 
     val PERMISSION_ID = 42
-    private fun checkPermission(vararg perm:String) : Boolean {
+    private fun checkPermission(vararg perm: String) : Boolean {
         val havePermissions = perm.toList().all {
-            ContextCompat.checkSelfPermission(activity!!.applicationContext,it) ==
+            ContextCompat.checkSelfPermission(activity!!.applicationContext, it) ==
                     PackageManager.PERMISSION_GRANTED
         }
         if (!havePermissions) {
@@ -99,11 +102,12 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 val dialog = AlertDialog.Builder(activity!!.applicationContext)
                     .setTitle("Permission")
                     .setMessage("Permission needed!")
-                    .setPositiveButton("OK", {id, v ->
+                    .setPositiveButton("OK", { id, v ->
                         ActivityCompat.requestPermissions(
-                            activity!!, perm, PERMISSION_ID)
+                            activity!!, perm, PERMISSION_ID
+                        )
                     })
-                    .setNegativeButton("No", {id, v -> })
+                    .setNegativeButton("No", { id, v -> })
                     .create()
                 dialog.show()
             } else {
@@ -126,7 +130,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         userSettingsActivity.viewModel.deleteObserver(this)
         when (o){
             is UserSettingsViewModel -> {
-                if (arg is Boolean){
+                if (arg is Boolean) {
 
                     var userSettingsActivity = activity as UserSettingsActivity
                     var model = userSettingsActivity.viewModel.model
@@ -136,7 +140,9 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     listNames.clear()
 
                     for (item in filteredList!!) {
+                        Log.d(item.toString(), "item")
                         listNames.add(item!!.name!!)
+
 
                     }
 
@@ -208,7 +214,11 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 if (task.isSuccessful && task.result != null) {
                     Log.d(ContentValues.TAG, "getLastLocation")
                     val geocoder = Geocoder(activity!!.applicationContext, Locale.ENGLISH)
-                    val addresses = geocoder.getFromLocation(task.result.latitude, task.result.longitude, 1)
+                    val addresses = geocoder.getFromLocation(
+                        task.result.latitude,
+                        task.result.longitude,
+                        1
+                    )
                     userSettingsActivity.city = addresses[0].locality
                     val zipcode = addresses[0].postalCode
                     Log.d("debug", addresses[0].postalCode)
@@ -232,6 +242,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         var view: View = inflater.inflate(R.layout.fragment_user_setttings_search, container, false)
 
 
+
+
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
         listNames.clear()
@@ -243,7 +255,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
             if (checkPermission(
                     Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
             ) {
                 getLastLocation()
             }
@@ -261,6 +274,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
         view.search_text.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+
                 val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
                 imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
                 //view.spinner.visibility = View.VISIBLE
@@ -269,7 +283,10 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 var model = userSettingsActivity.viewModel.model
 
                 var filteredList =
-                    model.items!!.filter { it!!.name!!.contains(view.search_text.text.toString(), ignoreCase = true) }
+                    model.items!!.filter { it!!.name!!.contains(
+                        view.search_text.text.toString(),
+                        ignoreCase = true
+                    ) }
 
                 listNames.clear()
 
@@ -281,8 +298,10 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 listNames.add(0, "")
 
 
-                val adapter = ArrayAdapter(activity!!.applicationContext,
-                    R.layout.listview_item, listNames)
+                val adapter = ArrayAdapter(
+                    activity!!.applicationContext,
+                    R.layout.listview_item, listNames
+                )
 
 
                 view.searchList.adapter = adapter
@@ -372,25 +391,51 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        search_text.setFocusable(true);
+        search_text.setFocusableInTouchMode(true);
+        search_text.requestFocus();
+        showSoftKeyboard(search_text)
+
+
         visible = true
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
 
+    }
+
+
+    fun showSoftKeyboard(view: View) {
+        if (view.requestFocus()) {
+            val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+            search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+
+        }
 
     }
 
     override fun onResume() {
         super.onResume()
+
+
+
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.getInstallations()
+
+
 
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100)
     }
+
+
+
+
+
 
     override fun onPause() {
         super.onPause()

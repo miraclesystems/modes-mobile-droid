@@ -4,11 +4,11 @@ import java.util.*
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.*
 
 
-class MilifeViewModel : Observable(), WebServiceConnectorDelegate {
+class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
 
     var dataLoaded = false
 
-    var model = MilifeModel()
+    var model = BenefitsModel()
 
     fun getValue(){
         dataLoaded = true

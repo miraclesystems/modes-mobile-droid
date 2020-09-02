@@ -48,15 +48,14 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="300dp"
-                            android:background="#194867"
+                            android:layout_height="wrap_content"                            android:background="#194867"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
 
                             <TextView
                                 android:layout_width="300dp"
-                                android:layout_height="150dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:gravity="center_horizontal"
                                 android:paddingTop="50dp"
@@ -67,8 +66,7 @@
                             <Button
                                 android:id="@+id/button_search"
                                 android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:layout_below="@id/labelInstallations"
+                                android:layout_height="wrap_content"                                android:layout_below="@id/labelInstallations"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginTop="30dp"
@@ -77,7 +75,7 @@
                                 android:text="Search MilLife Guides and Benefits"
                                 android:textAlignment="viewStart"
                                 android:textAllCaps="false"
-                                android:textColor="#929292" />
+                                android:textColor="#4A4A4A" />
 
                         </LinearLayout>
 

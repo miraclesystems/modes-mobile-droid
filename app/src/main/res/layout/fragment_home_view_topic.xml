@@ -31,7 +31,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="20dp"
-                    android:text="Showing Results for {{topic}}" />
+                    android:text="Showing results for {{topic}}" />
 
                 <Button
                     android:id="@+id/button_search"
@@ -165,7 +165,7 @@
                         android:layout_height="100dp"
                         android:layout_marginTop="32dp"
                         android:gravity="center"
-                        android:text="Speak with Military\n OneSource Consultant"
+                        android:text="Speak with Military\n OneSource consultant"
                         android:textAlignment="center"
                         android:textColor="#194867"
                         android:textSize="20sp"

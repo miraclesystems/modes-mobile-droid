@@ -7,6 +7,7 @@
 
     android:background="@drawable/ic_splash_bg"
 
+
     android:orientation="vertical">
 
     <FrameLayout
@@ -123,13 +124,13 @@
                    android:textColor="@color/white" />
            </RelativeLayout>
 
-       
+
 
 
             <FrameLayout
                 android:id="@+id/fragment_placeholder"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="284dp"
                 android:layout_margin="25dip">
 
             </FrameLayout>
@@ -137,38 +138,36 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginBottom="60dp"
-                android:orientation="horizontal">
-            <Button
-                android:id="@+id/button_skipAll"
-                android:layout_width="wrap_content"
-                android:layout_height="18dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="24dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:fitsSystemWindows="true"
+                >
 
-                android:textAllCaps="false"
-                android:textColor="#76B8E2"
-                android:text="@string/skip_setup"
-                android:textAppearance="@style/skip_all_se"
-                android:background="@android:color/transparent"
-                />
+                <Button
+                    android:id="@+id/button_skipAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="24dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/skip_setup"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/skip_all_se"
+                    android:textColor="#76B8E2" />
 
                 <Button
                     android:id="@+id/button_skip"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
+                    android:layout_height="18dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="24dp"
-                    android:layout_marginBottom="39dp"
-                    android:textAllCaps="false"
-                    android:textColor="#76B8E2"
-                    android:text="@string/skip_question"
-                    android:textAppearance="@style/skip_all_se"
                     android:background="@android:color/transparent"
-                    />
+                    android:text="@string/skip_question"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/skip_all_se"
+                    android:textColor="#76B8E2" />
 
             </RelativeLayout>
 

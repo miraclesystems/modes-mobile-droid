@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFF4F7"
+    tools:context=".kotlin.MVVM.Guides.GuieesListGuidesByCategoryFragement">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <Button
+           android:id="@+id/button_back"
+           android:layout_width="25dp"
+           android:layout_height="20dp"
+           android:background="@drawable/back_gray"
+           android:layout_alignParentLeft="true"
+           android:layout_marginTop="16dp"
+           android:layout_marginLeft="16dp"
+           />
+
+       <ImageView
+           android:id="@+id/icon"
+           android:layout_width="48dp"
+           android:layout_height="42dp"
+           android:scaleType="fitXY"
+           android:background="@drawable/milife_focused_ic"
+           android:layout_below="@id/button_back"
+           android:layout_marginTop="20dp"
+           android:layout_marginLeft="16dp"
+           />
+       
+       <TextView
+           android:id="@+id/category_name"
+           android:layout_width="wrap_content"
+           android:layout_height="25dp"
+           android:layout_toRightOf="@id/icon"
+           android:layout_below="@id/button_back"
+           android:layout_marginTop="18dp"
+           android:layout_marginLeft="10dp"
+           android:text="CATEGORY NAME"
+           android:textSize="20sp"
+           android:textColor="#D43E51"
+           />
+
+       <TextView
+           android:id="@+id/headerText"
+           android:layout_width="wrap_content"
+           android:layout_height="25dp"
+           android:layout_toRightOf="@id/icon"
+           android:layout_below="@id/button_back"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="40dp"
+           android:text="MILLIFE GUIDES"
+           android:textSize="20sp"
+           android:textColor="#194867"
+           />
+
+       <ListView
+           android:id="@+id/listGuides"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginLeft="16dp"
+           android:nestedScrollingEnabled="true"
+           android:layout_below="@id/headerText"
+           android:layout_marginBottom="10dp"
+           android:divider="@android:color/transparent"
+           android:dividerHeight="15dp"/>
+
+
+
+
+   </RelativeLayout>
+   
+
+</FrameLayout>
