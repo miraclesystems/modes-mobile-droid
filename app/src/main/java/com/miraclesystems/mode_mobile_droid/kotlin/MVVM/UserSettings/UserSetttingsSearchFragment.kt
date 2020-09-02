@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.accessibility.AccessibilityEvent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
@@ -273,6 +274,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
         view.search_text.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
+
                 val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
                 imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
                 //view.spinner.visibility = View.VISIBLE
@@ -388,14 +390,16 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        search_text.setFocusable(true);
         search_text.setFocusableInTouchMode(true);
         search_text.requestFocus();
         showSoftKeyboard(search_text)
+
+
         visible = true
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
-
-
 
     }
 
@@ -404,7 +408,10 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         if (view.requestFocus()) {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+            search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+
         }
+
     }
 
     override fun onResume() {
@@ -412,12 +419,12 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
 
 
-
-
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.getInstallations()
+
+
 
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls

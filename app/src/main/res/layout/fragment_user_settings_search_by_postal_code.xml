@@ -41,7 +41,7 @@
                 android:layout_toRightOf="@id/button_back"
                 android:layout_marginTop="13dp"
                 android:layout_alignParentTop="true"
-                android:text="Showing Installations Near"
+                android:text="Showing installations near"
                 android:textColor="@color/white"
                 android:textSize="6pt"
 

@@ -21,7 +21,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/what_best_d"
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="300dp"
                 android:background="@drawable/round_button"
-                android:text="I am a Service Member"
+                android:text="I am a service member"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:textColor="@color/white"
@@ -56,7 +56,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/round_button"
-                android:text="I am a Military Spouse"
+                android:text="I am a military spouse"
 
                 android:layout_gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -71,7 +71,7 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/round_button"
-                android:text="I am a Family Member"
+                android:text="I am a family member"
                 android:textColor="@color/white"
                 android:layout_below="@id/button_spouse"
                 android:textAllCaps="false" />
@@ -88,11 +88,6 @@
                 android:textColor="@color/white"
                 android:layout_below="@id/button_family"
                 android:textAllCaps="false" />
-
-
-
-
-
 
         </RelativeLayout>
 

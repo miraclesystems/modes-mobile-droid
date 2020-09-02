@@ -27,10 +27,10 @@ class SplashActivity : AppCompatActivity() {
 
             /// TODO: Check the user preferences to determine if UserSettings needs to presented
 
-            //startActivity(Intent(this, UserSettingsActivity::class.java))
+            startActivity(Intent(this, UserSettingsActivity::class.java))
             //startActivity(Intent(this, HomeActivity::class.java))
 
-            startActivity(Intent(this, guidesActivity::class.java))
+            //startActivity(Intent(this, guidesActivity::class.java))
 
             // close the splash screen activity
             finish()

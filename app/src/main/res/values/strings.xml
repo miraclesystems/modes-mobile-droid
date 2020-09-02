@@ -12,8 +12,8 @@
     <string name="splashHeaderText">Connecting you to your best MilLife</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="skip_setup"><u>Skip All Setup</u></string>
-    <string name="skip_question"><u>Skip Question</u></string>
+    <string name="skip_setup"><u>Skip all setup</u></string>
+    <string name="skip_question"><u>Skip question</u></string>
     <string name="use_your_location">Use current location</string>
     <string name="personalize">PERSONALIZE THE APP</string>
     <string name="what_best_d">What best describes you?</string>

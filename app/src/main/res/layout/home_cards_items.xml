@@ -46,7 +46,7 @@
             android:textColor="#194867"
             />
         
-        <ImageButton
+        <ImageView
             android:id="@+id/buttonRecommended"
             android:layout_width="123dp"
             android:layout_height="30dp"
