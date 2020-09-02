@@ -21,7 +21,7 @@
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <activity
             android:name=".kotlin.MVVM.Guides.guidesActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".kotlin.MVVM.UserSettings.UserSettingsActivity"
@@ -29,15 +29,26 @@
         <activity
             android:name=".kotlin.MVVM.SplashActivity"
             android:theme="@style/AppFullScreenTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".kotlin.MVVM.Home.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+        </activity>
+        <activity
+            android:name=".kotlin.MVVM.Benefits.BenefitsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+        </activity>
+        <activity
+            android:name=".kotlin.MVVM.Favorites.FavoritesActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
         </activity>
     </application>
 

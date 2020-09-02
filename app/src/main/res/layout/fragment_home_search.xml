@@ -44,7 +44,7 @@
                 android:id="@+id/search_text"
                 android:layout_width="269dp"
                 android:layout_height="41dp"
-
+                android:importantForAccessibility="yes"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/search_w_icon"

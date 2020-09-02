@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_base.*
 import org.w3c.dom.Text
 import java.util.*
 
-class BaseActivity : AppCompatActivity(), Observer {
+open class BaseActivity : AppCompatActivity(), Observer {
 
     var viewModel = BaseViewModel()
 

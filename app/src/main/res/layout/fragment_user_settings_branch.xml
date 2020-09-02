@@ -54,8 +54,20 @@
                 android:background="@color/white"
                 android:spinnerMode="dropdown" />
 
-
-
+            <Button
+                android:id="@+id/button_done"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/branch_spinner"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/round_button"
+                android:contentDescription="finish setup"
+                android:text="Finish setup"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone" />
 
         </RelativeLayout>
 

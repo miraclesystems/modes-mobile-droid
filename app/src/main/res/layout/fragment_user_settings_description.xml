@@ -21,7 +21,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/what_best_d"
@@ -88,11 +88,6 @@
                 android:textColor="@color/white"
                 android:layout_below="@id/button_family"
                 android:textAllCaps="false" />
-
-
-
-
-
 
         </RelativeLayout>
 

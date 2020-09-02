@@ -1,6 +1,7 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,12 +11,12 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.PreferencesUtil
 import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.*
 
-import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,11 +48,26 @@ class UserSettingsBranchFragment : Fragment() {
         userSettingsActivity.button_skip.setText("Done")
 
 
+
+        button_done.setOnClickListener(){
+            val intent = Intent()
+            intent.setClass(activity!!, HomeActivity::class.java)
+            activity!!.startActivity(intent)
+        }
+
+
+
+
+
+
+
         if(userSettingsActivity.pager_page3 != null) {
 
 
             userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3_highlighted)
         }
+
+
 
     }
 
@@ -106,6 +122,8 @@ class UserSettingsBranchFragment : Fragment() {
 
                     if(branches[position] != "select a branch" ) {
                         Log.d(branches[position],"debugpos")
+                        button_done.visibility = View.VISIBLE
+
 
                         userSettingsActivity.page3Completed = true
                         PreferencesUtil.save("branch", branches[position])
@@ -116,7 +134,6 @@ class UserSettingsBranchFragment : Fragment() {
             }
 
         }
-
 
 
 

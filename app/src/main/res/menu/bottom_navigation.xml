@@ -15,13 +15,13 @@
         android:textColor="@color/bottom_nav_txt_color" />
     <item
         android:id="@+id/navigation_benefits"
-        android:icon="@drawable/benefits_ic"
+        android:icon="@drawable/benefits_nav_selector"
         android:title="Benefits"
         android:textColor="@color/bottom_nav_txt_color"
         />
     <item
-        android:id="@+id/navigation_favorties"
-        android:icon="@drawable/favorites_ic"
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/favorites_nav_selector"
         android:title="Favorites"
         android:textColor="@color/bottom_nav_txt_color"/>
     <item

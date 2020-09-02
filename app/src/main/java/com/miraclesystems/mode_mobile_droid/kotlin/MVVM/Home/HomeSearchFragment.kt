@@ -1,27 +1,25 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.google.android.gms.location.LocationServices
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
-import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings.UserSettingsActivity
-import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.PreferencesUtil
 import kotlinx.android.synthetic.main.fragment_home_search.*
 import kotlinx.android.synthetic.main.fragment_home_search.searchList
 import kotlinx.android.synthetic.main.fragment_home_search.search_text
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
-import kotlinx.android.synthetic.main.fragment_home_search.view.button_back
-import kotlinx.android.synthetic.main.fragment_home_search.view.searchList
 import kotlinx.android.synthetic.main.fragment_user_setttings_search.*
 
 
@@ -78,13 +76,17 @@ class HomeSearchFragment : Fragment() {
 
             override fun afterTextChanged(s: Editable) {}
 
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
+            override fun beforeTextChanged(
+                s: CharSequence, start: Int,
+                count: Int, after: Int
+            ) {
             }
 
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-                if(s.count() >= 3){
+            override fun onTextChanged(
+                s: CharSequence, start: Int,
+                before: Int, count: Int
+            ) {
+                if (s.count() >= 3) {
                     Log.d("dbug", "text entered -->" + s)
 
                     var topic = s.toString()
@@ -92,8 +94,10 @@ class HomeSearchFragment : Fragment() {
                     selectedTopic = topic as String
 
                     var homeActivity = activity as HomeActivity
-                    val adapter = ArrayAdapter(activity!!.applicationContext,
-                        R.layout.listview_item, homeActivity.viewModel.getTopics(topic))
+                    val adapter = ArrayAdapter(
+                        activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
+                    )
 
 
                     searchList.adapter = adapter
@@ -107,8 +111,10 @@ class HomeSearchFragment : Fragment() {
         })
 
         var homeActivity = activity as HomeActivity
-        val adapter = ArrayAdapter(activity!!.applicationContext,
-            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic())
+        val adapter = ArrayAdapter(
+            activity!!.applicationContext,
+            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+        )
 
 
         view.searchList.adapter = adapter
@@ -126,8 +132,10 @@ class HomeSearchFragment : Fragment() {
                     selectedTopic = topic
 
                     var homeActivity = activity as HomeActivity
-                    val adapter = ArrayAdapter(activity!!.applicationContext,
-                        R.layout.listview_item, homeActivity.viewModel.getTopics(topic))
+                    val adapter = ArrayAdapter(
+                        activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
+                    )
 
 
                     searchList.adapter = adapter
@@ -163,9 +171,11 @@ class HomeSearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        search_text.setFocusable(true);
         search_text.setFocusableInTouchMode(true);
         search_text.requestFocus();
         showSoftKeyboard(search_text)
+
     }
 
 
@@ -173,8 +183,13 @@ class HomeSearchFragment : Fragment() {
         if (view.requestFocus()) {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+            search_text.requestFocus();
+            search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+
         }
     }
+
+
 
     companion object {
         /**
