@@ -52,6 +52,17 @@ object ModesDb {
     }
 
 
+    fun getAllGuiides(): Cursor?{
+
+        return db.rawQuery("SELECT * FROM guides", null)
+    }
+
+    fun getGuidesByCategory(category : String): Cursor?{
+
+        return db.rawQuery("SELECT * FROM guides WHERE category LIKE '%" + category + "%'",null)
+    }
+
+
 
 
 
