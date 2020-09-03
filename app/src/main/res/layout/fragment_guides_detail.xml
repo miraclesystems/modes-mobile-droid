@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlin.MVVM.Guides.GuidesDetailFragment"
+    android:background="@drawable/ic_gradient_background_guides">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back_gray"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                />
+
+            <Button
+                android:id="@+id/button_favorite"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="@drawable/favorite_unselected"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:id="@+id/guide_name"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="32sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+                android:text="Moving In the Military"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/button_back"
+                />
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="328dp"
+                android:layout_height="150dp"
+                android:layout_below="@id/guide_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/guides_image_placeholder"
+                />
+
+
+            <TextView
+                android:id="@+id/guide_header"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="24sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+                android:text="Moving Overview"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/image"
+                />
+
+            <TextView
+                android:id="@+id/over_view"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+                android:text="@string/guide_overview_placehodler"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/guide_header"
+                />
+
+            <RelativeLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_gradient_background_guides"
+                android:layout_below="@id/over_view"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/layout2"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                  >
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/ic_articles"/>
+
+                    <TextView
+                        android:id="@+id/articles_header"
+                        android:layout_width="328dp"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18sp"
+                        android:textColor="#194867"
+                        android:textAlignment="textStart"
+                        android:text="Moving Articles"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+
+                        />
+
+                </RelativeLayout>
+
+                <ListView
+                    android:id="@+id/listArticles"
+                    android:layout_width="328dp"
+                    android:layout_height="350dp"
+                    android:layout_below="@id/layout2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_marginBottom="10dp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="15dp">
+
+
+                </ListView>
+
+                <Button
+                    android:id="@+id/button_more_articles"
+                    android:layout_width="195dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/listArticles"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/ic_grey_rounded_button"
+                    android:text="See more moving articles"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:textColor="#194867"
+                    />
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout1"
+                android:background="@drawable/ic_gradient_background_guides"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/layout4"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    >
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/milife_focused_ic"/>
+
+                    <TextView
+                        android:id="@+id/related_benefits"
+                        android:layout_width="328dp"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18sp"
+                        android:textColor="#194867"
+                        android:textAlignment="textStart"
+                        android:text="Related Benefits"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+
+                        />
+                </RelativeLayout>
+
+
+                <ListView
+                    android:id="@+id/listBenefits"
+                    android:layout_width="328dp"
+                    android:layout_height="350dp"
+                    android:layout_below="@id/layout4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_marginBottom="10dp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="15dp">
+
+
+                </ListView>
+
+                <Button
+                    android:id="@+id/button_more_benefits"
+                    android:layout_width="195dp"
+                    android:layout_height="32dp"
+                    android:layout_below="@id/listBenefits"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/ic_grey_rounded_button"
+                    android:text="See more moving benefits"
+                    android:textSize="10sp"
+                    android:textAllCaps="false"
+                    android:textColor="#194867"
+                        />
+
+                </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout3"
+                android:background="@drawable/ic_gradient_background_guides"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/layout6"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    >
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/milife_focused_ic"/>
+
+                    <TextView
+                        android:id="@+id/related_websites"
+                        android:layout_width="328dp"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18sp"
+                        android:textColor="#194867"
+                        android:textAlignment="textStart"
+                        android:text="RELATED WEBSITES &amp; TOOLS"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="20dp"
+
+                        />
+                </RelativeLayout>
+
+
+                <ListView
+                    android:id="@+id/listWebsites"
+                    android:layout_width="328dp"
+                    android:layout_height="350dp"
+                    android:layout_below="@id/layout6"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_marginBottom="10dp"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="15dp">
+
+
+                </ListView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout5"
+                android:background="#EFF4F7"
+                >
+
+                <RelativeLayout
+                    android:id="@+id/layout8"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    >
+                    <ImageView
+                        android:id="@+id/image_experts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="0dp"
+                        android:background="@drawable/ic_connect_experts"/>
+                    <TextView
+                        android:id="@+id/expertsHeader"
+                        android:layout_width="280dp"
+                        android:layout_height="64dp"
+                        android:textSize="14sp"
+                        android:textColor="#194867"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/image_experts"
+                        android:text="Experts Header"
+                        />
+
+                    <TextView
+                        android:id="@+id/hereareafew"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#194867"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/expertsHeader"
+                        android:textStyle="bold"
+                        android:text="Here are a few:"
+                        />
+
+
+
+                </RelativeLayout>
+                <ListView
+                    android:id="@+id/listExperts"
+                    android:layout_width="328dp"
+                    android:layout_height="350dp"
+                    android:layout_below="@id/layout8"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_marginBottom="10dp"
+                    android:divider="#D3DBE1"
+                    android:dividerHeight="2dp">
+                </ListView>
+                <RelativeLayout
+                    android:layout_below="@id/listExperts"
+                    android:layout_width="328dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/ic_call_button_background">
+
+                    <View
+                        android:id="@+id/fill"
+                        android:layout_width="75dp"
+                        android:layout_height="32dp"
+                        />
+
+                    <TextView
+                        android:layout_below="@id/fill"
+                        android:id="@+id/speakHeader"
+                        android:layout_width="268dp"
+                        android:layout_height="48dp"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="32dp"
+                        android:textAlignment="center"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="20sp"
+                        android:textColor="#194867"
+                        android:text="Speak with a Military\nOneSource consultant"
+                        />
+                    <Button
+                        android:id="@+id/button_call"
+                        android:layout_below="@id/speakHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/ic_redbutton_with_phone"
+                        />
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

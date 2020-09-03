@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/Title"
+            android:layout_width="272dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="16sp"
+            android:textColor="#194867"
+            android:textStyle="bold"
+            android:text="Benefit Title"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_below="@id/Title"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="none"
+            android:singleLine="false"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="14sp"
+            android:text="Description"
+            android:textColor="#194867"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

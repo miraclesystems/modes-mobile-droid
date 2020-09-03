@@ -64,6 +64,14 @@ object ModesDb {
 
 
 
+    fun getGuideByName(guide : String): Cursor?{
 
+        return db.rawQuery("SELECT * FROM guides WHERE guide LIKE '%" + guide + "%'",null)
+    }
+
+
+    fun getBenefitById(id : String): Cursor?{
+        return db.rawQuery("SELECT * FROM benefits where ID=" + id,null)
+    }
 
 }
