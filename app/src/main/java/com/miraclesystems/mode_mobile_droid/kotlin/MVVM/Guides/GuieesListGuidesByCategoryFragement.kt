@@ -86,6 +86,7 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
             Log.d("debug", "item clicked")
 
 
+
             var transaction = guidesActivity.supportFragmentManager.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
