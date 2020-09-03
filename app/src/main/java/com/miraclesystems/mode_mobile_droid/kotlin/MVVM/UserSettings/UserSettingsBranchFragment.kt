@@ -45,7 +45,6 @@ class UserSettingsBranchFragment : Fragment() {
         super.onResume()
 
         var userSettingsActivity = activity as UserSettingsActivity
-        userSettingsActivity.button_skip.setText("Done")
 
 
 
@@ -57,17 +56,10 @@ class UserSettingsBranchFragment : Fragment() {
 
 
 
-
-
-
-
         if(userSettingsActivity.pager_page3 != null) {
-
 
             userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3_highlighted)
         }
-
-
 
     }
 
