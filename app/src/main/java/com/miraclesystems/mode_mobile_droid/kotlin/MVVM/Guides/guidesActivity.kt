@@ -2,6 +2,7 @@ package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Guides
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,14 +11,36 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.miraclesystems.mode_mobile_droid.R
-import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Favorites.FavoritesActivity
-import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Benefits.BenefitsActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.WebviewActivity
 import kotlinx.android.synthetic.main.activity_guides.*
+
 
 class guidesActivity : AppCompatActivity() {
 
     var viewModel : GuidesViewModel = GuidesViewModel()
+    var guide : Guide? = null
+
+    fun loadInAppBrowser(url : String){
+
+
+        /*
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
+
+         */
+
+
+        val intent = Intent(baseContext, WebviewActivity::class.java)
+        intent.putExtra("URL", url)
+        startActivity(intent)
+
+
+
+
+    }
+
 
     fun loadGuidesListByCategory(){
         // Begin the transaction
@@ -48,6 +71,23 @@ class guidesActivity : AppCompatActivity() {
         ft.commit()
     }
 
+    fun loadGuideDetail(){
+
+
+        guide = viewModel.getGuide()
+        // Begin the transaction
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        // Replace the contents of the container with the new fragment
+        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        ft.replace(R.id.main_container, GuidesDetailFragment())
+
+        ft.commit()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guides)
