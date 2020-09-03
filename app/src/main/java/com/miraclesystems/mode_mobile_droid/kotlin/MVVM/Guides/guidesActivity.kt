@@ -92,10 +92,7 @@ class guidesActivity : BaseActivity() {
         ft.commit()
     }
 
-    override fun onResume() {
-        super.onResume()
 
-    }
     @RequiresApi(Build.VERSION_CODES.M)
 
   override fun onCreate(savedInstanceState: Bundle?) {
