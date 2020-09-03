@@ -1,7 +1,6 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,14 +12,16 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
+import androidx.core.view.ViewCompat.setImportantForAccessibility
 import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home_search.*
 import kotlinx.android.synthetic.main.fragment_home_search.searchList
 import kotlinx.android.synthetic.main.fragment_home_search.search_text
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
-import kotlinx.android.synthetic.main.fragment_user_setttings_search.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,6 +48,7 @@ class HomeSearchFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onResume() {
@@ -54,21 +56,37 @@ class HomeSearchFragment : Fragment() {
             sectionHeader.setText("SUGGESTED TOPICS")
         }
         super.onResume()
+
+
     }
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         var view : View = inflater.inflate(R.layout.fragment_home_search, container, false)
+        //container!!.getFocusedChild().setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
+        //view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
+
 
         view.button_back.setOnClickListener {
+
+
             var homeActivity = activity as HomeActivity
             var transaction = homeActivity.supportFragmentManager.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            homeActivity.supportFragmentManager.popBackStack()
+
+
+            //getActivity()?.getSupportFragmentManager()?.popBackStack();
+
+
             homeActivity.supportFragmentManager.beginTransaction().remove(this).commit()
         }
-
 
 
 
@@ -169,8 +187,13 @@ class HomeSearchFragment : Fragment() {
     }
 
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.requestFocus()
+        view.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+
         search_text.setFocusable(true);
         search_text.setFocusableInTouchMode(true);
         search_text.requestFocus();
@@ -179,11 +202,13 @@ class HomeSearchFragment : Fragment() {
     }
 
 
+
+
+
     fun showSoftKeyboard(view: View) {
         if (view.requestFocus()) {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
-            search_text.requestFocus();
             search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
 
         }

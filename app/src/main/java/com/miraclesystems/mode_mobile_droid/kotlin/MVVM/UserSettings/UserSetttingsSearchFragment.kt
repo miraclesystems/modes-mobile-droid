@@ -393,11 +393,11 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         search_text.setFocusable(true);
         search_text.setFocusableInTouchMode(true);
         search_text.requestFocus();
         showSoftKeyboard(search_text)
-
 
         visible = true
         fusedLocationClient = LocationServices.
@@ -411,9 +411,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
             search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
-
         }
-
     }
 
     override fun onResume() {

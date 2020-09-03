@@ -1,42 +1,82 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM
 
 import android.os.Bundle
-import android.widget.TextView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.miraclesystems.mode_mobile_droid.R
-import kotlinx.android.synthetic.main.activity_base.*
-import org.w3c.dom.Text
-import java.util.*
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Guides.guidesActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.widget.FrameLayout
+import androidx.annotation.RequiresApi
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-open class BaseActivity : AppCompatActivity(), Observer {
 
-    var viewModel = BaseViewModel()
+ open class BaseActivity : AppCompatActivity() {
+    private val mOnNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
+        object : BottomNavigationView.OnNavigationItemSelectedListener {
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                val prevNav = selectedNav
+                val currentNav: Int = item.getItemId()
 
-
-
-
+                if (currentNav == prevNav) return false
+                when (item.getItemId()) {
+                    R.id.navigation_home -> {
+                        val ii = Intent(this@BaseActivity, HomeActivity::class.java)
+                        startActivity(ii)
+                        overridePendingTransition(0, 0)
+                        return true
+                    }
+                    R.id.navigation_milife -> {
+                        if (prevNav != R.id.navigation_home) finish()
+                        val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
+                        startActivity(ii2)
+                        overridePendingTransition(0, 0)
+                        return true
+                    }
+                }
+                return false
+            }
+        }
+    var navigationView: BottomNavigationView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
-
-
-
-        viewModel.addObserver(this)
-
-        viewModel.getValue()
+        navigationView = findViewById<View>(R.id.bottom_navigation) as BottomNavigationView
+        navigationView!!.setItemIconTintList(null);
+        navigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    override fun update(o: Observable?, arg: Any?) {
-        when (o){
-            is BaseViewModel -> {
-                if (arg is Boolean){
 
-                    this.label1.text = this.viewModel.model.value
-                }
-            }
-            else -> println(o?.javaClass.toString())
-        }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun setContentLayout(layoutID: Int): View {
+        val contentLayout = findViewById<View>(R.id.base_container) as FrameLayout
+        val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        return inflater.inflate(layoutID, contentLayout, true)
+    }
+
+
+
+
+    fun setSelected(optionID: Int) {
+        navigationView!!.menu.findItem(optionID).isChecked = true
+        getSharedPreferences(packageName, MODE_PRIVATE).edit().putInt("selectedNav", optionID)
+            .commit()
+    }
+
+    val selectedNav: Int
+        get() = getSharedPreferences(packageName, MODE_PRIVATE).getInt(
+            "selectedNav",
+            R.id.navigation_home
+        )
+
+    override fun onPause() {
+        super.onPause()
+        overridePendingTransition(0, 0)
     }
 }

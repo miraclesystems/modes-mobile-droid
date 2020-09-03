@@ -7,11 +7,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.miraclesystems.mode_mobile_droid.R
-import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.BaseViewModel
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
-import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_user_settings.*
-import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -50,6 +47,10 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
                 1->loadPage1()
                 2->loadPage2()
             }
+        }
+
+        button_skipAll.setOnClickListener(){
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
 

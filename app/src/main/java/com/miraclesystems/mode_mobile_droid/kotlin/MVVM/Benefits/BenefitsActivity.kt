@@ -84,7 +84,7 @@ class BenefitsActivity : AppCompatActivity(), Observer {
             is BenefitsViewModel -> {
                 if (arg is Boolean){
 
-                    this.label1.text = this.viewModel.model.value
+                    //this.label1.text = this.viewModel.model.value
                 }
             }
             else -> println(o?.javaClass.toString())
