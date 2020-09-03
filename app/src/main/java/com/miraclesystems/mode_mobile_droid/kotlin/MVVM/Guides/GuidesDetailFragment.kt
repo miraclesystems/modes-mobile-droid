@@ -110,6 +110,7 @@ class GuidesDetailFragment : Fragment() {
         view.listExperts.adapter = expertsAdapter
 
 
+        view.hereareafew.text = model!!.ExpertsHeader1
         view.button_more_articles.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(model!!.MoreArticlesURL)

@@ -52,7 +52,7 @@ class GuidesViewModel {
             null, null, null, null, null, null,
             null, null, null, null, null, null, null,
             null, null, null, null, null, null, null,
-            null
+            null, null
         )
 
 
@@ -110,12 +110,13 @@ class GuidesViewModel {
 
 
         guide.ExpertsHeader = guide.ExpertsText!![0]
+        guide.ExpertsHeader1 = guide.ExpertsText!![1]
 
         var list = mutableListOf<String>()
 
         var count = 0
         for (expert in guide.ExpertsText!!) {
-            if (count == 0) {
+            if (count == 0 || count == 1 || expert == " ") {
                 count++
                 continue
             } else if (expert == "") {

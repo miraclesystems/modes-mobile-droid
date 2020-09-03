@@ -51,5 +51,6 @@ data class Guide(
     var listArticles : List<Article>?,
     var listRelatedBenefits : List<RelatedBenefit>?,
 
-    var ExpertsHeader : String?
+    var ExpertsHeader : String?,
+    var ExpertsHeader1: String?
 )

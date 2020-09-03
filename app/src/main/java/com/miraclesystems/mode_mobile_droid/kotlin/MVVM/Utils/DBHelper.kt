@@ -100,7 +100,7 @@ class ActsDbHelper(val context: Context) : SQLiteOpenHelper(context, DATABASE_NA
     companion object {
         const val ASSETS_PATH = "databases"
         const val DATABASE_NAME = "modes.sqlite3"
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 1
     }
 
 }
