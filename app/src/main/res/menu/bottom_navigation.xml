@@ -26,7 +26,7 @@
         android:textColor="@color/bottom_nav_txt_color"/>
     <item
         android:id="@+id/navigation_connect"
-        android:icon="@drawable/connect_ic"
+        android:icon="@drawable/connect_nav_selector"
         android:title="Connect"
         android:textColor="@color/bottom_nav_txt_color" />
 </menu>

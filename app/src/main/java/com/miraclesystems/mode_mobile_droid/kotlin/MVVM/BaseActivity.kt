@@ -14,9 +14,12 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Benefits.BenefitsActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Connect.ConnectActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Favorites.FavoritesActivity
 
 
- open class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -38,6 +41,28 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
                         overridePendingTransition(0, 0)
                         return true
                     }
+                    R.id.navigation_benefits -> {
+                        if (prevNav != R.id.navigation_home) finish()
+                        val ii3 = Intent(this@BaseActivity, BenefitsActivity::class.java)
+                        startActivity(ii3)
+                        overridePendingTransition(0, 0)
+                        return true
+                    }
+                    R.id.navigation_favorites -> {
+                        if (prevNav != R.id.navigation_home) finish()
+                        val ii4 = Intent(this@BaseActivity, FavoritesActivity::class.java)
+                        startActivity(ii4)
+                        overridePendingTransition(0, 0)
+                        return true
+                    }
+                    R.id.navigation_connect -> {
+                        if (prevNav != R.id.navigation_home) finish()
+                        val ii5 = Intent(this@BaseActivity, ConnectActivity::class.java)
+                        startActivity(ii5)
+                        overridePendingTransition(0, 0)
+                        return true
+                    }
+
                 }
                 return false
             }

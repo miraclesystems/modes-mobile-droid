@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:name=".kotlin.MVVM.App"
@@ -44,6 +46,9 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".kotlin.MVVM.Favorites.FavoritesActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".kotlin.MVVM.Connect.ConnectActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
