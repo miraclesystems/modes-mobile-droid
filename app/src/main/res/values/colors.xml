@@ -9,5 +9,12 @@
     <color name="darkGrey">#666666</color>
     <color name="black_overlay">#66000000</color>
     <color name="bottom_nav_txt_color">#194867</color>
+    <color name="modes_red">#D43E51</color>
+    <color name="modes_blue">#194867</color>
+    <color name="modes_darkgray">#4A4A4A</color>
+
+
+
+
 
 </resources>

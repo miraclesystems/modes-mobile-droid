@@ -36,15 +36,11 @@ class guidesActivity : BaseActivity() {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
         startActivity(intent)
-
          */
-
 
         val intent = Intent(baseContext, WebviewActivity::class.java)
         intent.putExtra("URL", url)
         startActivity(intent)
-
-
 
 
     }
