@@ -74,4 +74,20 @@ object ModesDb {
         return db.rawQuery("SELECT * FROM benefits where ID=" + id,null)
     }
 
+
+    fun getBenefitCategories(): Cursor?{
+        return db.rawQuery("SELECT DISTINCT category from benefits", null)
+    }
+
+    fun getBenefitByCategory(category : String): Cursor?{
+
+        return db.rawQuery("SELECT * from benefits WHERE category LIKE '%" + category+ "%'", null)
+    }
+
+    fun getBenefitByName(name : String):Cursor?{
+
+        return db.rawQuery("SELECT * from benefits WHERE benefit LIKE '%" + name + "%'", null)
+    }
+
+
 }
