@@ -12,6 +12,8 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
 
     var dataLoaded = false
 
+
+
     var selectedCategory = ""
     var selectedBenefit = ""
     var model = BenefitsModel()
@@ -34,6 +36,7 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
 
     fun getCategories(): MutableList<String>{
 
+        /*
         var list = mutableListOf<String>()
 
         var results = ModesDb.getBenefitCategories()
@@ -46,6 +49,26 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
             list.add(category)
 
         }
+
+        return list
+
+         */
+
+        var list = arrayListOf<String>("New to MilLife*",
+            "Moving & Housing",
+            "Deployment",
+            "Transition Assistance",
+            "Pandemic & Disaster Preparedness",
+            "Survivors & Casualty Assistance",
+            "Relationships",
+            "Military Family Life",
+            "Financial & Legal",
+            "Personal Development & Employment",
+            "Confidential Help & Support",
+            "Health & Wellness*",
+            "Recreation & Travel",
+            "Shopping & Exclusive Offers",
+            "National Guard & Reserve")
 
         return list
     }
