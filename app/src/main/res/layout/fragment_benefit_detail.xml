@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kotlin.MVVM.Guides.GuidesDetailFragment"
+    android:background="@drawable/ic_gradient_background_guides">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button_back"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="@drawable/back_gray"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="16dp"
+                />
+
+            <Button
+                android:id="@+id/button_favorite"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
+                android:background="@drawable/favorite_unselected"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                />
+
+            <TextView
+                android:id="@+id/benefit_name"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="32sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+                android:text="Moving In the Military"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/button_back"
+                />
+
+            <TextView
+                android:id="@+id/short_description"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+                android:text="@string/guide_overview_placehodler"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/benefit_name"
+                />
+
+            <TextView
+                android:id="@+id/header2"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:text="Details"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/short_description"
+                />
+            <TextView
+                android:id="@+id/long_description"
+                android:layout_width="328dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp"
+                android:textColor="#194867"
+                android:textAlignment="textStart"
+
+                android:text="@string/guide_overview_placehodler"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_below="@id/header2"
+                />
+
+            <Button
+                android:id="@+id/button_more_benefits"
+                android:layout_width="195dp"
+                android:layout_height="32dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/ic_grey_rounded_button"
+                android:text="morebenefits"
+                android:textSize="10sp"
+                android:textAllCaps="false"
+                android:textColor="#194867"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_below="@id/long_description"
+                />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
