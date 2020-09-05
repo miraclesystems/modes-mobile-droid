@@ -2,6 +2,7 @@ package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Guides
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,14 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
+    var adapter : GuidesListAdapter? = null
+
+    override fun onResume() {
+        super.onResume()
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,6 +42,7 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,9 +76,23 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
         view.category_name.text = guidesActivity.viewModel.selectedCategory
 
 
-        var adapter = GuidesListAdapter(guidesActivity.applicationContext, guidesActivity.viewModel.getGuiesByCategory(guidesActivity.viewModel.selectedCategory))
+        adapter = GuidesListAdapter(guidesActivity.applicationContext, guidesActivity.viewModel.getGuiesByCategory(guidesActivity.viewModel.selectedCategory))
 
         view.listGuides.adapter = adapter
+
+        view.listGuides.setOnItemClickListener { adapterView, view, i, l ->
+            Log.d("debug", "item clicked")
+            guidesActivity.viewModel.selectedGuide = guidesActivity.viewModel.getAllGuides()[i]
+            Log.d("debug", "item clicked")
+
+
+
+            var transaction = guidesActivity.supportFragmentManager.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+
+            guidesActivity.loadGuideDetail()
+        }
         return view
 
 

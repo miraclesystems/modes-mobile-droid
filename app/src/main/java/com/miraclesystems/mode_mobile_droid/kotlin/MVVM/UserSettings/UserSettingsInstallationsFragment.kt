@@ -145,34 +145,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                         userSettingsActivity.listNames = listNames
                         userSettingsActivity.loadSearchByPostalCode()
 
-                        /*
-                        // Finally, data bind the spinner object with dapter
-                        spinner.adapter = adapter;
 
-                        // Set an on item selected listener for spinner object
-                        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                            override fun onNothingSelected(p0: AdapterView<*>?) {
-                                //TODO("Not yet implemented")
-                            }
-
-                            override fun onItemSelected(
-                                parent: AdapterView<*>,
-                                view: View,
-                                position: Int,
-                                id: Long
-                            ) {
-                                // Display the selected item text on text view
-                                search_installations.setText(listNames.get(position))
-                                spinner.visibility = View.INVISIBLE
-                            }
-
-
-                        }
-
-
-                        spinner.visibility = View.VISIBLE
-                        spinner.performClick()
-                        */
 
                         Log.d("debug", "stop")
                         true

@@ -30,6 +30,10 @@ class GuidesCategoriesListFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
