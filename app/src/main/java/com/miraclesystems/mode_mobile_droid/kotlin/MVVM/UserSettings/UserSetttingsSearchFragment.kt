@@ -246,6 +246,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
 
 
+
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
         listNames.clear()
@@ -315,14 +316,17 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                         position: Int, id: Long
                     ) {
 
+                        var userSettingsActivity = activity as UserSettingsActivity
                         // value of item that is clicked
                         val itemValue = searchList.getItemAtPosition(position) as String
 
 
-                        PreferencesUtil.save("installation", itemValue)
+                        var id = userSettingsActivity.viewModel.model.items?.get(position)?.id
 
+                        var x = PreferencesUtil.getValueString("installation")
+                        PreferencesUtil.save("installation",id.toString())
+                        x = PreferencesUtil.getValueString("installation")
 
-                        var userSettingsActivity = activity as UserSettingsActivity
                         userSettingsActivity.page2Completed = true
                         var transaction = userSettingsActivity.supportFragmentManager.beginTransaction()
                         transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);

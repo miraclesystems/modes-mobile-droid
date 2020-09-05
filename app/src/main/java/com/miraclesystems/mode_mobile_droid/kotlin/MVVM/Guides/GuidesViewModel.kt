@@ -52,8 +52,8 @@ class GuidesViewModel {
             null, null, null, null, null, null,
             null, null, null, null, null, null, null,
             null, null, null, null, null, null, null,
-            null, null
-        )
+            null, null,
+        false)
 
 
         var results = ModesDb.getGuideByName(this.selectedGuide)
@@ -131,7 +131,7 @@ class GuidesViewModel {
 
         guide.ExpertsText = list
 
-
+        guide.favorite = results.getString(results.getColumnIndex("favorite")).equals("1")
 
 
 
