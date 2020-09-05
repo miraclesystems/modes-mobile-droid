@@ -64,7 +64,8 @@ class UserSettingsViewModel : Observable(), WebServiceConnectorDelegate {
            // val data = try JSONDecoder().decode(LocationsByPostalCode.self, from: JSONData
             val data : LocationsByPostalCode = gson.fromJson(jsonString, LocationsByPostalCode::class.java)
             for(item in data.items!!){
-                var location = Location(null, null, null, null, null, null)
+                var location = Location(null, null, null, null, null, null,
+                    null, null, null, null, null, null)
                 location.id = item!!.INST_ID
                 location.name = item!!.INST_NAME
 

@@ -52,5 +52,6 @@ data class Guide(
     var listRelatedBenefits : List<RelatedBenefit>?,
 
     var ExpertsHeader : String?,
-    var ExpertsHeader1: String?
+    var ExpertsHeader1: String?,
+    var favorite: Boolean?
 )

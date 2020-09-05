@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.ModesDb
 import kotlinx.android.synthetic.main.fragment_benefit_detail.view.*
 import kotlinx.android.synthetic.main.fragment_benefit_detail.view.button_back
 import kotlinx.android.synthetic.main.fragment_benefit_detail.view.button_favorite
@@ -56,6 +57,13 @@ class BenefitDetailFragment : Fragment() {
         view.long_description.text = benefit!!.LongDescription
         view.button_more_benefits.text = benefit!!.ButtonText
 
+        if(benefit!!.favorite){
+            view.button_favorite.setBackgroundResource(R.drawable.favorite_selected)
+        }
+        else{
+            view.button_favorite.setBackgroundResource(R.drawable.favorite_unselected)
+        }
+
 
         view.button_more_benefits.setOnClickListener {
 
@@ -82,6 +90,8 @@ class BenefitDetailFragment : Fragment() {
                 button_favorite.setBackgroundResource(R.drawable.favorite_unselected)
                 favorite = false
             }
+
+           ModesDb.setBenefitsFavorite(favorite, this.benefit!!.ID!!)
         }
 
         return view

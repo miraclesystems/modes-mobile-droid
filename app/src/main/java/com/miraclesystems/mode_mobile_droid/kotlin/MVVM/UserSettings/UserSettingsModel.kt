@@ -21,8 +21,20 @@ data class Location(
     var name: String?,
     @SerializedName("branch")
     val branch: String?,
+    @SerializedName( "phone1")
+    val phone1 : String?,
+    @SerializedName("url1")
+    val url1 : String?,
+    @SerializedName("email_address1")
+    val email_address1 : String?,
+    @SerializedName ("address_line1")
+    val address_line1 : String?,
+    @SerializedName("city")
+    val city : String?,
     @SerializedName("stat_id")
     val stat_id: String?,
+    @SerializedName("postal_code")
+    val postal_code: String?,
     @SerializedName("coun_id")
     val coun_id: String?,
     @SerializedName("name_seo")

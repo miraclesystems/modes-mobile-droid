@@ -89,5 +89,61 @@ object ModesDb {
         return db.rawQuery("SELECT * from benefits WHERE benefit LIKE '%" + name + "%'", null)
     }
 
+    fun setGuideFavorite(favorite : Boolean, id: Int){
+
+        var value = ""
+        if(favorite){
+            value = "1"
+        }
+        else{
+            value = "0"
+        }
+
+        db.execSQL("UPDATE guides set favorite = " + value + " where id = " + id )
+    }
+
+    fun setGuideFavorite(favorite : Boolean, name: String){
+
+        var value = ""
+        if(favorite){
+            value = "1"
+        }
+        else{
+            value = "0"
+        }
+        db.execSQL("UPDATE guides set favorite = " + value + " where guide = '" + name  +"'")
+    }
+
+    fun getGuideFavorites():Cursor?{
+        return db.rawQuery("SELECT * from guides WHERE favorite = 1", null)
+    }
+
+    fun setBenefitsFavorite(favorite : Boolean, id: Int){
+
+        var value = ""
+        if(favorite){
+            value = "1"
+        }
+        else{
+            value = "0"
+        }
+        db.execSQL("UPDATE benefits set favorite = " + value + " where id = " + id )
+    }
+
+    fun setBenefitsFavorite(favorite : Boolean, name: String){
+
+        var value = ""
+        if(favorite){
+            value = "1"
+        }
+        else{
+            value = "0"
+        }
+        db.execSQL("UPDATE benefits set favorite = " + value + " where benefit = '" + name  +"'")
+    }
+    fun getBenefitsFavorites():Cursor?{
+        return db.rawQuery("SELECT * from benefits WHERE favorite = 1", null)
+    }
+
 
 }

@@ -81,7 +81,7 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
         while(results!!.moveToNext()){
 
 
-            var benefit = Benefit(null,null,null,null,null,null,null,null)
+            var benefit = Benefit(null,null,null,null,null,null,null,null, false)
 
 
             benefit.Benefit = results.getString(results.getColumnIndex("Benefit"))
@@ -103,7 +103,7 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
         while(results!!.moveToNext()){
 
 
-            var benefit = Benefit(null,null,null,null,null,null,null,null)
+            var benefit = Benefit(null,null,null,null,null,null,null,null, false)
 
             benefit.Benefit = results.getString(results.getColumnIndex("Benefit"))
             benefit.ShortDescription = results.getString(results.getColumnIndex("Short Description"))
@@ -115,16 +115,20 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
 
     fun getSelectedBenefit(): Benefit{
 
-        var benefit = Benefit(null,null,null,null,null,null,null,null)
+        var benefit = Benefit(null,null,null,null,null,null,null,null, false)
 
         var results = ModesDb.getBenefitByName(this.selectedBenefit)
 
         results!!.moveToFirst()
+        benefit.ID = results.getInt(results.getColumnIndex("ID"))
         benefit.Benefit = results.getString(results.getColumnIndex("Benefit"))
         benefit.ShortDescription = results.getString(results.getColumnIndex("Short Description"))
         benefit.LongDescription = results.getString(results.getColumnIndex("Long Description"))
         benefit.ButtonText = results.getString(results.getColumnIndex("Button Text"))
         benefit.BenefitLink = results.getString(results.getColumnIndex("Benefit Link"))
+        benefit.favorite = results.getString(results.getColumnIndex("favorite")).equals("1")
+        if(benefit.favorite == null)
+            benefit.favorite = false
 
 
         return benefit
