@@ -52,6 +52,7 @@ class HomeActivity : BaseActivity(), Observer {
         ft.replace(R.id.container, HomeSearchFragment())
 
 
+
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         // or ft.add(R.id.your_placeholder, new FooFragment());
@@ -72,17 +73,18 @@ class HomeActivity : BaseActivity(), Observer {
 
 
 
-
-
-
         button_search.setOnClickListener {
             // Begin the transaction
             // Begin the transaction
+
+
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
             // Replace the contents of the container with the new fragment
 
+
             ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+
 
 
             ft.replace(R.id.container, HomeSearchFragment())
@@ -90,6 +92,7 @@ class HomeActivity : BaseActivity(), Observer {
             // Complete the changes added above
             // or ft.add(R.id.your_placeholder, new FooFragment());
             // Complete the changes added above
+            ft.addToBackStack(null)
 
 
             ft.commit()

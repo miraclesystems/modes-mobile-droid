@@ -28,6 +28,19 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit id gravida nulla 
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="connect_head">No matter where you serve or live, we are\n here for you 24/7 online and by telephone.</string>
     <string name="phone_num">8003429647</string>
+    <string name="call_int">https://www.militaryonesource.mil/international-calling-options</string>
+    <string name="onesource_url">https://www.militaryonesource.mil/</string>
+    <string name="facebook">https://www.facebook.com/military.1source</string>
+    <string name="twitter">https://twitter.com/military1source</string>
+    <string name="youtube">https://www.youtube.com/user/Military1Source</string>
+    <string name="instagram">https://www.instagram.com/military1source/</string>
+    <string name="pinterest">https://www.pinterest.com/military1source/</string>
+    <string name="chat_text">COMING SOON - Live Chat</string>
+
+
+
+
+
 
 
 </resources>

@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center"
-        android:text="CATEGORY"
-        android:textSize="14sp"
-        android:textColor="#194867"/>
+        android:textColor="#194867"
+        android:textSize="14sp" />
 
 </LinearLayout>

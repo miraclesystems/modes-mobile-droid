@@ -123,6 +123,8 @@ class GuidesCategoriesListFragment : Fragment() {
             var grid = inflator.inflate(R.layout.layout_categories_gridview, parent, false)
             grid.category.text = category
 
+            grid.setContentDescription("${grid.category.text} button ")
+
             return grid
         }
     }
