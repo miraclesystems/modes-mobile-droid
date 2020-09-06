@@ -156,6 +156,9 @@ class GuidesDetailFragment : Fragment() {
             transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
 
+            guidesActivity.loadGuideList()
+
+
         }
 
         view.button_favorite.setOnClickListener {

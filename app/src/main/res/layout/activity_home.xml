@@ -59,7 +59,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:gravity="center_horizontal"
-                                android:paddingTop="50dp"
+                                android:paddingTop="30dp"
                                 android:text="What can we help you with today?"
                                 android:textColor="@color/white"
                                 android:textSize="30dp" />
@@ -71,9 +71,11 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginTop="30dp"
+                                android:layout_marginBottom="30dp"
+
                                 android:layout_marginRight="40dp"
                                 android:background="@drawable/search_w_icon"
-                                android:text="Search MilLife Guides and Benefits"
+                                android:text="   Search MilLife Guides and Benefits"
                                 android:textAlignment="viewStart"
                                 android:textAllCaps="false"
                                 android:textColor="#4A4A4A" />
@@ -85,30 +87,17 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:layout_marginLeft="120dp"
-                                android:text="&lt;"
-                                android:textColor="@color/white"
-                                android:textSize="20dp" />
 
-                            <TextView
+                            <ImageView
+                                android:id="@+id/browse_content"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
-                                android:text="BROWSE CONTENT"
+                                android:background="@drawable/browse_content"
                                 android:textColor="#5AA3D2" />
+                            />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_marginRight="120dp"
-                                android:text="&gt;"
-                                android:textColor="@color/white"
-                                android:textSize="20dp" />
+
                         </RelativeLayout>
 
                         <androidx.recyclerview.widget.RecyclerView

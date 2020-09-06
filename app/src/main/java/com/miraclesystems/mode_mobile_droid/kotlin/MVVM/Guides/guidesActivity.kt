@@ -89,6 +89,20 @@ class guidesActivity : BaseActivity() {
     }
 
 
+
+    fun loadGuideList(){
+
+        guide = viewModel.getGuide()
+        // Begin the transaction
+        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+        // Replace the contents of the container with the new fragment
+        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        ft.replace(R.id.fragment_container, GuidesListFragment())
+
+        ft.commit()
+    }
+
+
     @RequiresApi(Build.VERSION_CODES.M)
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -165,6 +179,7 @@ class guidesActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         setSelected(id.navigation_milife);
+
 
     }
 

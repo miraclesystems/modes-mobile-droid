@@ -10,11 +10,10 @@
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:textAlignment="textStart"
-        android:layout_marginTop="12dp"
         android:layout_marginLeft="14dp"
+        android:layout_marginTop="12dp"
         android:layout_marginRight="14dp"
-        android:textColor="#194867"
-        />
+        android:textAlignment="textStart"
+        android:textColor="#194867" />
 
 </RelativeLayout>

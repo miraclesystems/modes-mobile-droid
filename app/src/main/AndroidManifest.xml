@@ -60,6 +60,7 @@
             android:name=".kotlin.MVVM.Connect.ConnectActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" ></activity>
+
     </application>
 
 </manifest>
