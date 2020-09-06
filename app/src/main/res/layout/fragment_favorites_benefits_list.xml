@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FavoritesBenefitsListFragment">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:orientation="vertical">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="14dp"
+                android:paddingLeft="16dp"
+                android:text="YOUR BENEFITS"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="#194867"/>
+
+            <ListView
+                android:id="@+id/listFavorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+
+                android:nestedScrollingEnabled="true"
+                android:layout_marginBottom="10dp"
+                android:divider="#D3DBE1"
+                android:dividerHeight="2dp">
+            </ListView>
+
+
+
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+</FrameLayout>

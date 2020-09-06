@@ -12,9 +12,15 @@ import android.widget.BaseAdapter
 import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings.UserSettingsActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.ModesDb
+import kotlinx.android.synthetic.main.fragment_benefit_detail.view.*
 import kotlinx.android.synthetic.main.fragment_guides_detail.*
 import kotlinx.android.synthetic.main.fragment_guides_detail.view.*
+import kotlinx.android.synthetic.main.fragment_guides_detail.view.button_back
+import kotlinx.android.synthetic.main.fragment_guides_detail.view.button_favorite
+import kotlinx.android.synthetic.main.fragment_guides_detail.view.button_more_benefits
 import kotlinx.android.synthetic.main.layout_benefits.view.*
+import kotlinx.android.synthetic.main.layout_guides_list.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.*
 import kotlinx.android.synthetic.main.listview_item.view.*
 
@@ -54,6 +60,14 @@ class GuidesDetailFragment : Fragment() {
 
         var guidesActivity = activity as guidesActivity
         model = guidesActivity.viewModel.getGuide()
+
+        if(model!!.favorite!!){
+            view.button_favorite.setBackgroundResource(R.drawable.favorite_selected)
+        }
+        else{
+            view.button_favorite.setBackgroundResource(R.drawable.favorite_unselected)
+        }
+
 
 
         view.guide_name.text = model!!.Guide
@@ -154,6 +168,8 @@ class GuidesDetailFragment : Fragment() {
                 button_favorite.setBackgroundResource(R.drawable.favorite_unselected)
                 favorite = false
             }
+
+            ModesDb.setGuideFavorite(favorite, model!!.ID!!)
         }
 
         return view

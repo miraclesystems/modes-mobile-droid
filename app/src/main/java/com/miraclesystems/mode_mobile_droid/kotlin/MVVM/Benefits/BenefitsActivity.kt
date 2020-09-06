@@ -73,12 +73,21 @@ class BenefitsActivity : BaseActivity(), Observer {
         super.onCreate(savedInstanceState)
         setContentLayout(R.layout.activity_benefits)
 
-        // Begin the transaction
-        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-        // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-        ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
-        ft.commit()
+        var selectedBenefit : String? = intent?.getStringExtra("benefit")
+
+        if(selectedBenefit != null){
+            viewModel.selectedBenefit = selectedBenefit
+            loadBenefitDetail()
+        }
+
+        else {
+            // Begin the transaction
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            // Replace the contents of the container with the new fragment
+            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
+            ft.commit()
+        }
 
 
         buttonAll.setOnClickListener {

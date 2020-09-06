@@ -95,14 +95,22 @@ class guidesActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentLayout(activity_guides)
 
+        var selectedGuide : String? = intent?.getStringExtra("guide")
 
-        // Begin the transaction
-        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-        // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(anim.slide_up, anim.slide_down);
-        ft.replace(id.fragment_container, GuidesCategoriesListFragment())
+        if(selectedGuide != null){
+            viewModel.selectedGuide = selectedGuide
+            loadGuideDetail()
+        }
 
-        ft.commit()
+        else {
+            // Begin the transaction
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            // Replace the contents of the container with the new fragment
+            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            ft.replace(id.fragment_container, GuidesCategoriesListFragment())
+
+            ft.commit()
+        }
 
         buttonAll.setOnClickListener {
 

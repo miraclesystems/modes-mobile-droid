@@ -16,7 +16,8 @@ data class Benefit(
     var ShortDescription: String?,
     var LongDescription: String?,
     var ButtonText : String?,
-    var BenefitLink : String?
+    var BenefitLink : String?,
+    var favorite: Boolean
 
 
 )
