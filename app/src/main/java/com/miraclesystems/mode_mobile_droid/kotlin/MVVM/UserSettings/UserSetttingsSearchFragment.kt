@@ -119,7 +119,9 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
     }
 
 
+    fun loadData(){
 
+    }
 
     override fun update(o: Observable?, arg: Any?) {
 
@@ -144,8 +146,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     for (item in filteredList!!) {
                         Log.d(item.toString(), "item")
                         listNames.add(item!!.name!!)
-
-
                     }
 
                     listNames.add(0, "")
@@ -244,9 +244,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         var view: View = inflater.inflate(R.layout.fragment_user_setttings_search, container, false)
 
 
-
-
-
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
         listNames.clear()
@@ -265,6 +262,31 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
             }
 
         }
+
+
+
+        var model = userSettingsActivity.viewModel.model
+
+        var filteredList = model.items
+
+        listNames.clear()
+
+        for (item in filteredList!!) {
+            listNames.add(item!!.name!!)
+
+        }
+
+        listNames.add(0, "")
+
+
+        val adapter = ArrayAdapter(
+            activity!!.applicationContext,
+            R.layout.listview_item, listNames
+        )
+
+
+        view.searchList.adapter = adapter
+
 
 
         view.button_back.setOnClickListener { view ->
@@ -334,56 +356,10 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
                         userSettingsActivity.loadPage3()
 
-                        /*
-                        // Toast the values
-                        Toast.makeText(
-                            activity!!.applicationContext,
-                            "Position :$position\nItem Value : $itemValue", Toast.LENGTH_LONG
-                        )
-                            .show()
-
-                         */
                     }
                 }
 
-                /*
-                // Initializing an ArrayAdapter
-                val adapter = ArrayAdapter(
-                    userSettingsActivity.applicationContext, // Context
-                    android.R.layout.simple_spinner_item, // Layout
-                    listNames // Array
-                )
 
-                // Set the drop down view resource
-                adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
-
-                // Finally, data bind the spinner object with dapter
-                spinner.adapter = adapter;
-
-                // Set an on item selected listener for spinner object
-                spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onNothingSelected(p0: AdapterView<*>?) {
-                        //TODO("Not yet implemented")
-                    }
-
-                    override fun onItemSelected(
-                        parent: AdapterView<*>,
-                        view: View,
-                        position: Int,
-                        id: Long
-                    ) {
-                        // Display the selected item text on text view
-                        search_installations.setText(listNames.get(position))
-                        spinner.visibility = View.INVISIBLE
-                    }
-
-
-                }
-
-
-                spinner.visibility = View.VISIBLE
-                spinner.performClick()
-                */
 
                 Log.d("debug", "stop")
                 true
