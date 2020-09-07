@@ -6,17 +6,15 @@
     android:orientation="vertical"
     >
 
-    <GridView
-        android:id="@+id/gvCategories"
+    <ListView
+        android:id="@+id/listBenefits"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="156dp"
-        android:horizontalSpacing="15dp"
-        android:numColumns="2"
-        android:verticalSpacing="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:nestedScrollingEnabled="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15dp"/>
 </LinearLayout>

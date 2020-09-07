@@ -142,10 +142,22 @@ class BenefitsActivity : BaseActivity(), Observer {
 
     }
 
+    override fun onTopResumedActivityChanged(isTopResumedActivity: Boolean) {
+        super.onTopResumedActivityChanged(isTopResumedActivity)
+
+    }
 
     override fun onResume() {
         super.onResume()
         setSelected(R.id.navigation_benefits);
+
+            // Begin the transaction
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            // Replace the contents of the container with the new fragment
+            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
+            ft.commit()
+
     }
 
     override fun update(o: Observable?, arg: Any?) {

@@ -129,7 +129,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
             pbLoading.visibility = ProgressBar.GONE
         }
 
-        pbLoading.visibility = ProgressBar.VISIBLE
+        if(pbLoading != null)
+            pbLoading.visibility = ProgressBar.VISIBLE
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.deleteObserver(this)
         when (o){
