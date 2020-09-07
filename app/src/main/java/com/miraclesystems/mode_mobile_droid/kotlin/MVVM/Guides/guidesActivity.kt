@@ -102,6 +102,12 @@ class guidesActivity : BaseActivity() {
         ft.commit()
     }
 
+    fun loadBenefitDetail(selectedBenefit : String){
+
+        val intent = Intent(this, BenefitsActivity::class.java)
+        intent.putExtra("benefit", selectedBenefit)
+        startActivity(intent)
+    }
 
     @RequiresApi(Build.VERSION_CODES.M)
 

@@ -45,10 +45,10 @@ class BenefitsCategoriesListFragment : Fragment() {
         var benefitsActivity = activity as BenefitsActivity
         var adapter = CategoriesAdapter(benefitsActivity.applicationContext, benefitsActivity.viewModel.getCategories())
 
-        view.gvCategories.adapter = adapter
+        view.listBenefits.adapter = adapter
 
 
-        view.gvCategories.setOnItemClickListener { adapterView, view, i, l ->
+        view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
             benefitsActivity.viewModel.selectedCategory = benefitsActivity.viewModel.getCategories()[i]
             benefitsActivity.loadBenefitsByCategory()

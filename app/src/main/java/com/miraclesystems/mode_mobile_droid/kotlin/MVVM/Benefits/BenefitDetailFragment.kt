@@ -74,6 +74,8 @@ class BenefitDetailFragment : Fragment() {
 
 
         view.button_back.setOnClickListener {
+
+            benefitsActivity.loadCategories()
             var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             benefitsActivity.supportFragmentManager.beginTransaction().remove(this).commit()

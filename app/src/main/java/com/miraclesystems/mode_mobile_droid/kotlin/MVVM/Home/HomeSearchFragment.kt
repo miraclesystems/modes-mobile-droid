@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
 import kotlinx.android.synthetic.main.fragment_home_search.*
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
+import kotlinx.android.synthetic.main.listview_item.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -144,7 +145,11 @@ class HomeSearchFragment : Fragment() {
 
         view.searchList.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
-                if(!loadTopics){
+
+
+
+                loadTopics = false
+                if(false){
                     loadTopics = true
                     var topic = homeActivity.viewModel.getSuggestedTopic()[position]
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
@@ -165,8 +170,9 @@ class HomeSearchFragment : Fragment() {
                     transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
                     homeActivity.supportFragmentManager.beginTransaction().remove(Me).commit()
 
-                    var topic = homeActivity.viewModel.getTopics(selectedTopic)[position]
-                    homeActivity.topic = topic
+
+                    //var topic = homeActivity.viewModel.getTopics(view.label.text.toString())[position]
+                    homeActivity.topic = view.label.text.toString()
                     homeActivity.loadViewTopic()
                     loadTopics = false
                 }

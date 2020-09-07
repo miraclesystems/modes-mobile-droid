@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Benefits.BenefitsActivity
 import kotlinx.android.synthetic.main.fragment_home_view_topic.*
 import kotlinx.android.synthetic.main.fragment_home_view_topic.view.*
+import kotlinx.android.synthetic.main.home_benefits_grid_item_layout.view.*
+import kotlinx.android.synthetic.main.home_view_guides_card_layout.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -47,6 +50,7 @@ class HomeViewTopicFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
        var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)
 
@@ -56,7 +60,9 @@ class HomeViewTopicFragment : Fragment() {
         view.listGuides.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
-            Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
+
+            homeViewActivity.loadGuideDetail(view.name.text.toString())
+            //Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
         }
 
 
@@ -64,7 +70,10 @@ class HomeViewTopicFragment : Fragment() {
         view.gridBenefits.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
-            Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
+
+
+            homeViewActivity.loadBenefitDetail(view.title.text.toString())
+            //Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
         }
 
 
@@ -80,8 +89,7 @@ class HomeViewTopicFragment : Fragment() {
 
 
         view.button_call.setOnClickListener {
-            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "800-3429647"))
-            startActivity(intent)
+            homeViewActivity.callSupport()
         }
 
         view.button_onesource.setOnClickListener {
