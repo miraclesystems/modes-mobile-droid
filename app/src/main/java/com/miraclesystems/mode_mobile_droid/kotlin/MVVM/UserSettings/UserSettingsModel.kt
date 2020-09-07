@@ -54,6 +54,10 @@ data class LocationByPostalCode(
     @SerializedName("INST_ID")
     val INST_ID : Int?,
     @SerializedName("INST_NAME")
-    val INST_NAME : String?
+    val INST_NAME : String?,
+    @SerializedName("SETY_NAME")
+    val SETY_NAME : String?,
+    @SerializedName("SETY_ID")
+    val SETY_ID : Int?
 )
 

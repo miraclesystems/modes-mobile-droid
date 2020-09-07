@@ -66,10 +66,14 @@ class UserSettingsViewModel : Observable(), WebServiceConnectorDelegate {
             for(item in data.items!!){
                 var location = Location(null, null, null, null, null, null,
                     null, null, null, null, null, null)
-                location.id = item!!.INST_ID
-                location.name = item!!.INST_NAME
 
-                model.items!!.add(location)
+
+                if(item!!.SETY_ID == 1 && item!!.SETY_NAME.equals(" Location")) {
+                    location.id = item!!.INST_ID
+                    location.name = item!!.INST_NAME
+
+                    model.items!!.add(location)
+                }
 
 
             }

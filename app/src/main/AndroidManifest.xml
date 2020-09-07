@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.miraclesystems.mode_mobile_droid">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,6 +15,7 @@
 
 
     <application
+        tools:ignore="LockedOrientationActivity"
         android:name=".kotlin.MVVM.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,16 +24,20 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <activity android:name=".kotlin.MVVM.Utils.WebviewActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
         <activity
             android:name=".kotlin.MVVM.Guides.guidesActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
         <activity
             android:name=".kotlin.MVVM.UserSettings.UserSettingsActivity"
-            android:theme="@style/AppFullScreenTheme" />
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".kotlin.MVVM.SplashActivity"
-            android:theme="@style/AppFullScreenTheme">
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,16 +46,21 @@
         </activity>
         <activity
             android:name=".kotlin.MVVM.Home.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
         <activity
             android:name=".kotlin.MVVM.Benefits.BenefitsActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
         <activity
             android:name=".kotlin.MVVM.Favorites.FavoritesActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
         <activity
             android:name=".kotlin.MVVM.Connect.ConnectActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" ></activity>
+
     </application>
 
 </manifest>

@@ -76,6 +76,7 @@
                         android:text="@string/connect_head"
                         android:textColor="@color/modes_darkgray"
                         android:textSize="12sp" />
+
                 </RelativeLayout>
 
 
@@ -148,7 +149,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/linearLayout4"
+                    android:id="@+id/button_call_int"
                     android:layout_width="324dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
@@ -291,8 +292,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/linearLayout7"
                     android:layout_width="324dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginBottom="4dp"
                     android:clickable="true"
                     android:focusable="true"
@@ -355,15 +356,28 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <FrameLayout
-                    android:id="@+id/fragment_container"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="450dp">
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/chat_text"
+                        android:layout_width="159dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chat_text"
+                        android:textColor="@color/modes_darkgray"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+
 
             </LinearLayout>
 

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="160dp"
     android:layout_height="wrap_content"
+    android:clickable="true"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -13,67 +14,75 @@
             android:id="@+id/icon"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_marginLeft="32dp"
-            android:layout_toLeftOf="@id/header"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="32dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/milife_focused_ic"
-            />
+            android:layout_toLeftOf="@id/header"
+            android:background="@drawable/milife_focused_ic" />
+
         <TextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_height="15dp"
-            android:textSize="10sp"
+            android:layout_centerInParent="true"
             android:text="HEADER"
             android:textColor="#194867"
-            />
+            android:textSize="10sp" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="135dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/white">
+
         <TextView
             android:id="@+id/content"
             android:layout_width="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_height="64dp"
-            android:layout_marginTop="19dp"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
             android:text="Access to Ancestry Library"
+            android:textAlignment="center"
+            android:textAllCaps="false"
             android:textColor="#194867"
-            />
-        
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/buttonRecommended"
             android:layout_width="123dp"
-            android:layout_height="30dp"
-            android:paddingTop="0dp"
+            android:layout_height="46dp"
             android:layout_below="@id/content"
             android:layout_centerHorizontal="true"
-            android:text="Recommended for you"
-            android:textColor="@color/black"
-            android:textSize="8sp"
+            android:background="@android:color/transparent"
+            android:contentDescription="button"
+            android:paddingTop="0dp"
             android:scaleType="fitXY"
             android:src="@drawable/round_button_highlighted"
-            android:background="@android:color/transparent"/>
+            android:text="Recommended for you"
+            android:textColor="@color/black"
+            android:textSize="8sp" />
+
         <TextView
             android:id="@+id/buttontext"
-            android:layout_width="101dp"
+            android:layout_width="118dp"
             android:layout_height="30dp"
-            android:paddingTop="0dp"
             android:layout_below="@id/content"
             android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:gravity="center_horizontal"
+            android:paddingTop="5dp"
             android:text="RECOMMENDED FOR YOU"
             android:textColor="@color/white"
-            android:textSize="8sp"
-            android:textAlignment="center"
-            android:background="@android:color/transparent"/>
+            android:textSize="8sp" />
 
 
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     </RelativeLayout>
 

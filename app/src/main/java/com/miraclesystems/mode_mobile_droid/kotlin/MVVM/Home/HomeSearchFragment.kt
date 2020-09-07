@@ -1,6 +1,7 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,15 +13,9 @@ import android.view.accessibility.AccessibilityEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.ViewCompat
-import androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
-import androidx.core.view.ViewCompat.setImportantForAccessibility
 import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home_search.*
-import kotlinx.android.synthetic.main.fragment_home_search.searchList
-import kotlinx.android.synthetic.main.fragment_home_search.search_text
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
 
 
@@ -42,6 +37,8 @@ class HomeSearchFragment : Fragment() {
     var loadTopics = false
     var Me = this
     var selectedTopic = ""
+    var listTopics = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,11 +52,10 @@ class HomeSearchFragment : Fragment() {
         if(!loadTopics){
             sectionHeader.setText("SUGGESTED TOPICS")
         }
+
         super.onResume()
 
-
     }
-
 
 
 
@@ -73,27 +69,36 @@ class HomeSearchFragment : Fragment() {
         //view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
 
 
-        view.button_back.setOnClickListener {
 
+        /*
+        JS: Trying to fix issue of this fragment not being refreshed and populating the same suggested topics on top
+        of already existing topics which causes the duplicate issue. Maybe there is a better way to do it
+        instead of manually restarting the activity? This seems to fix the issue.
+        */
+
+        fun refreshActivity() {
 
             var homeActivity = activity as HomeActivity
-            var transaction = homeActivity.supportFragmentManager.beginTransaction()
-            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-            homeActivity.supportFragmentManager.popBackStack()
-
-
-            //getActivity()?.getSupportFragmentManager()?.popBackStack();
-
-
-            homeActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            val i = Intent(getActivity(), HomeActivity::class.java)
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(i)
+            homeActivity.finish()
         }
 
 
 
+        view.button_back.setOnClickListener {
+            var homeActivity = activity as HomeActivity
+            var transaction = homeActivity.supportFragmentManager.beginTransaction()
+            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            homeActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            refreshActivity();
+
+        }
+
+
         view.search_text.addTextChangedListener(object : TextWatcher {
-
             override fun afterTextChanged(s: Editable) {}
-
             override fun beforeTextChanged(
                 s: CharSequence, start: Int,
                 count: Int, after: Int
@@ -117,32 +122,28 @@ class HomeSearchFragment : Fragment() {
                         R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
                     )
 
-
                     searchList.adapter = adapter
-
                     searchList.requestLayout()
-
                     loadTopics = true
 
                 }
             }
         })
 
+
         var homeActivity = activity as HomeActivity
-        val adapter = ArrayAdapter(
-            activity!!.applicationContext,
-            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
-        )
+        if(listTopics) {
+
+            val adapter = ArrayAdapter(
+                activity!!.applicationContext,
+                R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+            )
+            view.searchList.adapter = adapter
+        }
 
 
-        view.searchList.adapter = adapter
-
-        view.searchList.onItemClickListener = object : AdapterView.OnItemClickListener {
-
-            override fun onItemClick(
-                parent: AdapterView<*>, view: View,
-                position: Int, id: Long
-            ){
+        view.searchList.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
                 if(!loadTopics){
                     loadTopics = true
                     var topic = homeActivity.viewModel.getSuggestedTopic()[position]
@@ -155,13 +156,9 @@ class HomeSearchFragment : Fragment() {
                         R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
                     )
 
-
                     searchList.adapter = adapter
-
                     searchList.requestLayout()
-                }
-                else{
-
+                } else{
 
 
                     var transaction = homeActivity.supportFragmentManager.beginTransaction()
@@ -173,15 +170,7 @@ class HomeSearchFragment : Fragment() {
                     homeActivity.loadViewTopic()
                     loadTopics = false
                 }
-
-
             }
-        }
-
-
-
-
-
 
         return view
     }
@@ -191,6 +180,7 @@ class HomeSearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
         view.requestFocus()
         view.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
 
@@ -198,10 +188,11 @@ class HomeSearchFragment : Fragment() {
         search_text.setFocusableInTouchMode(true);
         search_text.requestFocus();
         showSoftKeyboard(search_text)
+        */
+
+
 
     }
-
-
 
 
 
