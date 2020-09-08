@@ -1,11 +1,16 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Connect
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.R.id
 import com.miraclesystems.mode_mobile_droid.R.layout.activity_connect
@@ -39,11 +44,25 @@ class ConnectActivity : BaseActivity() {
 
 
 
-        button_call.setOnClickListener {
-            val callIntent = Intent(Intent.ACTION_DIAL)
+        fun callPhone(){
+
+            val callIntent = Intent(Intent.ACTION_CALL)
             callIntent.data = Uri.parse("tel:$phoneNum")
             startActivity(callIntent)
+
         }
+
+
+        button_call.setOnClickListener {
+
+            if (checkPermission(
+                    Manifest.permission.CALL_PHONE)
+            ) {
+                callPhone()
+            }
+        }
+
+
 
 
 
@@ -95,6 +114,37 @@ class ConnectActivity : BaseActivity() {
     }
 
 
+
+
+    val PERMISSION_ID = 42
+    private fun checkPermission(vararg perm:String) : Boolean {
+        val havePermissions = perm.toList().all {
+            ContextCompat.checkSelfPermission(this!!.applicationContext,it) ==
+                    PackageManager.PERMISSION_GRANTED
+        }
+        if (!havePermissions) {
+            if(perm.toList().any {
+                    ActivityCompat.
+                    shouldShowRequestPermissionRationale(this!!, it)}
+            ) {
+                val dialog = AlertDialog.Builder(this!!.applicationContext, R.style.Theme_AppCompat_Light)
+
+                    .setTitle("Permission")
+                    .setMessage("Permission needed!")
+                    .setPositiveButton("OK", {id, v ->
+                        ActivityCompat.requestPermissions(
+                            this!!, perm, PERMISSION_ID)
+                    })
+                    .setNegativeButton("No", {id, v -> })
+                    .create()
+                dialog.show()
+            } else {
+                ActivityCompat.requestPermissions(this!!, perm, PERMISSION_ID)
+            }
+            return false
+        }
+        return true
+    }
 
 
 
