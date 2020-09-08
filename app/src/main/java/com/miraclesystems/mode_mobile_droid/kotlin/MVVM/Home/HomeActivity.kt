@@ -1,5 +1,7 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.BaseActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Benefits.BenefitsActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Guides.guidesActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import java.util.*
 
@@ -27,6 +31,22 @@ class HomeActivity : BaseActivity(), Observer {
     var topic = ""
 
     var Me = this
+
+    fun callSupport(){
+        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "800-342-9647"))
+        startActivity(intent)
+    }
+    fun loadGuideDetail(selectedGuide : String){
+
+        val intent = Intent(this, guidesActivity::class.java)
+        intent.putExtra("guide", selectedGuide)
+        startActivity(intent)
+    }
+    fun loadBenefitDetail(selectedBenefit : String){
+        val intent = Intent(this, BenefitsActivity::class.java)
+        intent.putExtra("benefit", selectedBenefit)
+        startActivity(intent)
+    }
     fun loadViewTopic() {
         // Begin the transaction
         // Begin the transaction

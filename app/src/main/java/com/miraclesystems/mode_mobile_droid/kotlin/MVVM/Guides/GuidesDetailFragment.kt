@@ -141,13 +141,14 @@ class GuidesDetailFragment : Fragment() {
         view.listWebsites.setOnItemClickListener { adapterView, view, i, l ->
 
             val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse(model!!.RelatedWebsitesURL?.get(i))
+            intent.data = Uri.parse(model!!.RelatedWebsitesURL?.get(i)?.trim())
             startActivity(intent)
         }
 
-        view.listExperts.setOnItemClickListener { adapterView, view, i, l ->
+        view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
-
+            var benefit = model?.listRelatedBenefits?.get(i)?.benefit
+            guidesActivity.loadBenefitDetail(benefit!!)
 
         }
 
