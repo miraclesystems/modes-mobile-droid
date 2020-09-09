@@ -66,6 +66,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
         super.onResume()
 
         var userSettingsActivity = activity as UserSettingsActivity
+        (activity as UserSettingsActivity).resetFocus()
         if(userSettingsActivity.pager_page2 != null) {
 
             if (userSettingsActivity.page2Completed) {
@@ -110,7 +111,9 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
     override fun update(o: Observable?, arg: Any?) {
 
 
-        pbLoading.visibility = ProgressBar.INVISIBLE
+        if(pbLoading != null) {
+            pbLoading.visibility = ProgressBar.INVISIBLE
+        }
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.viewModel.deleteObserver(this)
         when (o){
@@ -204,6 +207,9 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
         var userSettingsActivity = activity as UserSettingsActivity
 
+
+        view.search_installations.isFocusable = true
+        view.search_installations.requestFocus()
 
 
         fun getLastLocation() {
