@@ -1,14 +1,18 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_user_settings.*
+import kotlinx.android.synthetic.main.activity_user_settings.imageView
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -16,6 +20,7 @@ import kotlin.collections.ArrayList
 class UserSettingsActivity : AppCompatActivity(), Observer {
 
     public var city = ""
+    var logo : ImageView? = null
 
     var listNames = ArrayList<String>()
 
@@ -26,6 +31,27 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
 
     var pageNumber = 1
 
+    @SuppressLint("NewApi")
+    override fun onResume() {
+        super.onResume()
+
+        resetFocus()
+
+    }
+
+    override fun onPostResume() {
+        super.onPostResume()
+
+        resetFocus()
+        //imageView.requestFocus()
+    }
+
+    fun resetFocus(){
+        imageView.isFocusable = true
+        imageView.isFocusableInTouchMode = true
+        imageView.requestFocus()
+        imageView.requestFocusFromTouch()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_settings)
@@ -36,6 +62,10 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         //loadSearch()
         loadPage1()
 
+        imageView.setOnClickListener {
+
+            // do nothing
+        }
 
         button_back.setOnClickListener(){
             Log.d("debug", "onclick")
@@ -87,6 +117,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         ft.commit()
+
+        resetFocus()
     }
 
     fun loadSearch(){
@@ -104,6 +136,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         ft.commit()
+
+        resetFocus()
     }
 
 
@@ -126,6 +160,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         ft.commit()
+
+        resetFocus()
     }
 
     fun loadPage2(){
@@ -143,6 +179,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         ft.commit()
+
+        resetFocus()
     }
 
     fun loadPage3(){
@@ -157,6 +195,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         ft.commit()
+
+        resetFocus()
     }
 
     override fun update(o: Observable?, arg: Any?) {

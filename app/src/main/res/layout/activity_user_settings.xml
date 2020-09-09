@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_splash_bg"
+
     android:orientation="vertical">
 
     <FrameLayout
@@ -31,8 +32,10 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="16dp"
 
-                    android:scaleType="fitStart"
 
+                    android:scaleType="fitStart"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:background="@drawable/ic_headerlogo" />
             </LinearLayout>
 
