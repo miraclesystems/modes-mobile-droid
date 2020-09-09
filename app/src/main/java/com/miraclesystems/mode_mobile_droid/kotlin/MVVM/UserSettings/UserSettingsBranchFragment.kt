@@ -33,6 +33,8 @@ class UserSettingsBranchFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    var isSet = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -70,7 +72,7 @@ class UserSettingsBranchFragment : Fragment() {
         userSettingsActivity.button_skip.setText(R.string.skip_question)
         if(userSettingsActivity.pager_page3 != null) {
 
-            if (userSettingsActivity.page3Completed) {
+            if (userSettingsActivity.page3Completed && isSet != "select a branch") {
                 userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_checked)
             } else {
                 userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3)
@@ -115,10 +117,10 @@ class UserSettingsBranchFragment : Fragment() {
                     if(branches[position] != "select a branch" ) {
                         Log.d(branches[position],"debugpos")
                         button_done.visibility = View.VISIBLE
-
-
                         userSettingsActivity.page3Completed = true
                         PreferencesUtil.save("branch", branches[position])
+                        isSet = branches[position]
+
                     }
 
                 }

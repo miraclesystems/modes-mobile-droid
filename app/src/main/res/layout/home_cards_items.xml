@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="160dp"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     android:clickable="true"
     android:orientation="vertical">
 
@@ -51,8 +51,8 @@
 
         <ImageView
             android:id="@+id/buttonRecommended"
-            android:layout_width="123dp"
-            android:layout_height="46dp"
+            android:layout_width="128dp"
+            android:layout_height="24dp"
             android:layout_below="@id/content"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
@@ -66,8 +66,8 @@
 
         <TextView
             android:id="@+id/buttontext"
-            android:layout_width="118dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/content"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"

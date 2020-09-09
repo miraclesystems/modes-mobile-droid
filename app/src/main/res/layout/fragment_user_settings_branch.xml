@@ -8,69 +8,74 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/labelBranch"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:text="What is your branch of service?"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="12pt"
+        <TextView
+            android:id="@+id/labelBranch"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="25dp"
+            android:fontFamily="@font/worksans_regular"
+            android:text="What is your branch of service?"
+            android:textAlignment="center"
+            android:textColor="@color/white"
 
-                />
-
-
-            <TextView
-                android:id="@+id/branch"
-                style="?android:attr/spinnerItemStyle"
-                android:layout_width="256dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/labelBranch"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:background="@color/white"
-                android:contentDescription="Not Selected"
-                android:drawableRight="@drawable/dropdown_arrow"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
-                android:textColor="#747474" />
+        <TextView
+            android:id="@+id/branch"
+            style="?android:attr/spinnerItemStyle"
+            android:layout_width="256dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/labelBranch"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/custom_spinner"
+            android:contentDescription="Not Selected"
+            android:drawableRight="@drawable/dropdown_arrow"
+            android:textColor="#747474" />
 
 
-            <Spinner
-                android:id="@+id/branch_spinner"
-                android:layout_width="256dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/labelBranch"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/white"
-                android:spinnerMode="dropdown" />
+        <Spinner
+            android:id="@+id/branch_spinner"
+            android:layout_width="249dp"
+            android:layout_height="38dp"
+            android:layout_alignStart="@+id/branch"
+            android:layout_alignLeft="@+id/branch"
+            android:layout_alignTop="@+id/branch"
+            android:layout_alignEnd="@+id/branch"
+            android:layout_alignRight="@+id/branch"
+            android:layout_alignBottom="@+id/branch"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/white"
+            android:spinnerMode="dropdown" />
 
-            <Button
-                android:id="@+id/button_done"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/branch_spinner"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="25dp"
-                android:background="@drawable/round_button"
-                android:contentDescription="finish setup"
-                android:text="Finish setup"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:visibility="gone" />
+        <Button
+            android:id="@+id/button_done"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/branch_spinner"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/round_button"
+            android:contentDescription="finish setup"
+            android:text="Finish setup"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone" />
 
-        </RelativeLayout>
-
+    </RelativeLayout>
 
 
 </FrameLayout>

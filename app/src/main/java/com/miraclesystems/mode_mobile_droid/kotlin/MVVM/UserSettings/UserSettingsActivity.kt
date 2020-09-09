@@ -54,7 +54,12 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
         setContentView(R.layout.activity_user_settings)
+
+
 
         viewModel.getInstallations()
         viewModel.addObserver(this)
@@ -74,8 +79,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
                 pageNumber = 1
 
             when (pageNumber){
-                1->loadPage1()
-                2->loadPage2()
+                1 -> loadPage1()
+                2 -> loadPage2()
             }
         }
 
@@ -143,7 +148,7 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
 
     fun loadPage1(){
 
-        pager_page1.setBackgroundResource( R.drawable.selector1_higlighted)
+        pager_page1.setBackgroundResource(R.drawable.selector1_higlighted)
 
         pager_page2.setBackgroundResource(R.drawable.selector2)
 
@@ -202,7 +207,7 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
     override fun update(o: Observable?, arg: Any?) {
         when (o){
             is UserSettingsViewModel -> {
-                if (arg is Boolean){
+                if (arg is Boolean) {
 
 
                 }
