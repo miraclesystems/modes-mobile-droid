@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:clickable="true"
     tools:context=".kotlin.MVVM.Home.HomeActivity"
+    android:fitsSystemWindows="false"
+
     >
     <FrameLayout
 

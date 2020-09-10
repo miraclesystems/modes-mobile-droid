@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_splash_bg"
+
     android:orientation="vertical">
 
     <FrameLayout
@@ -31,8 +32,10 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="16dp"
 
-                    android:scaleType="fitStart"
 
+                    android:scaleType="fitStart"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:background="@drawable/ic_headerlogo" />
             </LinearLayout>
 
@@ -58,7 +61,7 @@
                 android:layout_width="138dp"
                 android:layout_height="29dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="85dp"
+                android:layout_marginTop="44dp"
                 android:text="@string/personalize"
                 android:textAppearance="@style/personalize"
                 android:lineSpacingExtra="15sp"
@@ -69,7 +72,7 @@
            <RelativeLayout
                android:layout_width="185dp"
                android:layout_height="32dp"
-
+               android:layout_marginBottom="34dp"
                android:layout_gravity="center_horizontal">
 
                <ImageView
@@ -79,7 +82,10 @@
                    android:layout_alignParentLeft="true"
                    android:background="@drawable/selector1_higlighted"
                    android:contentDescription="step 1 of 3"
-                   android:textColor="@color/white" />
+                   android:textColor="@color/white"
+                   android:elevation="16dp"
+
+                   />
 
                <ImageView
                    android:layout_width="wrap_content"
@@ -136,9 +142,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:fitsSystemWindows="true"
-                >
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/button_skipAll"
@@ -151,7 +157,8 @@
                     android:text="@string/skip_setup"
                     android:textAllCaps="false"
                     android:textAppearance="@style/skip_all_se"
-                    android:textColor="#76B8E2" />
+                    android:textColor="#76B8E2"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/button_skip"

@@ -32,6 +32,8 @@ class HomeActivity : BaseActivity(), Observer {
 
     var Me = this
 
+
+
     fun callSupport(){
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "800-342-9647"))
         startActivity(intent)
