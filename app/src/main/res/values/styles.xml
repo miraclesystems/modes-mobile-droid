@@ -54,4 +54,10 @@
         </item>
     </style>
 
+    <style name="SideNavigationTheme" parent="AppTheme">
+        <item name="listPreferredItemHeightSmall">35dp</item><!-- menu item height- vary as u need -->
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/worksans_regular</item>
+    </style>
+
 </resources>

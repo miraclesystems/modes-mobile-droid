@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/nav_home"
+            android:title="my Military OneSource"
+            />
+        <item
+        android:id="@+id/nav_Guides"
+        android:title="MilLife Guides" />
+
+        <item
+            android:id="@+id/nav_Benefits"
+            android:title="Benefits Finder" />
+
+        <item
+        android:id="@+id/nav_Favorites"
+        android:title="Favorites" />
+
+        <item
+            android:id="@+id/nav_Connect"
+            android:title="Connect" />
+
+
+
+    </group>
+</menu>
