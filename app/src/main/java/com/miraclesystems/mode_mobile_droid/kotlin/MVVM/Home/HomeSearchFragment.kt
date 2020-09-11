@@ -15,6 +15,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.miraclesystems.mode_mobile_droid.R
+import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_home_search.*
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
 import kotlinx.android.synthetic.main.listview_item.view.*
@@ -55,6 +56,11 @@ class HomeSearchFragment : Fragment() {
         }
 
         super.onResume()
+
+        search_text.isFocusable = true
+        search_text.isFocusableInTouchMode = true
+        search_text.requestFocus()
+        search_text.requestFocusFromTouch()
 
     }
 

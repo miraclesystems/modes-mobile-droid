@@ -30,7 +30,10 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.miraclesystems.mode_mobile_droid.R
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.PreferencesUtil
+import kotlinx.android.synthetic.main.activity_user_settings.*
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import kotlinx.android.synthetic.main.fragment_user_setttings_search.*
+import kotlinx.android.synthetic.main.fragment_user_setttings_search.pbLoading
 import kotlinx.android.synthetic.main.fragment_user_setttings_search.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -235,6 +238,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 }
             }
     }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -287,8 +292,36 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
 
         view.searchList.adapter = adapter
+        //view.searchList.isFocusable = false
 
 
+        view.searchList.onItemClickListener = object : AdapterView.OnItemClickListener {
+
+            override fun onItemClick(
+                parent: AdapterView<*>, view: View,
+                position: Int, id: Long
+            ) {
+
+                var userSettingsActivity = activity as UserSettingsActivity
+                // value of item that is clicked
+                val itemValue = searchList.getItemAtPosition(position) as String
+
+
+                var id = userSettingsActivity.viewModel.model.items?.get(position)?.id
+
+                var x = PreferencesUtil.getValueString("installation")
+                PreferencesUtil.save("installation",id.toString())
+                x = PreferencesUtil.getValueString("installation")
+
+                userSettingsActivity.page2Completed = true
+                var transaction = userSettingsActivity.supportFragmentManager.beginTransaction()
+                transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+                userSettingsActivity.supportFragmentManager.beginTransaction().remove(Me).commit()
+
+                userSettingsActivity.loadPage3()
+
+            }
+        }
 
         view.button_back.setOnClickListener { view ->
 
@@ -330,35 +363,16 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 )
 
 
+
+
                 view.searchList.adapter = adapter
 
-                view.searchList.onItemClickListener = object : AdapterView.OnItemClickListener {
-
-                    override fun onItemClick(
-                        parent: AdapterView<*>, view: View,
-                        position: Int, id: Long
-                    ) {
-
-                        var userSettingsActivity = activity as UserSettingsActivity
-                        // value of item that is clicked
-                        val itemValue = searchList.getItemAtPosition(position) as String
 
 
-                        var id = userSettingsActivity.viewModel.model.items?.get(position)?.id
 
-                        var x = PreferencesUtil.getValueString("installation")
-                        PreferencesUtil.save("installation",id.toString())
-                        x = PreferencesUtil.getValueString("installation")
 
-                        userSettingsActivity.page2Completed = true
-                        var transaction = userSettingsActivity.supportFragmentManager.beginTransaction()
-                        transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-                        userSettingsActivity.supportFragmentManager.beginTransaction().remove(Me).commit()
 
-                        userSettingsActivity.loadPage3()
 
-                    }
-                }
 
 
 
@@ -368,6 +382,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 false
             }
         }
+
+
         return view
     }
 
@@ -375,10 +391,9 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         super.onViewCreated(view, savedInstanceState)
 
 
-        search_text.setFocusable(true);
-        search_text.setFocusableInTouchMode(true);
-        search_text.requestFocus();
-        showSoftKeyboard(search_text)
+
+        //showSoftKeyboard(search_text)
+
 
         visible = true
         fusedLocationClient = LocationServices.
@@ -391,27 +406,30 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         if (view.requestFocus()) {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
-            search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            //search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
         }
     }
+
 
     override fun onResume() {
         super.onResume()
 
 
 
-        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
-        var userSettingsActivity = activity as UserSettingsActivity
-        userSettingsActivity.viewModel.getInstallations()
+            activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+
+            var userSettingsActivity = activity as UserSettingsActivity
+            userSettingsActivity.viewModel.getInstallations()
 
 
 
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
-        delayedHide(100)
-    }
+            // Trigger the initial hide() shortly after the activity has been
+            // created, to briefly hint to the user that UI controls
+            // are available.
+            //delayedHide(100)
+        }
+
 
 
 

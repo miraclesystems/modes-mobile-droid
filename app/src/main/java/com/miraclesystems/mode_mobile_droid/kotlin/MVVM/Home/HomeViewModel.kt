@@ -141,7 +141,9 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
             for (keyword in keywords_array){
 
-                list.add(keyword)
+                if(keyword.contains(topic)) {
+                    list.add(keyword.trim())
+                }
             }
         }
 
@@ -157,13 +159,16 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
             for (keyword in keywords_array){
 
-                list.add(keyword)
+                if(keyword.contains(topic)) {
+                    list.add(keyword.trim())
+                }
             }
         }
 
 
 
-        return list
+        var unique = list.distinct() as MutableList
+        return unique
 
 
     }
