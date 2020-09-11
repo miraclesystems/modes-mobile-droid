@@ -8,6 +8,8 @@
     android:padding="10dip"
     android:textSize="16dip"
     android:textStyle="bold"
+    android:focusable="false"
+    android:descendantFocusability="blocksDescendants"
     android:textColor="@color/black">
 
 </TextView>

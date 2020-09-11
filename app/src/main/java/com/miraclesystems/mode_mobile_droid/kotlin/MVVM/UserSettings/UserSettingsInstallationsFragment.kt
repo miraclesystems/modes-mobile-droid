@@ -66,7 +66,9 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
         super.onResume()
 
         var userSettingsActivity = activity as UserSettingsActivity
-        (activity as UserSettingsActivity).resetFocus()
+
+        userSettingsActivity.resetFocus()
+
         if(userSettingsActivity.pager_page2 != null) {
 
             if (userSettingsActivity.page2Completed) {
@@ -208,8 +210,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
         var userSettingsActivity = activity as UserSettingsActivity
 
 
-        view.search_installations.isFocusable = true
-        view.search_installations.requestFocus()
+
 
 
         fun getLastLocation() {
