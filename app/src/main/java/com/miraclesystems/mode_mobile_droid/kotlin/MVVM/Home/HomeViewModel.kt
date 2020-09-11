@@ -167,8 +167,14 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
 
 
-        var unique = list.distinct() as MutableList
-        return unique
+        if(list.count() < 1){
+            return list
+        }
+        else {
+
+            var unique = list.distinct() as MutableList
+            return unique
+        }
 
 
     }
