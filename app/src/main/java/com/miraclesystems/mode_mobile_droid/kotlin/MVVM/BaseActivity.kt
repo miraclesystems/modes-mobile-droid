@@ -10,6 +10,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.os.postDelayed
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +29,9 @@ import com.google.android.material.navigation.NavigationView
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Benefits.BenefitsActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Connect.ConnectActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Favorites.FavoritesActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.AboutActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.SettingsActivity
+import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Utils.WebviewActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_base.view.*
 import kotlinx.android.synthetic.main.activity_connect.*
@@ -125,15 +130,18 @@ open class BaseActivity : AppCompatActivity() {
             mDrawerLayout.closeDrawers()
         }
 
+        val closeMenuDelay:Long = 250 //mS
         txtHome.setOnClickListener(){
             if (myPageRefIndex == 0) {
                 //do not do it
                 Log.d("Clicked: ", "Home, while on Home")
             } else {
                 mDrawerLayout.closeDrawers()
-                val ii2 = Intent(this@BaseActivity, HomeActivity::class.java)
-                startActivity(ii2)
-                overridePendingTransition(0, 0)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val ii2 = Intent(this@BaseActivity, HomeActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
+                }, closeMenuDelay)
             }
         }
         txtGuides.setOnClickListener(){
@@ -142,9 +150,11 @@ open class BaseActivity : AppCompatActivity() {
                 Log.d("Clicked: ", "Guides, while on Guides")
             } else {
                 mDrawerLayout.closeDrawers()
-                val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
-                startActivity(ii2)
-                overridePendingTransition(0, 0)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
+                }, closeMenuDelay)
             }
         }
         txtBenefits.setOnClickListener(){
@@ -153,9 +163,11 @@ open class BaseActivity : AppCompatActivity() {
                 Log.d("Clicked: ", "Benefits, while on Benefits")
             } else {
                 mDrawerLayout.closeDrawers()
-                val ii2 = Intent(this@BaseActivity, BenefitsActivity::class.java)
-                startActivity(ii2)
-                overridePendingTransition(0, 0)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val ii2 = Intent(this@BaseActivity, BenefitsActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
+                }, closeMenuDelay)
             }
         }
         txtFavorites.setOnClickListener(){
@@ -164,9 +176,11 @@ open class BaseActivity : AppCompatActivity() {
                 Log.d("Clicked: ", "Favorites, while on Favorites")
             } else {
                 mDrawerLayout.closeDrawers()
-                val ii2 = Intent(this@BaseActivity, FavoritesActivity::class.java)
-                startActivity(ii2)
-                overridePendingTransition(0, 0)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val ii2 = Intent(this@BaseActivity, FavoritesActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
+                }, closeMenuDelay)
             }
         }
         txtConnect.setOnClickListener(){
@@ -175,11 +189,55 @@ open class BaseActivity : AppCompatActivity() {
                 Log.d("Clicked: ", "Connect, while on Connect")
             } else {
                 mDrawerLayout.closeDrawers()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val ii2 = Intent(this@BaseActivity, ConnectActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
+                }, closeMenuDelay)
+            }
+        }
+        txtAbout.setOnClickListener(){
+            if (myPageRefIndex == 5) {
+                //do not do it
+                Log.d("Clicked: ", "About, while on About")
+            } else {
+                //mDrawerLayout.closeDrawers()
+               // val ii2 = Intent(this@BaseActivity, AboutActivity::class.java)
+               // startActivity(ii2)
+               // overridePendingTransition(0, 0)
+                val intent = Intent(baseContext, AboutActivity::class.java)
+                startActivity(intent)
+
+            }
+        }
+        txtSettings.setOnClickListener(){
+            if (myPageRefIndex == 5) {
+                //do not do it
+                Log.d("Clicked: ", "Settings, while on Settings")
+            } else {
+                /*
+                mDrawerLayout.closeDrawers()
                 val ii2 = Intent(this@BaseActivity, ConnectActivity::class.java)
                 startActivity(ii2)
                 overridePendingTransition(0, 0)
+                 */
+                val intent = Intent(baseContext, SettingsActivity::class.java)
+                //intent.putExtra("URL", url)
+                startActivity(intent)
             }
         }
+
+
+
+
+        txtFeedback.setOnClickListener(){
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse("https://www.militaryonesource.mil/")
+            startActivity(browserIntent)
+        }
+
+
+
 
         //Military OneSource Network Actions
         btn_NetLink1.setOnClickListener {

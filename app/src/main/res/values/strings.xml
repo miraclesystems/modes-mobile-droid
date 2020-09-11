@@ -54,9 +54,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit id gravida nulla 
     <string name="spouse_education_career">https://myseco.militaryonesource.mil/portal/</string>
     <string name="military_state_policy_source">https://statepolicy.militaryonesource.mil/</string>
     <string name="plan_my_deployment">https://planmydeployment.militaryonesource.mil/</string>
-
-
-
+    <string name="title_activity_about">FullscreenActivity</string>
 
 
 </resources>
