@@ -28,6 +28,8 @@ class BenefitsActivity : BaseActivity(), Observer {
 
     var viewModel = BenefitsViewModel()
 
+    override var myPageRefIndex = 2
+
     fun loadBenefitsByCategory(){
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()

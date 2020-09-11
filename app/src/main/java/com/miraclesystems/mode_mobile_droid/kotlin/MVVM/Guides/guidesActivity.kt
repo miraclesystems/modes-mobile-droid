@@ -29,6 +29,8 @@ class guidesActivity : BaseActivity() {
     var viewModel : GuidesViewModel = GuidesViewModel()
     var guide : Guide? = null
 
+    override var myPageRefIndex = 1
+
     fun loadInAppBrowser(url : String){
 
 

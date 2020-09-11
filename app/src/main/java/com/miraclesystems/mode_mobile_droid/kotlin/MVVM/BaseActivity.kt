@@ -37,6 +37,8 @@ import kotlinx.android.synthetic.main.nav_header.view.*
 
 open class BaseActivity : AppCompatActivity() {
 
+    open var myPageRefIndex:Int = 0
+
     private val mOnNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -124,38 +126,63 @@ open class BaseActivity : AppCompatActivity() {
         }
 
         txtHome.setOnClickListener(){
-            mDrawerLayout.closeDrawers()
-            val ii2 = Intent(this@BaseActivity, HomeActivity::class.java)
-            startActivity(ii2)
-            overridePendingTransition(0, 0)
+            if (myPageRefIndex == 0) {
+                //do not do it
+                Log.d("Clicked: ", "Home, while on Home")
+            } else {
+                mDrawerLayout.closeDrawers()
+                val ii2 = Intent(this@BaseActivity, HomeActivity::class.java)
+                startActivity(ii2)
+                overridePendingTransition(0, 0)
+            }
         }
 
         txtGuides.setOnClickListener(){
-            mDrawerLayout.closeDrawers()
-            val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
-            startActivity(ii2)
-            overridePendingTransition(0, 0)
+            if (myPageRefIndex == 1) {
+                //do not do it
+                Log.d("Clicked: ", "Guides, while on Guides")
+            } else {
+                mDrawerLayout.closeDrawers()
+                val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
+                startActivity(ii2)
+                overridePendingTransition(0, 0)
+            }
         }
 
         txtBenefits.setOnClickListener(){
-            mDrawerLayout.closeDrawers()
-            val ii2 = Intent(this@BaseActivity, BenefitsActivity::class.java)
-            startActivity(ii2)
-            overridePendingTransition(0, 0)
+            if (myPageRefIndex == 2) {
+                //do not do it
+                Log.d("Clicked: ", "Benefits, while on Benefits")
+            } else {
+                mDrawerLayout.closeDrawers()
+                val ii2 = Intent(this@BaseActivity, BenefitsActivity::class.java)
+                startActivity(ii2)
+                overridePendingTransition(0, 0)
+            }
         }
 
         txtFavorites.setOnClickListener(){
-            mDrawerLayout.closeDrawers()
-            val ii2 = Intent(this@BaseActivity, FavoritesActivity::class.java)
-            startActivity(ii2)
-            overridePendingTransition(0, 0)
+            if (myPageRefIndex == 3) {
+                //do not do it
+                Log.d("Clicked: ", "Favorites, while on Favorites")
+            } else {
+                mDrawerLayout.closeDrawers()
+                val ii2 = Intent(this@BaseActivity, FavoritesActivity::class.java)
+                startActivity(ii2)
+                overridePendingTransition(0, 0)
+            }
         }
 
         txtConnect.setOnClickListener(){
-            mDrawerLayout.closeDrawers()
-            val ii2 = Intent(this@BaseActivity, ConnectActivity::class.java)
-            startActivity(ii2)
-            overridePendingTransition(0, 0)
+            if (myPageRefIndex == 4) {
+                //do not do it
+                Log.d("Clicked: ", "Connect, while on Connect")
+            } else {
+                mDrawerLayout.closeDrawers()
+                val ii2 = Intent(this@BaseActivity, ConnectActivity::class.java)
+                startActivity(ii2)
+                overridePendingTransition(0, 0)
+            }
         }
 
 
