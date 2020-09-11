@@ -29,6 +29,7 @@ import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Connect.ConnectActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Favorites.FavoritesActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_base.view.*
+import kotlinx.android.synthetic.main.activity_connect.*
 import kotlinx.android.synthetic.main.drawer_menu_custom.*
 import kotlinx.android.synthetic.main.nav_header.*
 import kotlinx.android.synthetic.main.nav_header.inside_menu_icon
@@ -120,7 +121,6 @@ open class BaseActivity : AppCompatActivity() {
 
 
         //SideMenu Actions
-
         inside_menu_icon.setOnClickListener(){
             mDrawerLayout.closeDrawers()
         }
@@ -136,7 +136,6 @@ open class BaseActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0)
             }
         }
-
         txtGuides.setOnClickListener(){
             if (myPageRefIndex == 1) {
                 //do not do it
@@ -148,7 +147,6 @@ open class BaseActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0)
             }
         }
-
         txtBenefits.setOnClickListener(){
             if (myPageRefIndex == 2) {
                 //do not do it
@@ -160,7 +158,6 @@ open class BaseActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0)
             }
         }
-
         txtFavorites.setOnClickListener(){
             if (myPageRefIndex == 3) {
                 //do not do it
@@ -172,7 +169,6 @@ open class BaseActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0)
             }
         }
-
         txtConnect.setOnClickListener(){
             if (myPageRefIndex == 4) {
                 //do not do it
@@ -184,6 +180,109 @@ open class BaseActivity : AppCompatActivity() {
                 overridePendingTransition(0, 0)
             }
         }
+
+        //Military OneSource Network Actions
+        btn_NetLink1.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.american_forces_travel))
+            startActivity(browserIntent)
+        }
+        btn_NetLink2.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.blog_brigade))
+            startActivity(browserIntent)
+        }
+        btn_NetLink3.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.efmp_and_me))
+            startActivity(browserIntent)
+        }
+        btn_NetLink4.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.military_installations))
+            startActivity(browserIntent)
+        }
+        btn_NetLink5.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.member_connect))
+            startActivity(browserIntent)
+        }
+        btn_NetLink6.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.military_spouse))
+            startActivity(browserIntent)
+        }
+        btn_NetLink7.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.millife_learning))
+            startActivity(browserIntent)
+        }
+        btn_NetLink8.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.my_caa))
+            startActivity(browserIntent)
+        }
+        btn_NetLink9.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.plan_my_move))
+            startActivity(browserIntent)
+        }
+        btn_NetLink10.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.spouse_education_career))
+            startActivity(browserIntent)
+        }
+        btn_NetLink11.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.education_directory))
+            startActivity(browserIntent)
+        }
+        btn_NetLink12.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.military_state_policy_source))
+            startActivity(browserIntent)
+        }
+        btn_NetLink13.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.military_onesource))
+            startActivity(browserIntent)
+        }
+        btn_NetLink14.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.plan_my_deployment))
+            startActivity(browserIntent)
+        }
+
+
+
+        //Social Media Links at Bottom
+        btn_Facebook.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.facebook))
+            startActivity(browserIntent)
+        }
+        btn_Twitter.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.twitter))
+            startActivity(browserIntent)
+        }
+        btn_YouTube.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.youtube))
+            startActivity(browserIntent)
+        }
+        btn_Instagram.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.instagram))
+            startActivity(browserIntent)
+        }
+        btn_Pinterest.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW)
+            browserIntent.data = Uri.parse(getString(R.string.pinterest))
+            startActivity(browserIntent)
+        }
+
+
 
 
 
