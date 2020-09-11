@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
-    android:layout_height="150dp"
-    android:clickable="true"
-    android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="135dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="149dp"
+    android:layout_height="168dp">
+
+
+
+<androidx.cardview.widget.CardView
+    android:layout_width="140dp"
+    android:layout_height="165dp"
+    app:cardCornerRadius="6dp"
+    android:background="@color/white"
+    >
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:clickable="true"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
         android:layout_height="32dp"
         android:background="#EFF4F7">
 
@@ -14,40 +36,54 @@
             android:id="@+id/icon"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@id/header"
-            android:background="@drawable/milife_focused_ic" />
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
+            android:background="@drawable/milife_focused_ic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/header"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529" />
 
         <TextView
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:layout_centerInParent="true"
             android:text="HEADER"
             android:textColor="#194867"
-            android:textSize="10sp" />
-    </RelativeLayout>
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <RelativeLayout
-        android:layout_width="135dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+
+        >
+
 
         <TextView
             android:id="@+id/content"
-            android:layout_width="wrap_content"
-            android:layout_height="64dp"
+            android:layout_width="125dp"
+            android:layout_height="68dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/worksans_regular"
+            android:gravity="center_horizontal"
             android:text="Access to Ancestry Library"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="#194867"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRecommended"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/buttonRecommended"
@@ -55,6 +91,7 @@
             android:layout_height="24dp"
             android:layout_below="@id/content"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
             android:background="@android:color/transparent"
             android:contentDescription="button"
             android:paddingTop="0dp"
@@ -62,28 +99,38 @@
             android:src="@drawable/round_button_highlighted"
             android:text="Recommended for you"
             android:textColor="@color/black"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/buttontext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="102dp"
+            android:layout_height="18dp"
             android:layout_below="@id/content"
             android:layout_centerHorizontal="true"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginRight="17dp"
             android:background="@android:color/transparent"
+            android:fontFamily="@font/worksans_regular"
             android:gravity="center_horizontal"
-            android:paddingTop="5dp"
+            android:paddingTop="7dp"
             android:text="RECOMMENDED FOR YOU"
             android:textColor="@color/white"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonRecommended"
+            app:layout_constraintEnd_toEndOf="@+id/buttonRecommended"
+            app:layout_constraintStart_toStartOf="@+id/buttonRecommended"
+            app:layout_constraintTop_toTopOf="@+id/buttonRecommended"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </RelativeLayout>
-
+</LinearLayout>
+</androidx.cardview.widget.CardView>
 </LinearLayout>
