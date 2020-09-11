@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.miraclesystems.mode_mobile_droid"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -47,7 +47,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.android.gms:play-services-location:11.0.2'
     implementation 'com.google.android.material:material:1.0.0-rc01'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+   // implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.android.support:recyclerview-v7'
+
+   
 
 
     testImplementation 'junit:junit:4.12'

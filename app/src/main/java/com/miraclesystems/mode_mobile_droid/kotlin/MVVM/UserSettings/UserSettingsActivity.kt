@@ -47,10 +47,13 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
     }
 
     fun resetFocus(){
+        /*
         imageView.isFocusable = true
         imageView.isFocusableInTouchMode = true
         imageView.requestFocus()
         imageView.requestFocusFromTouch()
+
+         */
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
