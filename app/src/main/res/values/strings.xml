@@ -38,10 +38,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit id gravida nulla 
     <string name="pinterest">https://www.pinterest.com/military1source/</string>
     <string name="chat_text">COMING SOON - Live Chat</string>
 
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
-
-
-
+    <string name="american_forces_travel">https://www.americanforcestravel.com/</string>
+    <string name="efmp_and_me">https://efmpandme.militaryonesource.mil/</string>
+    <string name="member_connect">https://www.militaryonesourceconnect.org/</string>
+    <string name="millife_learning">https://millifelearning.militaryonesource.mil/</string>
+    <string name="plan_my_move">https://planmymove.militaryonesource.mil/</string>
+    <string name="education_directory">https://efmpeducationdirectory.militaryonesource.mil/</string>
+    <string name="military_onesource">https://www.militaryonesource.mil/</string>
+    <string name="blog_brigade">https://blog-brigade.militaryonesource.mil/</string>
+    <string name="military_installations">https://installations.militaryonesource.mil/</string>
+    <string name="military_spouse">https://msepjobs.militaryonesource.mil/msep/home</string>
+    <string name="my_caa">https://mycaa.militaryonesource.mil/mycaa/</string>
+    <string name="spouse_education_career">https://myseco.militaryonesource.mil/portal/</string>
+    <string name="military_state_policy_source">https://statepolicy.militaryonesource.mil/</string>
+    <string name="plan_my_deployment">https://planmydeployment.militaryonesource.mil/</string>
+    <string name="title_activity_about">FullscreenActivity</string>
 
 
 </resources>

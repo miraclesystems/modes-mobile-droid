@@ -23,6 +23,7 @@ class FavoritesActivity : BaseActivity(), Observer {
 
     var viewModel = FavoritesViewModel()
 
+    override var myPageRefIndex = 3
 
     fun loadGuideDetail(selectedGuide : String){
 

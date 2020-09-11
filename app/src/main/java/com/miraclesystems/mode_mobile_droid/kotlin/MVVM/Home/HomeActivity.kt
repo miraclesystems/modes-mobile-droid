@@ -32,6 +32,8 @@ class HomeActivity : BaseActivity(), Observer {
 
     var Me = this
 
+    override var myPageRefIndex = 0
+
 
 
     fun callSupport(){

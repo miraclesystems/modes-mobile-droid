@@ -23,7 +23,7 @@ class ConnectActivity : BaseActivity() {
 
 
 
-
+    override var myPageRefIndex = 4
 
 
     @RequiresApi(Build.VERSION_CODES.M)

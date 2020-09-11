@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/inside_menu_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end"
+        android:layout_marginBottom="0dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/close_white_x"
+
+        />
+
+    <TextView
+        android:id="@+id/txtHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationThemeBold"
+        android:text="myMilitary OneSource" />
+
+    <TextView
+        android:id="@+id/txtGuides"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationTheme"
+        android:text="MilLife Guides" />
+
+    <TextView
+        android:id="@+id/txtBenefits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationTheme"
+        android:text="Benefits Finder" />
+
+    <TextView
+        android:id="@+id/txtFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationTheme"
+        android:text="Favorites" />
+
+    <TextView
+        android:id="@+id/txtConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationTheme"
+        android:text="Connect" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="#33FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/txtAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationThemeBold"
+        android:text="About my Military OneSource" />
+
+    <TextView
+        android:id="@+id/txtSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationTheme"
+        android:text="Settings" />
+
+    <TextView
+        android:id="@+id/txtFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationTheme"
+        android:text="Feedback" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="#33FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/txtMilNetwork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/SideNavigationThemeBold"
+        android:text="Military OneSource Network" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink1"
+            android:layout_width="72dp"
+            android:layout_height="21dp"
+            android:background="@drawable/netlink_1"
+/>      <ImageButton
+            android:id="@+id/btn_NetLink2"
+            android:layout_width="73dp"
+            android:layout_height="23dp"
+            android:background="@drawable/netlink_2"
+            android:layout_marginLeft="50dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink3"
+            android:layout_width="60dp"
+            android:layout_height="9dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/netlink_3"
+            />
+        <ImageButton
+            android:id="@+id/btn_NetLink4"
+            android:layout_width="73dp"
+            android:layout_height="17dp"
+            android:background="@drawable/netlink_4"
+            android:layout_marginLeft="68dp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink5"
+            android:layout_width="60dp"
+            android:layout_height="14dp"
+            android:background="@drawable/netlink_5"
+            />
+        <ImageButton
+            android:id="@+id/btn_NetLink6"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="-4dp"
+            android:background="@drawable/netlink_6"
+            android:layout_marginLeft="66dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink7"
+            android:layout_width="44dp"
+            android:layout_height="15dp"
+            android:background="@drawable/netlink_7"
+            />
+        <ImageButton
+            android:id="@+id/btn_NetLink8"
+            android:layout_width="59dp"
+            android:layout_height="18dp"
+            android:background="@drawable/netlink_8"
+            android:layout_marginLeft="84dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink9"
+            android:layout_width="49dp"
+            android:layout_height="18dp"
+            android:background="@drawable/netlink_9"
+            />
+        <ImageButton
+            android:id="@+id/btn_NetLink10"
+            android:layout_width="87dp"
+            android:layout_height="19dp"
+            android:background="@drawable/netlink_10"
+            android:layout_marginLeft="79dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink11"
+            android:layout_width="117dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/netlink_11"
+            />
+        <ImageButton
+            android:id="@+id/btn_NetLink12"
+            android:layout_width="45dp"
+            android:layout_height="23dp"
+            android:background="@drawable/netlink_12"
+            android:layout_marginLeft="13dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_NetLink13"
+            android:layout_width="73dp"
+            android:layout_height="18dp"
+            android:background="@drawable/netlink_13"
+            />
+        <ImageButton
+            android:id="@+id/btn_NetLink14"
+            android:layout_width="90dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/netlink_14"
+            android:layout_marginLeft="60dp"
+            />
+    </LinearLayout>
+
+
+    <!--Social Media -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+
+        android:orientation="horizontal"
+        >
+        <ImageButton
+            android:id="@+id/btn_Facebook"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/facebook_icon"
+            />
+        <ImageButton
+            android:id="@+id/btn_Twitter"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/twitter_ic"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageButton
+            android:id="@+id/btn_YouTube"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/youtube_ic"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageButton
+            android:id="@+id/btn_Pinterest"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/pinterest_ic"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageButton
+            android:id="@+id/btn_Instagram"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/instagram_ic"
+            android:layout_marginLeft="10dp"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>
