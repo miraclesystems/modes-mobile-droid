@@ -37,7 +37,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit id gravida nulla 
     <string name="pinterest">https://www.pinterest.com/military1source/</string>
     <string name="chat_text">COMING SOON - Live Chat</string>
 
-
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
 

@@ -7,16 +7,21 @@ import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Guides.guidesActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Home.HomeActivity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
+import android.os.Handler
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Benefits.BenefitsActivity
@@ -24,6 +29,9 @@ import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Connect.ConnectActivity
 import com.miraclesystems.mode_mobile_droid.kotlin.MVVM.Favorites.FavoritesActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_base.view.*
+import kotlinx.android.synthetic.main.drawer_menu_custom.*
+import kotlinx.android.synthetic.main.nav_header.*
+import kotlinx.android.synthetic.main.nav_header.inside_menu_icon
 import kotlinx.android.synthetic.main.nav_header.view.*
 
 
@@ -84,6 +92,8 @@ open class BaseActivity : AppCompatActivity() {
     var navigationSideView: NavigationView? = null
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
@@ -91,16 +101,67 @@ open class BaseActivity : AppCompatActivity() {
         navigationView!!.setItemIconTintList(null);
         navigationView!!.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
+
+
         mDrawerLayout = findViewById(R.id.drawer_layout)
         val navigationSideView: NavigationView = findViewById(R.id.navigationSideView)
 
         //Setup for Close Button inside the Right Menu
+        /*
         val headerview = navigationSideView.getHeaderView(0)
         val insidemenuicon = headerview.inside_menu_icon
         insidemenuicon.setOnClickListener(){
             mDrawerLayout.closeDrawers()
         }
+        */
 
+
+
+        //SideMenu Actions
+
+        inside_menu_icon.setOnClickListener(){
+            mDrawerLayout.closeDrawers()
+        }
+
+        txtHome.setOnClickListener(){
+            mDrawerLayout.closeDrawers()
+            val ii2 = Intent(this@BaseActivity, HomeActivity::class.java)
+            startActivity(ii2)
+            overridePendingTransition(0, 0)
+        }
+
+        txtGuides.setOnClickListener(){
+            mDrawerLayout.closeDrawers()
+            val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
+            startActivity(ii2)
+            overridePendingTransition(0, 0)
+        }
+
+        txtBenefits.setOnClickListener(){
+            mDrawerLayout.closeDrawers()
+            val ii2 = Intent(this@BaseActivity, BenefitsActivity::class.java)
+            startActivity(ii2)
+            overridePendingTransition(0, 0)
+        }
+
+        txtFavorites.setOnClickListener(){
+            mDrawerLayout.closeDrawers()
+            val ii2 = Intent(this@BaseActivity, FavoritesActivity::class.java)
+            startActivity(ii2)
+            overridePendingTransition(0, 0)
+        }
+
+        txtConnect.setOnClickListener(){
+            mDrawerLayout.closeDrawers()
+            val ii2 = Intent(this@BaseActivity, ConnectActivity::class.java)
+            startActivity(ii2)
+            overridePendingTransition(0, 0)
+        }
+
+
+
+
+        /*
         navigationSideView.setNavigationItemSelectedListener { menuItem ->
             // set item as selected to persist highlight
             menuItem.isChecked = true
@@ -129,23 +190,33 @@ open class BaseActivity : AppCompatActivity() {
                 R.id.nav_Guides -> {
                     //Guides
                     Log.d("Clicked: ", "MilLife Guides")
-                    /*
-                    if (navItemIndex != 1) {
-                        navItemIndex = 1
-                        //dosomething
-                    }
-                    */
-
                     val ii2 = Intent(this@BaseActivity, guidesActivity::class.java)
                     startActivity(ii2)
                     overridePendingTransition(0, 0)
-                    
+                }
+                R.id.nav_Benefits -> {
+                    //Beneftis
+                    Log.d("Clicked: ", "Benefits")
+                    val ii2 = Intent(this@BaseActivity, BenefitsActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
+                }
+                R.id.nav_Favorites -> {
+                    //Beneftis
+                    Log.d("Clicked: ", "Favorites")
+                    val ii2 = Intent(this@BaseActivity, FavoritesActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
                 }
                 R.id.nav_Connect -> {
-
-
-
+                    //Beneftis
+                    Log.d("Clicked: ", "Favorites")
+                    val ii2 = Intent(this@BaseActivity, ConnectActivity::class.java)
+                    startActivity(ii2)
+                    overridePendingTransition(0, 0)
                 }
+
+
 
             }
 
@@ -153,7 +224,7 @@ open class BaseActivity : AppCompatActivity() {
 
             true
         }
-
+        */
 
         btn_SideMenu.setOnClickListener(){
 
@@ -166,8 +237,10 @@ open class BaseActivity : AppCompatActivity() {
 
         }
 
+        @Override fun onClick(view: View) {
+            Log.d("Clicked: ", "onClick")
 
-
+        }
 
 
 
@@ -176,6 +249,7 @@ open class BaseActivity : AppCompatActivity() {
 
 
     }
+
 
 
 

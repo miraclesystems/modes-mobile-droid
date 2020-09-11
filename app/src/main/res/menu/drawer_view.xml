@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single"
         >
         <item
@@ -22,6 +23,30 @@
             android:id="@+id/nav_Connect"
             android:title="Connect" />
 
+        <item
+            android:id="@+id/nav_blank1"
+            android:title=""
+            app:showAsAction="always"
+            app:actionLayout="@layout/menu_custom_blank"
+            />
+        <item
+            android:id="@+id/nav_About"
+            android:title="About my Military OneSource" />
+
+        <item
+            android:id="@+id/nav_Settings"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/nav_Feedback"
+            android:title="Feedback" />
+
+        <item
+            android:id="@+id/nav_blank2"
+            android:title="" />
+        <item
+            android:id="@+id/nav_MilNetwork"
+            android:title="Military OneSource Network" />
 
 
     </group>
