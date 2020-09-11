@@ -1,5 +1,6 @@
 package com.miraclesystems.mode_mobile_droid.kotlin.MVVM.UserSettings
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -53,7 +54,11 @@ class UserSettingsBranchFragment : Fragment() {
         button_done.setOnClickListener(){
             val intent = Intent()
             intent.setClass(activity!!, HomeActivity::class.java)
+
             activity!!.startActivity(intent)
+            activity!!.overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
+
+
         }
 
 

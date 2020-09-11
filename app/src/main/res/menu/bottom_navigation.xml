@@ -12,7 +12,8 @@
         android:id="@+id/navigation_milife"
         android:icon="@drawable/guide_nav_selector"
         android:title="Guides"
-        android:textColor="@color/bottom_nav_txt_color" />
+        android:textColor="@color/bottom_nav_txt_color"
+        />
     <item
         android:id="@+id/navigation_benefits"
         android:icon="@drawable/benefits_nav_selector"

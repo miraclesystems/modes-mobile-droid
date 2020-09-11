@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -91,9 +92,6 @@ class HomeActivity : BaseActivity(), Observer {
 
         super.onCreate(savedInstanceState)
         setContentLayout(R.layout.activity_home);
-
-
-
 
 
 

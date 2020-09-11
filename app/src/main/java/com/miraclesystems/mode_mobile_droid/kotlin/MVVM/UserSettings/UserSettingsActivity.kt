@@ -89,6 +89,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
 
         button_skipAll.setOnClickListener(){
             startActivity(Intent(this, HomeActivity::class.java))
+            overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
+
         }
 
 

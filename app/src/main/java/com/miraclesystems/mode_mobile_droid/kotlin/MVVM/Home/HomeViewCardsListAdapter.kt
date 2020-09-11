@@ -50,7 +50,10 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.content.setText(item.cardTitle)
 
         //setOnClickListener { listener(item) }
+
+
     }
+
 }
 
 

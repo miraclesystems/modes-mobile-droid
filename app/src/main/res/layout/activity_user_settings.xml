@@ -52,6 +52,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/keyboard_backspace"
                     android:contentDescription="back" />
 
