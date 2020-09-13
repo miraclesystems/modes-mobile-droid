@@ -16,10 +16,11 @@
     <string name="skip_question"><u>Skip question</u></string>
     <string name="use_your_location">Use current location</string>
     <string name="personalize">PERSONALIZE THE APP</string>
+    <string name="personalizeLoading">Personalizing your experience...</string>
     <string name="what_best_d">What best describes you?</string>
     <string name="home_search">"   Search MilLife Guides &amp; Benefits"</string>
-
-    <string name="search_inst">" Search installations"</string>
+    <string name="version">"version 1.0.0"</string>
+    <string name="search_inst">"  Search installations"</string>
     <string name="onsesource_link"><u>Get more search results on\n MiltaryOnseSource.mil</u></string>
 
     <string name="guide_overview_placehodler">
