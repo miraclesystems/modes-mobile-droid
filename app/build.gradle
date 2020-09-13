@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.miraclesystems.mode_mobile_droid"
+        applicationId "mil.dod.mcfp.mymilitaryonesource"
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
