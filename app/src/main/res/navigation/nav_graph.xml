@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.miraclesystems.mode_mobile_droid.kotlin.MVVM.FirstFragment"
+        android:name="mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.miraclesystems.mode_mobile_droid.kotlin.MVVM.SecondFragment"
+        android:name="mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
