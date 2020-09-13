@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/splash_modes_logo" />
+        app:srcCompat="@drawable/modes_logo_main" />
 
     <TextView
         android:id="@+id/textView"
@@ -49,7 +49,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/splash_dod_logo" />
+        app:srcCompat="@drawable/dod_logo" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -57,6 +57,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="0dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        android:textSize="12sp"
+        android:textColor="#76B8E2"
+        android:fontFamily="@font/worksans_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/dodLogo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

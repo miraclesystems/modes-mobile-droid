@@ -9,7 +9,10 @@ import android.view.ViewGroup
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 import kotlinx.android.synthetic.main.activity_user_settings.*
+import kotlinx.android.synthetic.main.fragment_user_settings_description.*
 import kotlinx.android.synthetic.main.fragment_user_settings_description.view.*
+import kotlinx.android.synthetic.main.layout_benefits.*
+import kotlin.math.log
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +28,8 @@ class UserSettingsDescriptionFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +47,19 @@ class UserSettingsDescriptionFragment : Fragment() {
 
         var userSettingsActivity = activity as UserSettingsActivity
 
+        userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector1_higlighted)
 
-                userSettingsActivity.pager_page1.setBackgroundResource(R.drawable.selector1_higlighted)
+
+
+
+        var selectedUserDescription =  PreferencesUtil.getValueString("USER_DESCRIPTION")
+
+        when (selectedUserDescription) {
+            "member" -> button_serviceMember.setSelected(true)
+            "spouse" -> button_spouse.setSelected(true)
+            "family" -> button_family.setSelected(true)
+            "other" -> button_other.setSelected(true)
+        }
 
     }
 
@@ -51,6 +67,7 @@ class UserSettingsDescriptionFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         var userSettingsActivity = activity as UserSettingsActivity
+
         if(userSettingsActivity.pager_page1 != null) {
 
             if (userSettingsActivity.page1Completed) {
@@ -62,10 +79,10 @@ class UserSettingsDescriptionFragment : Fragment() {
 
         }
     }
-    fun page2(desrciption : String){
+    fun page2(description : String){
 
 
-        PreferencesUtil.save("USER_DESCRIPTION", desrciption)
+        PreferencesUtil.save("USER_DESCRIPTION", description)
         var userSettingsActivity = activity as UserSettingsActivity
         userSettingsActivity.page1Completed = true
         userSettingsActivity.loadPage2()
@@ -80,19 +97,35 @@ class UserSettingsDescriptionFragment : Fragment() {
 
 
         view.button_serviceMember.setOnClickListener { view ->
-            Log.d("usersetup", "Member")
-
+            button_serviceMember.setSelected(true)
+            button_family.setSelected(false)
+            button_spouse.setSelected(false)
+            button_other.setSelected(false)
             page2("member")
         }
 
         view.button_family.setOnClickListener { view ->
+            button_family.setSelected(true)
+            button_serviceMember.setSelected(false)
+            button_spouse.setSelected(false)
+            button_other.setSelected(false)
             page2("family")
+
         }
 
         view.button_spouse.setOnClickListener { view ->
+            button_spouse.setSelected(true)
+            button_family.setSelected(false)
+            button_serviceMember.setSelected(false)
+            button_other.setSelected(false)
             page2("spouse")
+
         }
         view.button_other.setOnClickListener{
+            button_other.setSelected(true)
+            button_family.setSelected(false)
+            button_serviceMember.setSelected(false)
+            button_spouse.setSelected(false)
             page2("other")
         }
 

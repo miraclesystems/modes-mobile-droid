@@ -3,7 +3,6 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,9 @@ import android.widget.ArrayAdapter
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsLoadingActivity
 import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.view.*
@@ -32,7 +34,7 @@ class UserSettingsBranchFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    var isSet = ""
+    var isSet = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,29 +42,27 @@ class UserSettingsBranchFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        //PreferencesUtil.save("branch", "selected")
+
     }
 
     override fun onResume() {
-        super.onResume()
 
+        super.onResume()
         var userSettingsActivity = activity as UserSettingsActivity
 
 
 
         button_done.setOnClickListener(){
             val intent = Intent()
-            intent.setClass(activity!!, HomeActivity::class.java)
-
+            intent.setClass(activity!!, UserSettingsLoadingActivity::class.java)
             activity!!.startActivity(intent)
             activity!!.overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
-
-
         }
 
 
-
         if(userSettingsActivity.pager_page3 != null) {
-
             userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3_highlighted)
         }
 
@@ -75,13 +75,15 @@ class UserSettingsBranchFragment : Fragment() {
         userSettingsActivity.button_skip.setText(R.string.skip_question)
         if(userSettingsActivity.pager_page3 != null) {
 
-            if (userSettingsActivity.page3Completed && isSet != "select a branch") {
+            if (userSettingsActivity.page3Completed && isSet ) {
                 userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector_checked)
             } else {
                 userSettingsActivity.pager_page3.setBackgroundResource(R.drawable.selector3)
             }
 
         }
+
+
     }
 
     override fun onCreateView(
@@ -91,7 +93,20 @@ class UserSettingsBranchFragment : Fragment() {
         // Inflate the layout for this fragment
         var view : View = inflater.inflate(R.layout.fragment_user_settings_branch, container, false)
 
-        var branches : Array<String> = arrayOf("select a branch", "Army", "Marine Corps", "Navy", "Air-Force", "Coast Guard", "National Guard","Reserves","DOD Civilian","N/A")
+
+
+        var branches : Array<String> = arrayOf(
+            "Select a branch",
+            "Army",
+            "Marine Corps",
+            "Navy",
+            "Air-Force",
+            "Coast Guard",
+            "National Guard",
+            "Reserves",
+            "DOD Civilian",
+            "N/A"
+        )
         // Initializing an ArrayAdapter
 
 
@@ -100,42 +115,63 @@ class UserSettingsBranchFragment : Fragment() {
             branch_spinner.performClick()
         }
 
-        view.branch_spinner.adapter = ArrayAdapter<String>(activity!!.applicationContext, android.R.layout.simple_list_item_1, branches)
+        view.branch_spinner.adapter = ArrayAdapter<String>(
+            activity!!.applicationContext,
+            android.R.layout.simple_list_item_1,
+            branches
+        )
 
         view.branch_spinner?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
 
                 branch_spinner.visibility = View.INVISIBLE
 
                 if(branch != null) {
-                    branch.setText(branches[position])
-
 
                     var userSettingsActivity = activity as UserSettingsActivity
-
-                    if(branches[position] != "select a branch" ) {
-                        Log.d(branches[position],"debugpos")
-                        button_done.visibility = View.VISIBLE
                         userSettingsActivity.page3Completed = true
+
+                    if(branches[position] != "Select a branch" ) {
                         PreferencesUtil.save("branch", branches[position])
-                        isSet = branches[position]
+                        button_done.visibility = View.VISIBLE
 
                     }
 
+                    val selectedBranch = PreferencesUtil?.getValueString("branch") ?: "Select a branch"
+                    branch.setText(selectedBranch)
+
+                    if (selectedBranch != "Select a branch"){
+                    isSet = true
+                    }
                 }
-
             }
-
         }
+
+
+
+        var branchString = PreferencesUtil?.getValueString("branch") ?: "Select a branchhhhhh"
+
+
+       // val myAwesomeTextView = view.findViewById(R.id.branch) as TextView
+
+
+
 
 
 
         return view
     }
+
+
 
     companion object {
         /**

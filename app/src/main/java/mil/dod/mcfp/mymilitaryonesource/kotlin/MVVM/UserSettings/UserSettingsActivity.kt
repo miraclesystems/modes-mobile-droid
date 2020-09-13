@@ -1,17 +1,20 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 
 import android.annotation.SuppressLint
+import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
 import kotlinx.android.synthetic.main.activity_user_settings.*
-import kotlinx.android.synthetic.main.activity_user_settings.imageView
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -58,6 +61,8 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         super.onCreate(savedInstanceState)
 
 
+        //JS Clear all previous saved preferences on run of app
+        PreferencesUtil.clearAll()
 
         setContentView(R.layout.activity_user_settings)
 
@@ -194,18 +199,22 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
 
     fun loadPage3(){
         pageNumber = 3
-        val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-        // Replace the contents of the container with the new fragment
-        // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_left, R.anim.slide_right);
-        ft.replace(R.id.fragment_placeholder, UserSettingsBranchFragment())
-        // or ft.add(R.id.your_placeholder, new FooFragment());
-        // Complete the changes added above
-        // or ft.add(R.id.your_placeholder, new FooFragment());
-        // Complete the changes added above
-        ft.commit()
 
-        resetFocus()
+
+            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+            // Replace the contents of the container with the new fragment
+            // Replace the contents of the container with the new fragment
+            ft.setCustomAnimations(R.anim.slide_left, R.anim.slide_right);
+            //ft.replace(R.id.fragment_placeholder, UserSettingsBranchFragment())
+            ft.replace(R.id.fragment_placeholder, UserSettingsBranchFragment())
+            // or ft.add(R.id.your_placeholder, new FooFragment());
+            // Complete the changes added above
+            // or ft.add(R.id.your_placeholder, new FooFragment());
+            // Complete the changes added above
+            ft.commit()
+            resetFocus()
+
+
     }
 
     override fun update(o: Observable?, arg: Any?) {

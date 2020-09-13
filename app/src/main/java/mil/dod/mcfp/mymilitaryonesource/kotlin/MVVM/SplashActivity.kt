@@ -10,7 +10,7 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsAct
 class SplashActivity : AppCompatActivity() {
 
     // This is the loading time of the splash screen, change accordingly
-    private val SPLASH_TIME_OUT:Long = 1000
+    private val SPLASH_TIME_OUT:Long = 2000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)

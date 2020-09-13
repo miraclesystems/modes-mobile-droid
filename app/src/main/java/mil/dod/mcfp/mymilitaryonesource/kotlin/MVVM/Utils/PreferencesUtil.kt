@@ -36,6 +36,15 @@ object PreferencesUtil {
         editor.commit()
     }
 
+
+
+    fun clearAll() {
+        val editor: SharedPreferences.Editor = preferences.edit()
+
+        editor.clear();
+        editor.commit()
+    }
+
    fun getValueString(KEY_NAME: String): String? {
 
         return preferences.getString(KEY_NAME, null)
