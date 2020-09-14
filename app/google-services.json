@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "895769630880",
+    "firebase_url": "https://my-military-onesource.firebaseio.com",
+    "project_id": "my-military-onesource",
+    "storage_bucket": "my-military-onesource.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895769630880:android:463f7359cdbaba024791c5",
+        "android_client_info": {
+          "package_name": "mil.dod.mcfp.mymilitaryonesource"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895769630880-4lr28nje84nlg4vmainpf76birtic1qp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClAMoOC0_GTZXVeozUPD_7XNlq3UaWwqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895769630880-4lr28nje84nlg4vmainpf76birtic1qp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "895769630880-jdm65ic8jm8q3v2dpiqo1sl9ijo7pqgd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "miraclesystems.modes-mobile-ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

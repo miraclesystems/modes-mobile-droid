@@ -26,7 +26,7 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Connect.ConnectActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Favorites.FavoritesActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.AboutActivity
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.SettingsActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.drawer_menu_custom.*
 import kotlinx.android.synthetic.main.nav_header.inside_menu_icon
