@@ -210,7 +210,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                     if (task.isSuccessful && task.result != null) {
                         Log.d(TAG, "getLastLocation")
                         val geocoder = Geocoder(activity!!.applicationContext, Locale.ENGLISH)
-                        val addresses = geocoder.getFromLocation(task.result.latitude, task.result.longitude, 1)
+                        val addresses = geocoder.getFromLocation(task.result!!.latitude, task.result!!.longitude, 1)
                         userSettingsActivity.city = addresses[0].locality
                         val zipcode = addresses[0].postalCode
                         Log.d("debug", addresses[0].postalCode)
