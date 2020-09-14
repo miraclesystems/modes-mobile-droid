@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#EFF4F7"
-    tools:context=".kotlin.MVVM.Utils.SettingsActivity">
+    tools:context=".kotlin.MVVM.Settings.SettingsActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="64dp"

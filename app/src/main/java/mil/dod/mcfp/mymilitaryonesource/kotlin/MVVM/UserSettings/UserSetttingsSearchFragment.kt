@@ -216,8 +216,8 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     Log.d(ContentValues.TAG, "getLastLocation")
                     val geocoder = Geocoder(activity!!.applicationContext, Locale.ENGLISH)
                     val addresses = geocoder.getFromLocation(
-                        task.result.latitude,
-                        task.result.longitude,
+                        task.result!!.latitude,
+                        task.result!!.longitude,
                         1
                     )
                     userSettingsActivity.city = addresses[0].locality
@@ -302,11 +302,25 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 val itemValue = searchList.getItemAtPosition(position) as String
 
 
+                for(location in userSettingsActivity.viewModel.model.items!!){
+
+                    if(location?.name == itemValue){
+                        var x = PreferencesUtil.getValueString("installation")
+                        PreferencesUtil.save("installation", location.id.toString())
+                       // x = PreferencesUtil.getValueString("installation")
+                    }
+
+                }
+
+
+                /*
                 var id = userSettingsActivity.viewModel.model.items?.get(position)?.id
 
                 var x = PreferencesUtil.getValueString("installation")
                 PreferencesUtil.save("installation",id.toString())
                 x = PreferencesUtil.getValueString("installation")
+
+                 */
 
                 userSettingsActivity.page2Completed = true
                 var transaction = userSettingsActivity.supportFragmentManager.beginTransaction()
