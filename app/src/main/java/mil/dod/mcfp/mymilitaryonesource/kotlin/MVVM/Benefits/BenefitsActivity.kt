@@ -144,12 +144,14 @@ class BenefitsActivity : BaseActivity(), Observer {
         super.onResume()
         setSelected(R.id.navigation_benefits);
 
+        if(viewModel.selectedBenefit == null || viewModel.selectedBenefit.length == 0) {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
             ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
             ft.commit()
+        }
 
     }
 
