@@ -116,7 +116,7 @@ class HomeSearchFragment : Fragment() {
                 s: CharSequence, start: Int,
                 before: Int, count: Int
             ) {
-                if (s.count() >= 3) {
+                if (s.count() >= 1) {
                     Log.d("dbug", "text entered -->" + s)
 
                     var topic = s.toString()
