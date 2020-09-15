@@ -39,6 +39,7 @@ data class Location(
     val coun_id: String?,
     @SerializedName("name_seo")
     val name_seo: String?
+
 )
 
 
