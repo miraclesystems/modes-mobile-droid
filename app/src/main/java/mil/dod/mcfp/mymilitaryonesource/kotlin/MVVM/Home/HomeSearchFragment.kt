@@ -1,4 +1,4 @@
-package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
+ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
 import android.app.Activity
 import android.content.Intent
@@ -14,13 +14,14 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_home_search.*
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
+import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.listview_item.view.*
+import mil.dod.mcfp.mymilitaryonesource.R
 
 
-// TODO: Rename parameter arguments, choose names that match
+ // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -122,15 +123,37 @@ class HomeSearchFragment : Fragment() {
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
                     selectedTopic = topic as String
 
+
                     var homeActivity = activity as HomeActivity
                     val adapter = ArrayAdapter(
                         activity!!.applicationContext,
                         R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
                     )
 
+
                     searchList.adapter = adapter
+
+
+                    // Log.d("topic", searchList.getAdapter().getCount().toString())
+
+                    if (searchList.getAdapter().getCount() == 0) {
+
+                        val arg = "\"$topic\""
+
+                        val title = getResources().getString(R.string.search_empty, arg)
+
+                       // sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
+
+                        sectionHeaderNone.setText(title)
+                        sectionHeader.setText("SUGGESTED TOPICS")
+                        sectionHeaderView.visibility = View.VISIBLE
+
+                        loadTopics = true
+
+
+                    }
+
                     searchList.requestLayout()
-                    loadTopics = true
 
                 }
             }
@@ -158,7 +181,12 @@ class HomeSearchFragment : Fragment() {
                     loadTopics = true
                     var topic = homeActivity.viewModel.getSuggestedTopic()[position]
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
+
+
+
                     selectedTopic = topic
+
+
 
                     var homeActivity = activity as HomeActivity
                     val adapter = ArrayAdapter(
@@ -178,6 +206,7 @@ class HomeSearchFragment : Fragment() {
 
                     //var topic = homeActivity.viewModel.getTopics(view.label.text.toString())[position]
                     homeActivity.topic = view.label.text.toString()
+
                     homeActivity.loadViewTopic()
                     loadTopics = false
                 }

@@ -2,6 +2,8 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.App
 
 object PreferencesUtil {
@@ -30,6 +32,9 @@ object PreferencesUtil {
 
     fun save(KEY_NAME: String, value: String) {
         val editor: SharedPreferences.Editor = preferences.edit()
+
+        Log.d("prefs", value)
+
 
         editor.putString(KEY_NAME, value)
 
