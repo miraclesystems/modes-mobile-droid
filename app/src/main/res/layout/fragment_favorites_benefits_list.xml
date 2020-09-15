@@ -33,6 +33,35 @@
                 android:textStyle="bold"
                 android:background="#194867"/>
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header"
+                android:id="@+id/noBenefits">
+
+                <TextView
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="No Benefits Favorited"
+                    android:gravity="center_horizontal"
+                    android:textColor="#194867"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/line2"
+                    android:layout_below="@id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="To favorite a benefit, click the ♡\nin the corner of the benefit"
+                    android:gravity="center_horizontal"
+                    android:textColor="#194867"
+                    android:textSize="14sp"/>
+
+            </RelativeLayout>
+
             <ListView
                 android:id="@+id/listFavorites"
                 android:layout_width="match_parent"
