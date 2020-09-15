@@ -1,10 +1,13 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Favorites
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_favorites_installations.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_favorites_installations.view.*
 
@@ -24,6 +27,11 @@ class FavoritesInstallationsFragment : Fragment(), Observer {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    var emailUrl : String = ""
+    var webSiteUrl : String = ""
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,12 +59,27 @@ class FavoritesInstallationsFragment : Fragment(), Observer {
         view.address_2.text = favoritesActivity.viewModel.locationsModel?.items?.get(0)?.city + ", " + favoritesActivity.viewModel.locationsModel?.items?.get(0)?.stat_id + " " +
                 favoritesActivity.viewModel.locationsModel?.items?.get(0)?.postal_code
 
-        view.email.text = favoritesActivity.viewModel.locationsModel?.items?.get(0)?.email_address1
-        view.website.text = favoritesActivity.viewModel.locationsModel?.items?.get(0)?.url1
+        emailUrl = "https://apps.militaryonesource.mil/MOS/f?p=AMS:5:0::::P5_APP_NAME,P5_MSG_TYPE,P5_EID:MilitaryINSTALLATIONS,Installation%20Address," + favoritesActivity.viewModel.locationsModel?.items?.get(0)?.id.toString()
+
+        webSiteUrl = "https://installations.militaryonesource.mil/military-installation/" + favoritesActivity.viewModel.locationsModel?.items?.get(0)?.name_seo
+        //view.email.text = favoritesActivity.viewModel.locationsModel?.items?.get(0)?.email_address1
+        //view.website.text = favoritesActivity.viewModel.locationsModel?.items?.get(0)?.url1
         view.phone.text = favoritesActivity.viewModel.locationsModel?.items?.get(0)?.phone1
 
 
+        view.email.setOnClickListener {
+            favoritesActivity.openBrowser(emailUrl)
+        }
 
+
+        view.website.setOnClickListener {
+            favoritesActivity.openBrowser(webSiteUrl)
+        }
+
+        view.phone.setOnClickListener {
+
+            favoritesActivity.makeCall(phone.text.toString())
+        }
         return view
     }
 

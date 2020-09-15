@@ -3,6 +3,7 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,16 +11,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import androidx.fragment.app.Fragment
-import mil.dod.mcfp.mymilitaryonesource.R
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import kotlinx.android.synthetic.main.fragment_guides_detail.*
 import kotlinx.android.synthetic.main.fragment_guides_detail.view.*
-import kotlinx.android.synthetic.main.fragment_guides_detail.view.button_back
-import kotlinx.android.synthetic.main.fragment_guides_detail.view.button_favorite
-import kotlinx.android.synthetic.main.fragment_guides_detail.view.button_more_benefits
 import kotlinx.android.synthetic.main.layout_benefits.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.*
 import kotlinx.android.synthetic.main.listview_item.view.*
+import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
+import java.io.InputStream
+import java.lang.Exception
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,6 +65,28 @@ class GuidesDetailFragment : Fragment() {
         else{
             view.button_favorite.setBackgroundResource(R.drawable.favorite_unselected)
         }
+
+
+
+        // get input stream
+        // get input stream
+
+        try {
+            val ims: InputStream = guidesActivity.getAssets()
+                .open("large-images/" + model!!.GuideImage + "-1000x500.jpg")
+            // load image as Drawable
+            // load image as Drawable
+            val d =
+                Drawable.createFromStream(ims, null)
+            // set image to ImageView
+            // set image to ImageView
+            view.image.setImageDrawable(d)
+            ims.close()
+        }
+        catch (e : Exception){
+
+        }
+
 
 
 
