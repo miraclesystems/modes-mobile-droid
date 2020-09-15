@@ -3,6 +3,7 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 import android.Manifest
 import android.app.Activity
 import android.content.ContentValues.TAG
+import android.content.Context.MODE_WORLD_READABLE
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
@@ -23,9 +24,10 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.activity_user_settings.*
-import kotlinx.android.synthetic.main.fragment_user_settings_installation.pbLoading
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.button_location
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -58,6 +60,17 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
         var userSettingsActivity = activity as UserSettingsActivity
 
         userSettingsActivity.resetFocus()
+
+
+       if( PreferencesUtil.getValueString("installation_name") != null ) {
+
+
+           var installationName = PreferencesUtil.getValueString("installation_name")
+           installationName = installationName!!.take(20)
+
+           search_installations.setText("   $installationName")
+
+       }
 
         if(userSettingsActivity.pager_page2 != null) {
 

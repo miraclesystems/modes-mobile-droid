@@ -222,7 +222,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     )
                     userSettingsActivity.city = addresses[0].locality
                     val zipcode = addresses[0].postalCode
-                    Log.d("debug", addresses[0].postalCode)
 
                     var userSettingsActivity = activity as UserSettingsActivity
                     userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
@@ -301,13 +300,25 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 // value of item that is clicked
                 val itemValue = searchList.getItemAtPosition(position) as String
 
+                Log.d("debug_item", itemValue)
+
+
+
 
                 for(location in userSettingsActivity.viewModel.model.items!!){
 
                     if(location?.name == itemValue){
                         var x = PreferencesUtil.getValueString("installation")
                         PreferencesUtil.save("installation", location.id.toString())
-                       // x = PreferencesUtil.getValueString("installation")
+                        PreferencesUtil.save("installation_name", location.name.toString())
+
+                        // x = PreferencesUtil.getValueString("installation")
+
+
+
+
+
+
                     }
 
                 }
@@ -371,18 +382,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     R.layout.listview_item, listNames
                 )
 
-
-
-
                 view.searchList.adapter = adapter
-
-
-
-
-
-
-
-
 
 
                 Log.d("debug", "stop")

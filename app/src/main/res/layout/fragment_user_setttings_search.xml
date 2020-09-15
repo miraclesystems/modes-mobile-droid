@@ -47,14 +47,16 @@
                 android:id="@+id/search_text"
                 android:layout_width="269dp"
                 android:layout_height="41dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
                 android:background="@drawable/search_w_icon"
+                android:fontFamily="@font/worksans_regular"
+                android:hint="Search by installation name"
+                android:textColorHint="#4A4A4A"
                 android:imeOptions="actionDone"
-                android:inputType="text"
                 android:importantForAccessibility="yes"
+                android:inputType="text"
                 android:paddingLeft="12dp"
-                />
+                android:textSize="14sp" />
 
 
             <Button

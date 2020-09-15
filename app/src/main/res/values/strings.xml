@@ -22,6 +22,7 @@
     <string name="version">"version 1.0.0"</string>
     <string name="search_inst">"  Search installations"</string>
     <string name="onsesource_link"><u>Get more search results on\n MiltaryOnseSource.mil</u></string>
+    <string name="search_empty">No results found for %s, search again or select a topic below.</string>
 
     <string name="guide_overview_placehodler">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit id gravida nulla congue a lectus. Nulla quisque orci nunc orci nullam duis arcu volutpat. Facilisi massa mattis at dui. Risus eget justo, sed viverra tortor et. \n  \t\u2022 Etiam libero amet, eu congue. \u00E2\u0080\u00A8  \t\u2022 Pellentesque aliquam nisi viverra et.  \t\u2022 \t\u2022 iam amet, nulla egestas justo est \u00E2\u0080\u00A8    commodo eget nunc. \nEnim mattis at amet, a vitae dictum posuere. Non amet, in fringilla varius sagittis viverra pellentesque. Nec at ac lorem massa. Velit et duis placerat quis. Adipiscing sed egestas neque suscipit sagittis vel tristique ultrices. Tortor at aliquam id gravida.

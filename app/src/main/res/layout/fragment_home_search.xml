@@ -55,6 +55,29 @@
 
 
         </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/sectionHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#EFF4F7"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/sectionHeaderNone"
+                android:layout_width="294dp"
+                android:layout_height="33dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="45dp"
+                android:layout_marginBottom="7dp"
+                android:fontFamily="@font/worksans_regular"
+                android:text="@string/search_empty"
+                android:textColor="#194867 " />
+
+        </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -65,11 +88,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="45dp"
-                android:textColor="@color/black"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/worksans_regular"
                 android:text="SUGGESTED TOPICS"
-                />
+                android:textColor="@color/black" />
 
         </RelativeLayout>
 

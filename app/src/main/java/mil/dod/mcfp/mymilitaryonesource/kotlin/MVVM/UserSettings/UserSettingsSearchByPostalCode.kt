@@ -1,12 +1,15 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 import kotlinx.android.synthetic.main.fragment_user_settings_search_by_postal_code.*
@@ -27,6 +30,7 @@ class UserSettingsSearchByPostalCode : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
 
     var Me = this
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +72,9 @@ class UserSettingsSearchByPostalCode : Fragment() {
 
 
                 PreferencesUtil.save("installation", itemValue)
+
+                Log.d("installation_name", PreferencesUtil.getValueString("installation").toString())
+
 
 
                 var userSettingsActivity = activity as UserSettingsActivity
