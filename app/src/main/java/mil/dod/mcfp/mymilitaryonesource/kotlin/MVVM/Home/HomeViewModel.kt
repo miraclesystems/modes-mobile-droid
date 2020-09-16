@@ -1,9 +1,11 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
+import android.util.Log
 import mil.dod.mcfp.mymilitaryonesource.R
 import java.util.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 
 
 class HomeViewModel : Observable(), WebServiceConnectorDelegate {
@@ -14,6 +16,7 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
     var listSuggestedTopics =   mutableListOf<String>()
     var model = HomeModel()
+    var audience = PreferencesUtil.getValueString("USER_DESCRIPTION")
 
 
     fun getSuggestedCards():List<HomePageCardModel>{
@@ -23,12 +26,19 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
         ///testing code
         var result = ModesDb.getBenefitsByAudience("spouse")
 
+        //Log.d("resul",result!!.count.toString())
+
         while(result!!.moveToNext()){
+
 
             var id = result.getInt(result.getColumnIndex("ID"))
             var benefit = result.getString(result.getColumnIndex("Benefit"))
 
+            //list.shuffle()
+
             list.add(HomePageCardModel(id, "BENEFITS", benefit, recommended = true))
+
+
         }
 
 

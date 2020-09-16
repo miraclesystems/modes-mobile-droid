@@ -56,24 +56,8 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         itemView.icon.scaleType = ImageView.ScaleType.FIT_XY
         itemView.content.setText(item.cardTitle)
-
-
         itemView.cardlayout.setOnClickListener{
 
-           /// Log.d("clicked","clicked")
-
-
-
-
-            /*
-            var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
-            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-            benefitsActivity.supportFragmentManager.beginTransaction().remove(this).commit()
-
-            benefitsActivity.loadBenefitDetail()
-
-
-             */
         }
 
     }
@@ -85,15 +69,12 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 class HomeViewCardsListAdapter(val items: List<HomePageCardModel>, val context: Context): RecyclerView.Adapter<ViewHolder>() {
 
-    var act = context
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.home_cards_items, parent, false))
-
-
     }
 
     override fun onBindViewHolder(
@@ -102,19 +83,16 @@ class HomeViewCardsListAdapter(val items: List<HomePageCardModel>, val context: 
     ) {
         holder.bind(items[position])
 
-
         holder.itemView.cardlayout.setOnClickListener{
-
             /*
             val intent = Intent(HomeActivity, HomeActivity::class.java)
             intent("benefit", HomeActivity)
             startActivity(HomeActivity)
-*/
+             */
             //items[position].cardTitle?.let { it1 -> Log.d("clicked", it1) }
 
             val cardType = items[position].cardType
             val cardTitle = items[position].cardTitle
-            
             val activity = holder.itemView.context as Activity
 
             when (cardType) {
@@ -136,13 +114,6 @@ class HomeViewCardsListAdapter(val items: List<HomePageCardModel>, val context: 
                     // TODO: 9/14/20
                 }
             }
-
-
-
-       
-
-
-
 
         }
 

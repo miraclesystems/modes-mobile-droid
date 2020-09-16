@@ -22,7 +22,7 @@ object ModesDb {
 
     fun getAllBenefits(): Cursor?{
 
-        return db.rawQuery("SELECT * FROM benefits", null)
+        return db.rawQuery("SELECT * FROM benefits ORDER BY RANDOM() LIMIT 4\n", null)
 
     }
 
@@ -30,7 +30,7 @@ object ModesDb {
      * get the benefits by the audience whhich setup in the user setttings
      */
     fun getBenefitsByAudience(audience : String): Cursor?{
-        return db.rawQuery("SELECT * FROM benefits WHERE audience LIKE '%" + audience + "%'", null)
+        return db.rawQuery("SELECT * FROM benefits WHERE audience LIKE '%" + audience + "%'  ORDER BY RANDOM() LIMIT 4", null)
 
     }
 
@@ -41,7 +41,7 @@ object ModesDb {
 
     fun getGuidesByAudience(audience: String): Cursor?{
 
-        return db.rawQuery("SELECT * FROM guides WHERE audience LIKE '%" + audience + "%'", null)
+        return db.rawQuery("SELECT * FROM guides WHERE audience LIKE '%" + audience + "%'  ORDER BY RANDOM() LIMIT 4", null)
     }
 
     fun getGuidesByKeyWordSearch(searchTerm : String): Cursor?{
