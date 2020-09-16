@@ -9,9 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.core.view.isVisible
+import kotlinx.android.synthetic.main.fragment_favoirties_guides_list.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import kotlinx.android.synthetic.main.fragment_favoirties_guides_list.view.*
+import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.*
+import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.listFavorites
 import kotlinx.android.synthetic.main.layout_favorite_item.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,6 +34,22 @@ class FavoritesGuidesListFragment : Fragment() {
     private var param2: String? = null
     var list: ListView? = null
 
+
+    override fun onResume() {
+        super.onResume()
+
+            var favoritesActivity = activity as FavoritesActivity
+            if(favoritesActivity.viewModel.getFavoriteGuides().count() < 1){
+                listFavorites?.isVisible   = false
+                noGuides?.isVisible = true
+
+            }
+            else {
+                listFavorites?.isVisible = true
+                noGuides?.isVisible = false
+            }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,6 +60,16 @@ class FavoritesGuidesListFragment : Fragment() {
 
     fun reloadList(){
         var favoritesActivity = activity as FavoritesActivity
+        if(favoritesActivity.viewModel.getFavoriteGuides().count() < 1){
+            listFavorites?.isVisible   = false
+            noGuides?.isVisible = true
+
+        }
+        else {
+            listFavorites?.isVisible = true
+            noGuides?.isVisible = false
+        }
+
         var adapter = GuidesFavoriteListAdapter(
             favoritesActivity.applicationContext,
             favoritesActivity.viewModel.getFavoriteGuides()

@@ -40,7 +40,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/close_dark"
-                android:contentDescription="back" />
+                android:contentDescription="close" />
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout

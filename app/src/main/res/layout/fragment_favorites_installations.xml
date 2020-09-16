@@ -42,7 +42,7 @@
             android:text="LOCATION NAME"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
-            android:textColor="#194867"
+            android:textColor="#333333"
             android:textSize="20sp"
             android:textStyle="bold"/>
         <TextView
