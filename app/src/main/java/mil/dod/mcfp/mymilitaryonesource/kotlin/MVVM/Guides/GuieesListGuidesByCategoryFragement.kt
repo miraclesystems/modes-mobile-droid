@@ -82,7 +82,7 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
 
         view.listGuides.setOnItemClickListener { adapterView, view, i, l ->
             Log.d("debug", "item clicked")
-            guidesActivity.viewModel.selectedGuide = guidesActivity.viewModel.getAllGuides()[i]
+            guidesActivity.viewModel.selectedGuide = guidesActivity.viewModel.getAllGuides()[i].Guide!!
             Log.d("called_guide", guidesActivity.viewModel.selectedGuide)
 
 

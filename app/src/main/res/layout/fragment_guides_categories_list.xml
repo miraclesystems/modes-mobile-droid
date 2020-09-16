@@ -6,7 +6,7 @@
     android:orientation="vertical"
     >
 
-    <GridView
+    <ListView
         android:id="@+id/gvCategories"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,6 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
+        android:dividerHeight="15dp"
         android:nestedScrollingEnabled="true"
         android:layout_marginBottom="10dp"/>
 
