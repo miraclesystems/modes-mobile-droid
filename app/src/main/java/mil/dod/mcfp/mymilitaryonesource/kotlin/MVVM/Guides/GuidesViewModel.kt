@@ -138,19 +138,21 @@ class GuidesViewModel {
         return guide
     }
 
-    fun getAllGuides():MutableList<String>{
+    fun getAllGuides():MutableList<Guide>{
 
-        var list = arrayListOf<String>()
+        var list = arrayListOf<Guide>()
 
         var results = ModesDb.getAllGuiides()
 
 
         while(results!!.moveToNext()){
 
+
             var id = results.getInt(results.getColumnIndex("ID"))
             var guide = results.getString(results.getColumnIndex("Guide"))
 
-            list.add(guide)
+            this.selectedGuide = guide
+            list.add(getGuide())
 
         }
 
