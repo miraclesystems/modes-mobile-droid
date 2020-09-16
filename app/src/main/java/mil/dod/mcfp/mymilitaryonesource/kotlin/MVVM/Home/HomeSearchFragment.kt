@@ -1,6 +1,7 @@
-package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
+ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -14,13 +15,14 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_home_search.*
 import kotlinx.android.synthetic.main.fragment_home_search.view.*
+import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.listview_item.view.*
+import mil.dod.mcfp.mymilitaryonesource.R
 
 
-// TODO: Rename parameter arguments, choose names that match
+ // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -75,7 +77,6 @@ class HomeSearchFragment : Fragment() {
         //view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
 
 
-
         /*
         JS: Trying to fix issue of this fragment not being refreshed and populating the same suggested topics on top
         of already existing topics which causes the duplicate issue. Maybe there is a better way to do it
@@ -115,7 +116,7 @@ class HomeSearchFragment : Fragment() {
                 s: CharSequence, start: Int,
                 before: Int, count: Int
             ) {
-                if (s.count() >= 3) {
+                if (s.count() >= 1) {
                     Log.d("dbug", "text entered -->" + s)
 
                     var topic = s.toString()
@@ -128,9 +129,31 @@ class HomeSearchFragment : Fragment() {
                         R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
                     )
 
+
                     searchList.adapter = adapter
+                    // Log.d("topic", searchList.getAdapter().getCount().toString())
+                    if (searchList.getAdapter().getCount() == 0) {
+                        val arg = "\"$topic\""
+                        val title = getResources().getString(R.string.search_empty, arg)
+                        sectionHeaderNone.setText(title)
+                        sectionHeader.setText("SUGGESTED TOPICS")
+                        sectionHeaderView.visibility = View.VISIBLE
+                        loadTopics = true
+
+
+                        var homeActivity = activity as HomeActivity
+                        val adapter = ArrayAdapter(
+                            activity!!.applicationContext,
+                            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+                        )
+
+                        searchList.adapter = adapter
+                        searchList.requestLayout()
+
+
+                    }
+
                     searchList.requestLayout()
-                    loadTopics = true
 
                 }
             }
@@ -151,7 +174,9 @@ class HomeSearchFragment : Fragment() {
         view.searchList.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
 
-
+                // JS: Hide keyboard when item in search is selected
+                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
 
                 loadTopics = false
                 if(false){
@@ -159,6 +184,7 @@ class HomeSearchFragment : Fragment() {
                     var topic = homeActivity.viewModel.getSuggestedTopic()[position]
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
                     selectedTopic = topic
+
 
                     var homeActivity = activity as HomeActivity
                     val adapter = ArrayAdapter(
@@ -178,6 +204,7 @@ class HomeSearchFragment : Fragment() {
 
                     //var topic = homeActivity.viewModel.getTopics(view.label.text.toString())[position]
                     homeActivity.topic = view.label.text.toString()
+
                     homeActivity.loadViewTopic()
                     loadTopics = false
                 }
@@ -201,8 +228,6 @@ class HomeSearchFragment : Fragment() {
         showSoftKeyboard(search_text)
         */
 
-
-
     }
 
 
@@ -212,7 +237,6 @@ class HomeSearchFragment : Fragment() {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
             search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-
         }
     }
 

@@ -6,35 +6,37 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:background="@color/white">
+        android:layout_height="152dp"
+        android:background="@android:drawable/dialog_holo_light_frame"
+        android:outlineProvider="bounds">
 
         <TextView
             android:id="@+id/Title"
             android:layout_width="272dp"
             android:layout_height="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="16dp"
-            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:text="Benefit Title"
             android:textColor="#194867"
-            android:textStyle="bold"
-            android:text="Benefit Title"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_below="@id/Title"
             android:layout_width="272dp"
             android:layout_height="wrap_content"
-            android:ellipsize="none"
-            android:singleLine="false"
+            android:layout_below="@id/Title"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="30dp"
             android:layout_marginLeft="16dp"
-            android:textSize="14sp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="none"
+            android:fontFamily="@font/worksans_regular"
+            android:singleLine="false"
             android:text="Description"
-            android:textColor="#194867"/>
+            android:textColor="#194867"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 

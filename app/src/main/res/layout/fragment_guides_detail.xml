@@ -55,6 +55,7 @@
                 android:layout_below="@id/guide_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="18dp"
+                android:scaleType="fitXY"
                 android:background="@drawable/guides_image_placeholder"
                 />
 

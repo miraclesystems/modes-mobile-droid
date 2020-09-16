@@ -1,5 +1,6 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Favorites
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
@@ -18,6 +19,17 @@ class FavoritesActivity : BaseActivity(), Observer {
     var viewModel = FavoritesViewModel()
 
     override var myPageRefIndex = 3
+
+    fun openBrowser(urlString : String){
+        val openURL = Intent(Intent.ACTION_VIEW)
+        openURL.data = Uri.parse(urlString)
+        startActivity(openURL)
+    }
+
+    fun makeCall(phoneNumber : String){
+        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber))
+        startActivity(intent)
+    }
 
     fun loadGuideDetail(selectedGuide : String){
 

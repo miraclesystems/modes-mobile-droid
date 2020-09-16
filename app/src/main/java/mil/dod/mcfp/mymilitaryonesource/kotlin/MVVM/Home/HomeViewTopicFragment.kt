@@ -1,11 +1,13 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_home_view_topic.*
@@ -48,6 +50,10 @@ class HomeViewTopicFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // JS: For some reason when this view is created a keyboard is shown, not sure why so I'm hiding it
+        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
 
         // Inflate the layout for this fragment
        var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)

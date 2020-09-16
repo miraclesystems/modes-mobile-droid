@@ -76,16 +76,35 @@
             android:textSize="12sp"
             android:lineHeight="17sp"
             android:textColor="#4A4A4A"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  About Military OneSource Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  About Military OneSource Duis aute irure dolor in reprehenderit in voluptate ve"
+            android:text="The My Military OneSource app was developed to deliver fast, 24/7 access to a world of resources and support available for service members, military spouses, survivors and other members of the military community. "
             />
 
         <ImageView
             android:layout_width="142dp"
             android:layout_height="53dp"
             android:layout_marginTop="20dp"
+            android:src="@drawable/onesource" />
+
+
+        <TextView
+            android:id="@+id/bodyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:lineHeight="17sp"
+            android:textColor="#4A4A4A"
+            android:text="Military OneSource is a U.S. Department of Defense-funded program that connects the military community to the resources they need to be well, mission-ready and thrive in the MilLife, from relocation planning and tax services to confidential non-medical counseling and spouse employment. Members of our military family are eligible to use this DOD program anytime, anywhere. Services are available online or by telephone 24/7/365 wherever service members "
+            />
+
+
+        <ImageView
+            android:layout_width="142dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/dod_logo_dark" />
-
-
 
 
     </LinearLayout>

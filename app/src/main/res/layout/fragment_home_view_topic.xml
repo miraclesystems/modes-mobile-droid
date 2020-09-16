@@ -2,26 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#EFF4F7"
     android:orientation="vertical"
-    tools:context=".kotlin.MVVM.Home.HomeViewTopicFragment">
+    tools:context=".kotlin.MVVM.Home.HomeViewTopicFragment"
+    android:paddingTop="?attr/actionBarSize"
+    >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="false"
-        android:layout_weight="1">
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                >
 
 
                 <TextView
@@ -31,7 +37,11 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="20dp"
-                    android:text="Showing results for {{topic}}" />
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/worksans_regular"
+                    android:text="Showing results for {{topic}}"
+                    android:textColor="#194867"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/button_search"
@@ -43,12 +53,12 @@
                     android:background="@drawable/search" />
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="17dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/textHeader"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="9dp"
                     android:background="@drawable/milife_focused_ic" />
 
                 <TextView
@@ -57,10 +67,12 @@
                     android:layout_height="19dp"
                     android:layout_below="@id/textHeader"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="52dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/worksans_bold"
                     android:text="MILLIFE GUIDES"
-                    android:textColor="#194867" />
+                    android:textColor="#194867"
+                    android:textSize="16sp" />
 
                 <ListView
                     android:id="@+id/listGuides"
@@ -71,15 +83,16 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
                     android:clipToPadding="false"
                     android:divider="@android:color/transparent"
+                    android:nestedScrollingEnabled="true"
                     android:paddingTop="@dimen/cardview_default_elevation"
-                    android:paddingBottom="@dimen/cardview_default_elevation"
-                    android:nestedScrollingEnabled="true"/>
+                    android:paddingBottom="@dimen/cardview_default_elevation" />
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="17dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/listGuides"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="20dp"
@@ -88,14 +101,16 @@
 
                 <TextView
                     android:id="@+id/guidesHeader"
-                    android:layout_width="129dp"
-                    android:layout_height="19dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/listGuides"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="20dp"
+                    android:fontFamily="@font/worksans_bold"
                     android:text="BENEFITS"
-                    android:textColor="#194867" />
+                    android:textColor="#194867"
+                    android:textSize="16sp" />
 
                 <GridView
                     android:id="@+id/gridBenefits"
@@ -105,65 +120,65 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
                     android:columnWidth="156dp"
                     android:horizontalSpacing="16dp"
+                    android:nestedScrollingEnabled="true"
                     android:numColumns="2"
-                    android:verticalSpacing="16dp"
-                    android:nestedScrollingEnabled="true"/>
+                    android:verticalSpacing="16dp" />
 
 
                 <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="17dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/gridBenefits"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="32dp"
                     android:background="@drawable/connect_focused_ic" />
 
                 <TextView
                     android:id="@+id/connectHeader"
-                    android:layout_width="129dp"
-                    android:layout_height="19dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/gridBenefits"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/worksans_bold"
                     android:text="CONNECT"
-                    android:textColor="#194867" />
+                    android:textColor="#194867"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/expertsText"
                     android:layout_width="200dp"
                     android:layout_height="42dp"
-
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_below="@id/connectHeader"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-
                     android:text="Our experts are available 24/7 to help\nsupport your MilLife."
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="#4A4A4A" />
 
 
-
                 <RelativeLayout
                     android:id="@+id/layout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_rectangle_34"
-                    android:layout_below="@id/expertsText">
+                    android:layout_below="@id/expertsText"
+                    android:background="@drawable/ic_rectangle_34">
 
                     <TextView
                         android:id="@+id/contactText"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/worksans_bold"
                         android:gravity="center"
                         android:text="Speak with Military\n OneSource consultant"
                         android:textAlignment="center"
@@ -173,28 +188,30 @@
 
                     <Button
                         android:id="@+id/button_call"
-                        android:layout_gravity="center_horizontal"
                         android:layout_width="179dp"
                         android:layout_height="46dp"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_redbutton_with_phone"
                         android:layout_below="@id/contactText"
-                        />
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_redbutton_with_phone"
+                        android:contentDescription="call 800-342-9647" />
                 </RelativeLayout>
 
 
                 <Button
                     android:id="@+id/button_onesource"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="249dp"
                     android:layout_height="50dp"
-                    android:background="@android:color/transparent"
-                    android:textColor="#194867"
-                    android:textAllCaps="false"
-                    android:text="@string/onsesource_link"
                     android:layout_below="@id/layout1"
-                    />
+                    android:layout_centerHorizontal="true"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/worksans_regular"
+                    android:text="@string/onsesource_link"
+                    android:textAllCaps="false"
+                    android:textColor="#194867"
+                    android:textSize="16sp" />
             </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="150dp"

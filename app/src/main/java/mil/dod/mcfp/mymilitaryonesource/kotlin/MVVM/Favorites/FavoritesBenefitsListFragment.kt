@@ -9,6 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ListView
+import androidx.core.view.isVisible
+import kotlinx.android.synthetic.main.fragment_favoirties_guides_list.*
+import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.*
+import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.listFavorites
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.view.listFavorites
@@ -32,6 +36,21 @@ class FavoritesBenefitsListFragment : Fragment() {
 
     var list : ListView? = null
 
+    override fun onResume() {
+        super.onResume()
+
+        var favoritesActivity = activity as FavoritesActivity
+        if(favoritesActivity.viewModel.getFavoriteBenefits().count() < 1){
+            listFavorites?.isVisible   = false
+            noBenefits?.isVisible = true
+
+        }
+        else{
+            listFavorites?.isVisible   = true
+            noBenefits?.isVisible = false
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,6 +61,19 @@ class FavoritesBenefitsListFragment : Fragment() {
 
     fun reloadList(){
         var favoritesActivity = activity as FavoritesActivity
+
+
+        if(favoritesActivity.viewModel.getFavoriteBenefits().count() < 1){
+            listFavorites?.isVisible   = false
+            noBenefits?.isVisible = true
+
+        }
+        else{
+            listFavorites?.isVisible   = true
+            noBenefits?.isVisible = false
+        }
+
+
         var adapter = BenefitsFavoritListAdapter(favoritesActivity.applicationContext, favoritesActivity.viewModel.getFavoriteBenefits())
         adapter.fragment = this
         list?.adapter  = adapter
@@ -56,6 +88,9 @@ class FavoritesBenefitsListFragment : Fragment() {
         val view : View =  inflater.inflate(R.layout.fragment_favorites_benefits_list, container, false)
 
         var favoritesActivity = activity as FavoritesActivity
+
+
+
 
         var adapter = BenefitsFavoritListAdapter(favoritesActivity.applicationContext, favoritesActivity.viewModel.getFavoriteBenefits())
         adapter.fragment = this
