@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="158dp"
     android:layout_height="58dp"
-    android:background="@color/white">
+    android:background="@android:drawable/dialog_holo_light_frame"
+    >
 
     <TextView
         android:id="@+id/title"
@@ -13,7 +14,9 @@
         android:layout_marginLeft="14dp"
         android:layout_marginTop="12dp"
         android:layout_marginRight="14dp"
+        android:fontFamily="@font/worksans_bold"
         android:textAlignment="textStart"
-        android:textColor="#194867" />
+        android:textColor="#194867"
+        android:textSize="12sp" />
 
 </RelativeLayout>

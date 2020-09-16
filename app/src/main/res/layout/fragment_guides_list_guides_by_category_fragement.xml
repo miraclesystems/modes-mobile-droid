@@ -60,14 +60,11 @@
            android:id="@+id/listGuides"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_marginTop="20dp"
-           android:layout_marginRight="16dp"
-           android:layout_marginLeft="16dp"
-           android:nestedScrollingEnabled="true"
            android:layout_below="@id/headerText"
-           android:layout_marginBottom="10dp"
+           android:layout_marginTop="20dp"
            android:divider="@android:color/transparent"
-           android:dividerHeight="15dp"/>
+           android:dividerHeight="15dp"
+           android:nestedScrollingEnabled="true" />
 
 
 

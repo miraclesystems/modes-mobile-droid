@@ -113,7 +113,10 @@ class guidesActivity : BaseActivity() {
 
         var selectedGuide : String? = intent?.getStringExtra("guide")
 
+        Log.d("selected_guide",selectedGuide.toString())
+
         if(selectedGuide != null){
+            Log.d("selected_guide_if",selectedGuide.toString())
             viewModel.selectedGuide = selectedGuide
             loadGuideDetail()
         }
@@ -131,15 +134,21 @@ class guidesActivity : BaseActivity() {
         buttonAll.setOnClickListener {
 
             Log.d("degug", "button all clicked")
-            buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+
 
             buttonAll.setBackgroundResource(drawable.category_selector_box)
+
+
             buttonAll.setTextColor(Color.WHITE)
             buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
-            buttonCategories.setBackgroundResource(0)
-            buttonCategories.layoutParams.height = 100
-            buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+           // buttonCategories.setBackgroundResource(0)
+
+            buttonCategories.setBackgroundResource(drawable.category_selector_box_u)
+
+            buttonCategories.layoutParams.height = 140
+            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonCategories.setTextColor(Color.parseColor("#194867"))
 
             // Begin the transaction
@@ -159,12 +168,17 @@ class guidesActivity : BaseActivity() {
             Log.d("degug", "button categories clicked")
 
             buttonCategories.setBackgroundResource(drawable.category_selector_box)
+
+
+
             buttonCategories.setTextColor(Color.WHITE)
             buttonCategories.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
-            buttonAll.setBackgroundResource(0)
-            buttonAll.layoutParams.height = 100
-            buttonAll.setBackgroundColor(Color.parseColor("#D6DDE2"))
+            buttonAll.setBackgroundResource(drawable.category_selector_box_u)
+
+
+            buttonAll.layoutParams.height = 140
+            //buttonAll.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonAll.setTextColor(Color.parseColor("#194867"))
 
             // Begin the transaction

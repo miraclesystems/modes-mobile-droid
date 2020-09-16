@@ -1,6 +1,7 @@
  package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -76,7 +77,6 @@ class HomeSearchFragment : Fragment() {
         //view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
 
 
-
         /*
         JS: Trying to fix issue of this fragment not being refreshed and populating the same suggested topics on top
         of already existing topics which causes the duplicate issue. Maybe there is a better way to do it
@@ -123,7 +123,6 @@ class HomeSearchFragment : Fragment() {
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
                     selectedTopic = topic as String
 
-
                     var homeActivity = activity as HomeActivity
                     val adapter = ArrayAdapter(
                         activity!!.applicationContext,
@@ -132,23 +131,24 @@ class HomeSearchFragment : Fragment() {
 
 
                     searchList.adapter = adapter
-
-
                     // Log.d("topic", searchList.getAdapter().getCount().toString())
-
                     if (searchList.getAdapter().getCount() == 0) {
-
                         val arg = "\"$topic\""
-
                         val title = getResources().getString(R.string.search_empty, arg)
-
-                       // sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
-
                         sectionHeaderNone.setText(title)
                         sectionHeader.setText("SUGGESTED TOPICS")
                         sectionHeaderView.visibility = View.VISIBLE
-
                         loadTopics = true
+
+
+                        var homeActivity = activity as HomeActivity
+                        val adapter = ArrayAdapter(
+                            activity!!.applicationContext,
+                            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+                        )
+
+                        searchList.adapter = adapter
+                        searchList.requestLayout()
 
 
                     }
@@ -174,18 +174,16 @@ class HomeSearchFragment : Fragment() {
         view.searchList.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
 
-
+                // JS: Hide keyboard when item in search is selected
+                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
 
                 loadTopics = false
                 if(false){
                     loadTopics = true
                     var topic = homeActivity.viewModel.getSuggestedTopic()[position]
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
-
-
-
                     selectedTopic = topic
-
 
 
                     var homeActivity = activity as HomeActivity
@@ -230,8 +228,6 @@ class HomeSearchFragment : Fragment() {
         showSoftKeyboard(search_text)
         */
 
-
-
     }
 
 
@@ -241,7 +237,6 @@ class HomeSearchFragment : Fragment() {
             val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
             search_text.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
-
         }
     }
 

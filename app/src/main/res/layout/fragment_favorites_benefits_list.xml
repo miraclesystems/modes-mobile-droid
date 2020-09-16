@@ -69,7 +69,7 @@
                 android:layout_below="@id/header"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
-
+                android:outlineProvider="bounds"
                 android:nestedScrollingEnabled="true"
                 android:layout_marginBottom="10dp"
                 android:divider="#D3DBE1"
