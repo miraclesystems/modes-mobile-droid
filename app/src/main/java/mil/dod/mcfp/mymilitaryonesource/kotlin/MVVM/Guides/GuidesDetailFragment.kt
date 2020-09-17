@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_guides_detail.*
 import kotlinx.android.synthetic.main.fragment_guides_detail.view.*
 import kotlinx.android.synthetic.main.layout_benefits.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.*
+import kotlinx.android.synthetic.main.layout_guides_list.view.image
 import kotlinx.android.synthetic.main.listview_item.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
@@ -247,6 +249,22 @@ class GuidesDetailFragment : Fragment() {
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var item = inflator.inflate(R.layout.layout_guides_list, parent, false)
             item.guide.text = article.name
+
+            try {
+                val ims: InputStream = this.context!!.getAssets()
+                    .open("small-images/" + article.image + "-200x200.jpg")
+                // load image as Drawable
+                // load image as Drawable
+                val d =
+                    Drawable.createFromStream(ims, null)
+                // set image to ImageView
+                // set image to ImageView
+                item.image.setImageDrawable(d)
+                ims.close()
+            }
+            catch (e : Exception){
+                Log.d("debug ", e.localizedMessage)
+            }
 
             return item
         }
