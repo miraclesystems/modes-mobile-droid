@@ -74,7 +74,7 @@
             android:textSize="12sp"
             android:lineHeight="17sp"
             android:textColor="#4A4A4A"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exluptate velit esse cillum dolore eu fugiat nulla pariatur.  Duis aute irure dolor in reprehenderit in voluptate."
+            android:text="@string/settings"
             />
 
         <LinearLayout
