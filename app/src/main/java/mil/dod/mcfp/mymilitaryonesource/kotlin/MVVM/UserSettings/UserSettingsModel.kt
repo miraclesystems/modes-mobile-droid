@@ -42,6 +42,16 @@ data class Location(
 
 )
 
+data class LocationsInfo(
+
+    @SerializedName("items")
+    var items: List<LocationEmailInfo?>?
+)
+data class LocationEmailInfo(
+
+    @SerializedName("CONT_ID")
+    var CONT_ID: String?
+)
 
 data class LocationsByPostalCode(
 

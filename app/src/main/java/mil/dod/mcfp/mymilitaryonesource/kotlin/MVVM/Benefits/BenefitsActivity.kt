@@ -26,7 +26,7 @@ class BenefitsActivity : BaseActivity(), Observer {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.main_container, BenefitsListByCategoryFragment())
 
         ft.commit()
@@ -45,7 +45,7 @@ class BenefitsActivity : BaseActivity(), Observer {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
 
         ft.commit()
@@ -56,7 +56,7 @@ class BenefitsActivity : BaseActivity(), Observer {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.main_container, BenefitDetailFragment())
 
         ft.commit()
@@ -79,7 +79,7 @@ class BenefitsActivity : BaseActivity(), Observer {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
             ft.commit()
         }
@@ -102,7 +102,7 @@ class BenefitsActivity : BaseActivity(), Observer {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsListFragment())
 
             ft.commit()
@@ -127,7 +127,7 @@ class BenefitsActivity : BaseActivity(), Observer {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
 
             ft.commit()
@@ -150,7 +150,7 @@ class BenefitsActivity : BaseActivity(), Observer {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
             ft.commit()
         }
