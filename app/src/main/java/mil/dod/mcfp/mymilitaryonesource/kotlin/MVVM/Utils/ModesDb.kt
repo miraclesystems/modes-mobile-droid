@@ -22,7 +22,7 @@ object ModesDb {
 
     fun getAllBenefits(): Cursor?{
 
-        return db.rawQuery("SELECT * FROM benefits ORDER BY RANDOM() LIMIT 4\n", null)
+        return db.rawQuery("SELECT * FROM benefits ORDER BY RANDOM()\n", null)
 
     }
 

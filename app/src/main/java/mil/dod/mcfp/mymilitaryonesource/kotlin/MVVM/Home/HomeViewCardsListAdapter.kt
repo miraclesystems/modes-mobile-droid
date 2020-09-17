@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -111,7 +112,9 @@ class HomeViewCardsListAdapter(val items: List<HomePageCardModel>, val context: 
                     context.startActivity(intent)
                 }
                 "ABOUT US" -> {
-                    // TODO: 9/14/20
+                    val browserIntent = Intent(Intent.ACTION_VIEW)
+                    browserIntent.data = Uri.parse("https://survey.foresee.com/f/M40JDlKiHK")
+                    context.startActivity(browserIntent)
                 }
             }
 

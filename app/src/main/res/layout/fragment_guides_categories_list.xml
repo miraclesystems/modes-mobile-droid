@@ -4,6 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:clipToPadding="false"
+
     >
 
     <ListView
@@ -17,9 +20,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
-        android:dividerHeight="15dp"
+        android:divider="@android:color/transparent"
         android:nestedScrollingEnabled="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:elevation="10dp"
+        android:dividerHeight="10dp"
+        />
 
 
 
