@@ -20,6 +20,7 @@ class BenefitsActivity : BaseActivity(), Observer {
     var viewModel = BenefitsViewModel()
 
     override var myPageRefIndex = 2
+    var standAlone : Boolean = false
 
     fun loadBenefitsByCategory(){
         // Begin the transaction
@@ -66,6 +67,7 @@ class BenefitsActivity : BaseActivity(), Observer {
         super.onCreate(savedInstanceState)
         setContentLayout(R.layout.activity_benefits)
 
+        this.standAlone = intent?.getBooleanExtra("standAlone", false)!!
         var selectedBenefit : String? = intent?.getStringExtra("benefit")
 
         if(selectedBenefit != null){

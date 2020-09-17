@@ -8,8 +8,10 @@
     <TextView
         android:id="@+id/category"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
+        android:layout_height="49dp"
+        android:gravity="left"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
         android:textColor="#194867"
         android:textSize="14sp" />
 

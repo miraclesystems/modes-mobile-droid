@@ -41,13 +41,14 @@
                 android:textSize="32sp"
                 android:textColor="#194867"
                 android:textAlignment="textStart"
+                android:textStyle="bold"
                 android:text="Moving In the Military"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_below="@id/button_back"
                 />
-
+<!--
             <TextView
                 android:id="@+id/short_description"
                 android:layout_width="328dp"
@@ -78,6 +79,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_below="@id/short_description"
                 />
+                -->
             <TextView
                 android:id="@+id/long_description"
                 android:layout_width="328dp"
@@ -91,14 +93,15 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:layout_below="@id/header2"
+                android:layout_below="@+id/benefit_name"
                 />
 
             <Button
                 android:id="@+id/button_more_benefits"
                 android:layout_width="195dp"
                 android:layout_height="32dp"
-                android:layout_centerHorizontal="true"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="40dp"
                 android:background="@drawable/ic_grey_rounded_button"
                 android:text="morebenefits"
                 android:textSize="10sp"

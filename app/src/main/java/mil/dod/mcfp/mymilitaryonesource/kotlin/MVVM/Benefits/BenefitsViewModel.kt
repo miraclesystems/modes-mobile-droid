@@ -35,7 +35,7 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
 
     fun getCategories(): MutableList<String>{
 
-        /*
+
         var list = mutableListOf<String>()
 
         var results = ModesDb.getBenefitCategories()
@@ -51,8 +51,8 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
 
         return list
 
-         */
 
+/*
         var list = arrayListOf<String>("New to MilLife*",
             "Moving & Housing",
             "Deployment",
@@ -70,6 +70,8 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
             "National Guard & Reserve")
 
         return list
+
+ */
     }
 
     fun getAllBenefits(): MutableList<Benefit>{
