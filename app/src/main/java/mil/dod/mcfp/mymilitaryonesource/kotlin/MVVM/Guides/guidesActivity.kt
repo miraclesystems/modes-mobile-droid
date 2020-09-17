@@ -127,7 +127,7 @@ class guidesActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
 
-  override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentLayout(activity_guides)
 
@@ -163,11 +163,11 @@ class guidesActivity : BaseActivity() {
             buttonAll.setTextColor(Color.WHITE)
             buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
-           // buttonCategories.setBackgroundResource(0)
+            // buttonCategories.setBackgroundResource(0)
 
             buttonCategories.setBackgroundResource(drawable.category_selector_box_u)
 
-            buttonCategories.layoutParams.height = 140
+            buttonCategories.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonCategories.setTextColor(Color.parseColor("#194867"))
 
@@ -197,7 +197,7 @@ class guidesActivity : BaseActivity() {
             buttonAll.setBackgroundResource(drawable.category_selector_box_u)
 
 
-            buttonAll.layoutParams.height = 140
+            buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             //buttonAll.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonAll.setTextColor(Color.parseColor("#194867"))
 
