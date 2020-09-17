@@ -99,7 +99,9 @@ class FavoritesActivity : BaseActivity(), Observer {
             is FavoritesViewModel -> {
                 if (arg is Boolean){
 
+                    viewModel.deleteObserver(this)
 
+                    viewModel.getInstallationEmailId()
                     // Begin the transaction
                     val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
                     // Replace the contents of the container with the new fragment

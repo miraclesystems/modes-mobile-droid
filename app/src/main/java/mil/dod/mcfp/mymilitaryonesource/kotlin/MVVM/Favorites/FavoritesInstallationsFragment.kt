@@ -3,6 +3,7 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Favorites
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -87,8 +88,10 @@ class FavoritesInstallationsFragment : Fragment(), Observer {
         when (o){
             is FavoritesViewModel -> {
                 if (arg is Boolean){
+                    val favoritesActivity = this.activity as FavoritesActivity
 
-                    //this.label1.text = this.viewModel.model.value
+                    Log.d("Debug", "set email")
+                    emailUrl = "https://apps.militaryonesource.mil/MOS/f?p=AMS:5:0::::P5_APP_NAME,P5_MSG_TYPE,P5_EID:MilitaryINSTALLATIONS,Installation%20Address," + favoritesActivity.viewModel.emailId
                 }
             }
             else -> println(o?.javaClass.toString())

@@ -46,7 +46,7 @@ class guidesActivity : BaseActivity() {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+        //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
         ft.replace(id.main_container, GuieesListGuidesByCategoryFragement())
 
         ft.commit()
@@ -65,7 +65,7 @@ class guidesActivity : BaseActivity() {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+        //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
         ft.replace(id.fragment_container, GuidesCategoriesListFragment())
 
         ft.commit()
@@ -78,7 +78,7 @@ class guidesActivity : BaseActivity() {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+       // ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.main_container, GuidesDetailFragment())
 
         ft.commit()
@@ -108,7 +108,7 @@ class guidesActivity : BaseActivity() {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.fragment_container, GuidesListFragment())
 
         ft.commit()
@@ -145,7 +145,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(id.fragment_container, GuidesCategoriesListFragment())
 
             ft.commit()
@@ -174,7 +174,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(id.fragment_container, GuidesListFragment())
 
             ft.commit()
@@ -204,7 +204,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(id.fragment_container, GuidesCategoriesListFragment())
 
             ft.commit()
