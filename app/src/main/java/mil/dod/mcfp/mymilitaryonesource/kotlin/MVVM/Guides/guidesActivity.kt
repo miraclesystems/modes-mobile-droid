@@ -89,6 +89,22 @@ class guidesActivity : BaseActivity() {
     fun loadGuideList(){
 
         guide = viewModel.getGuide()
+
+        buttonAll.setBackgroundResource(drawable.category_selector_box)
+
+
+        buttonAll.setTextColor(Color.WHITE)
+        buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+
+        // buttonCategories.setBackgroundResource(0)
+
+        buttonCategories.setBackgroundResource(drawable.category_selector_box_u)
+
+        buttonCategories.layoutParams.height = 140
+        //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+        buttonCategories.setTextColor(Color.parseColor("#194867"))
+
+
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
@@ -98,9 +114,13 @@ class guidesActivity : BaseActivity() {
         ft.commit()
     }
 
-    fun loadBenefitDetail(selectedBenefit : String){
+    fun loadBenefitDetail(selectedBenefit : String, standAlone : Boolean){
 
         val intent = Intent(this, BenefitsActivity::class.java)
+
+
+            intent.putExtra("standAlone", standAlone)
+
         intent.putExtra("benefit", selectedBenefit)
         startActivity(intent)
     }

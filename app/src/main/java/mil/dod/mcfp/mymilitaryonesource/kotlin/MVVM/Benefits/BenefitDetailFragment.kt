@@ -52,7 +52,7 @@ class BenefitDetailFragment : Fragment() {
         benefit = benefitsActivity.viewModel.getSelectedBenefit()
 
         view.benefit_name.text = benefit!!.Benefit
-        view.short_description.text = benefit!!.ShortDescription
+       // view.short_description.text = benefit!!.ShortDescription
         view.long_description.text = benefit!!.LongDescription
         view.button_more_benefits.text = benefit!!.ButtonText
 
@@ -74,10 +74,18 @@ class BenefitDetailFragment : Fragment() {
 
         view.button_back.setOnClickListener {
 
-            benefitsActivity.loadCategories()
-            var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
-            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-            benefitsActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            if(!benefitsActivity.standAlone){
+                benefitsActivity.loadCategories()
+                var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
+                transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+                benefitsActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            }
+            else{
+                benefitsActivity.onBackPressed()
+            }
+
+
+
 
         }
 

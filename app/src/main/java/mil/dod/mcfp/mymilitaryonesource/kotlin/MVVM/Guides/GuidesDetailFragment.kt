@@ -119,6 +119,9 @@ class GuidesDetailFragment : Fragment() {
             }
         }
 
+
+        view.articles_header.text = model!!.ArticleHeader
+        view.button_more_articles.text = model!!.MoreArticlesText
         model!!.listArticles = listArticles
         var articlesListAdapter = ArticlesListAdapter(guidesActivity.applicationContext, model!!.listArticles!!)
         view.listArticles.adapter = articlesListAdapter
@@ -133,6 +136,7 @@ class GuidesDetailFragment : Fragment() {
         }
 
 
+        view.button_more_benefits.text  = model!!.MoreBenefitsText
         var benefitsAdapter = BenefitsAdapter(guidesActivity.applicationContext, model!!.listRelatedBenefits!!)
         view.listBenefits.adapter = benefitsAdapter
 
@@ -170,7 +174,7 @@ class GuidesDetailFragment : Fragment() {
         view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
             var benefit = model?.listRelatedBenefits?.get(i)?.benefit
-            guidesActivity.loadBenefitDetail(benefit!!)
+            guidesActivity.loadBenefitDetail(benefit!!, true)
 
         }
 
@@ -196,6 +200,19 @@ class GuidesDetailFragment : Fragment() {
             }
 
             ModesDb.setGuideFavorite(favorite, model!!.ID!!)
+        }
+
+        view.button_call.setOnClickListener {
+
+            try {
+                val intent = Intent(Intent.ACTION_CALL)
+                intent.setData(Uri.parse("tel:8003429647"))
+                startActivity(intent)
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+
+            }
         }
 
         return view

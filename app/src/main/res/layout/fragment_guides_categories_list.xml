@@ -19,6 +19,7 @@
         android:layout_marginLeft="16dp"
         android:dividerHeight="15dp"
         android:nestedScrollingEnabled="true"
+        android:divider="@android:color/transparent"
         android:layout_marginBottom="10dp"/>
 
 
