@@ -223,7 +223,7 @@ open class BaseActivity : AppCompatActivity() {
 
         txtFeedback.setOnClickListener(){
             val browserIntent = Intent(Intent.ACTION_VIEW)
-            browserIntent.data = Uri.parse("https://www.militaryonesource.mil/")
+            browserIntent.data = Uri.parse("https://survey.foresee.com/f/M40JDlKiHK")
             startActivity(browserIntent)
         }
 

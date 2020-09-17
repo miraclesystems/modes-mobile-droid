@@ -58,6 +58,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Velit id gravida nulla 
     <string name="military_state_policy_source">https://statepolicy.militaryonesource.mil/</string>
     <string name="plan_my_deployment">https://planmydeployment.militaryonesource.mil/</string>
     <string name="title_activity_about">FullscreenActivity</string>
+    <string name="settings">The My Military OneSource app is personalized to you. Review or update your information below.
+Your information is used only within this app experience. If you delete the app your personalized settings will not be saved.</string>
+
 
 
 </resources>
