@@ -39,7 +39,7 @@ class ConnectActivity : BaseActivity() {
         var urlTwitter =  getResources().getString(R.string.twitter)
         var urlInstagram =  getResources().getString(R.string.instagram)
         var urlPinterest =  getResources().getString(R.string.pinterest)
-        var urlNewsletter =   "https://public.govdelivery.com/accounts/USDODMILITARYONESOURCE/subscriber/new?topic_id=USDODMILITARYONESOURCE_54"
+        var urlNewsletter =  "https://public.govdelivery.com/accounts/USDODMILITARYONESOURCE/subscriber/new?topic_id=USDODMILITARYONESOURCE_54"
 
 
 
