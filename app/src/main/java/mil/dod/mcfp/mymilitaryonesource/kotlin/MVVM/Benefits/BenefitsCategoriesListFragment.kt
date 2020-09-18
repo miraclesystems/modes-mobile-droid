@@ -51,7 +51,8 @@ class BenefitsCategoriesListFragment : Fragment() {
 
         view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
-            benefitsActivity.viewModel.selectedCategory = benefitsActivity.viewModel.getCategories()[i]
+            benefitsActivity.viewModel.selectedCategory = view.category.text.toString()
+            //benefitsActivity.viewModel.selectedCategory = benefitsActivity.viewModel.getCategories()[i]
             benefitsActivity.loadBenefitsByCategory()
 
             var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
