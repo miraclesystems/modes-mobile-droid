@@ -1,6 +1,7 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,6 +12,8 @@ import android.widget.BaseAdapter
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_guides_list_guides_by_category_fragement.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.*
+import java.io.InputStream
+import java.lang.Exception
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -82,7 +85,8 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
 
         view.listGuides.setOnItemClickListener { adapterView, view, i, l ->
             Log.d("debug", "item clicked")
-            guidesActivity.viewModel.selectedGuide = guidesActivity.viewModel.getAllGuides()[i].Guide!!
+            //guidesActivity.viewModel.selectedGuide = guidesActivity.viewModel.getAllGuides()[i].Guide!!
+            guidesActivity.viewModel.selectedGuide = view.guide.text.toString()
             Log.d("called_guide", guidesActivity.viewModel.selectedGuide)
 
 
@@ -120,10 +124,10 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
     }
 
     class GuidesListAdapter : BaseAdapter {
-        var guides =  listOf<String>()
+        var guides =  listOf<Guide>()
         var context: Context? = null
 
-        constructor(context: Context, list: List<String>) : super() {
+        constructor(context: Context, list: List<Guide>) : super() {
             this.context = context
             this.guides = list
         }
@@ -145,7 +149,24 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
 
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var item = inflator.inflate(R.layout.layout_guides_list, parent, false)
-            item.guide.text = guide
+            item.guide.text = guide.Guide
+
+
+            try {
+                val ims: InputStream = this.context!!.getAssets()
+                    .open("small-images/" + guide!!.GuideImage + "-200x200.jpg")
+                // load image as Drawable
+                // load image as Drawable
+                val d =
+                    Drawable.createFromStream(ims, null)
+                // set image to ImageView
+                // set image to ImageView
+                item.image.setImageDrawable(d)
+                ims.close()
+            }
+            catch (e : Exception){
+                Log.d("debug ", e.localizedMessage)
+            }
 
             return item
         }

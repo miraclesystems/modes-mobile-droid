@@ -27,7 +27,22 @@ class GuidesViewModel {
 
 
     fun getGuideCategories():List<String>{
-        return categories
+
+        var list = mutableListOf<String>()
+
+        var results = ModesDb.getBenefitCategories()
+
+        while(results!!.moveToNext()){
+
+
+            var category = results.getString(results.getColumnIndex("Category"))
+
+            list.add(category)
+
+        }
+
+        return list
+        //return categories
     }
 
 
@@ -160,9 +175,9 @@ class GuidesViewModel {
     }
 
 
-    fun getGuiesByCategory(category : String): MutableList<String>{
+    fun getGuiesByCategory(category : String): MutableList<Guide>{
 
-        var list = arrayListOf<String>()
+        var list = arrayListOf<Guide>()
 
         var results = ModesDb.getGuidesByCategory(category)
 
@@ -172,7 +187,10 @@ class GuidesViewModel {
             var id = results.getInt(results.getColumnIndex("ID"))
             var guide = results.getString(results.getColumnIndex("Guide"))
 
-            list.add(guide)
+            this.selectedGuide = guide
+            var item = getGuide()
+
+            list.add(item)
 
         }
 

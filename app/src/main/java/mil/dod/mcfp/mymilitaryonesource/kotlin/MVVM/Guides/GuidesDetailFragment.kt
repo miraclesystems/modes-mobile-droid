@@ -19,6 +19,9 @@ import kotlinx.android.synthetic.main.layout_guides_list.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.image
 import kotlinx.android.synthetic.main.listview_item.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsLoadingActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import java.io.InputStream
 import java.lang.Exception
@@ -119,6 +122,9 @@ class GuidesDetailFragment : Fragment() {
             }
         }
 
+
+        view.articles_header.text = model!!.ArticleHeader
+        view.button_more_articles.text = model!!.MoreArticlesText
         model!!.listArticles = listArticles
         var articlesListAdapter = ArticlesListAdapter(guidesActivity.applicationContext, model!!.listArticles!!)
         view.listArticles.adapter = articlesListAdapter
@@ -133,6 +139,7 @@ class GuidesDetailFragment : Fragment() {
         }
 
 
+        view.button_more_benefits.text  = model!!.MoreBenefitsText
         var benefitsAdapter = BenefitsAdapter(guidesActivity.applicationContext, model!!.listRelatedBenefits!!)
         view.listBenefits.adapter = benefitsAdapter
 
@@ -170,16 +177,30 @@ class GuidesDetailFragment : Fragment() {
         view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
             var benefit = model?.listRelatedBenefits?.get(i)?.benefit
-            guidesActivity.loadBenefitDetail(benefit!!)
+            guidesActivity.loadBenefitDetail(benefit!!, false)
 
         }
 
         view.button_back.setOnClickListener {
-            var transaction = guidesActivity.supportFragmentManager.beginTransaction()
-            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-            guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
 
-            guidesActivity.loadGuideList()
+            //var HomeActivity = activity as HomeActivity
+
+            if(!guidesActivity.standAlone){
+                guidesActivity.loadCategories()
+                var transaction = guidesActivity.supportFragmentManager.beginTransaction()
+                transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+                guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            }
+            else{
+
+                getActivity()!!.finish()
+
+
+            }
+
+
+            //guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            //guidesActivity.loadGuideList()
 
 
         }
@@ -196,6 +217,19 @@ class GuidesDetailFragment : Fragment() {
             }
 
             ModesDb.setGuideFavorite(favorite, model!!.ID!!)
+        }
+
+        view.button_call.setOnClickListener {
+
+            try {
+                val intent = Intent(Intent.ACTION_CALL)
+                intent.setData(Uri.parse("tel:8003429647"))
+                startActivity(intent)
+
+            } catch (e: Exception) {
+                e.printStackTrace()
+
+            }
         }
 
         return view

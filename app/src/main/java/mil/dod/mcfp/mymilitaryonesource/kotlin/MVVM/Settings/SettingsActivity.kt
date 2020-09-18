@@ -27,6 +27,14 @@ class SettingsActivity : AppCompatActivity(), Observer {
             )
         )
 
+
+
+        txtInstallation.setText(
+            PreferencesUtil.getValueString(
+                "installation_name"
+            )
+        )
+
         txtRole.setText(
             PreferencesUtil.getValueString(
                 "USER_DESCRIPTION"

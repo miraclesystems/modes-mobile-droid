@@ -30,6 +30,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginLeft="16dp"
                         android:scaleType="fitStart"
+                        android:contentDescription="my mos logo"
                         android:background="@drawable/ic_headerlogo" />
                 </LinearLayout>
 

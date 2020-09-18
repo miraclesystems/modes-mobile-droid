@@ -63,6 +63,7 @@ class HomeSearchFragment : Fragment() {
         search_text.requestFocus()
         search_text.requestFocusFromTouch()
 
+
     }
 
 
@@ -116,10 +117,11 @@ class HomeSearchFragment : Fragment() {
                 s: CharSequence, start: Int,
                 before: Int, count: Int
             ) {
+
                 if (s.count() >= 1) {
                     Log.d("dbug", "text entered -->" + s)
 
-                    var topic = s.toString()
+                    var topic = s.toString().trim()
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
                     selectedTopic = topic as String
 
@@ -175,8 +177,7 @@ class HomeSearchFragment : Fragment() {
             AdapterView.OnItemClickListener { parent, view, position, id ->
 
                 // JS: Hide keyboard when item in search is selected
-                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
 
                 loadTopics = false
                 if(false){
@@ -194,7 +195,12 @@ class HomeSearchFragment : Fragment() {
 
                     searchList.adapter = adapter
                     searchList.requestLayout()
+                    val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                    imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
+
                 } else{
+
 
 
                     var transaction = homeActivity.supportFragmentManager.beginTransaction()
@@ -207,7 +213,14 @@ class HomeSearchFragment : Fragment() {
 
                     homeActivity.loadViewTopic()
                     loadTopics = false
+
+                    val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                    imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
                 }
+
+                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
             }
 
         return view

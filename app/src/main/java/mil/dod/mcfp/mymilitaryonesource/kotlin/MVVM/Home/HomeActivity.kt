@@ -21,7 +21,7 @@ import java.util.*
 
 class HomeActivity : BaseActivity(), Observer {
 
-
+    //var standAlone : Boolean = false
 
     var viewModel = HomeViewModel()
 
@@ -32,16 +32,17 @@ class HomeActivity : BaseActivity(), Observer {
     override var myPageRefIndex = 0
 
 
-
     fun callSupport(){
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "800-342-9647"))
         startActivity(intent)
     }
-    fun loadGuideDetail(selectedGuide : String){
+    fun loadGuideDetail(selectedGuide : String, standAlone : Boolean){
 
         val intent = Intent(this, guidesActivity::class.java)
+        intent.putExtra("standAlone", standAlone)
         intent.putExtra("guide", selectedGuide)
         startActivity(intent)
+
     }
     fun loadBenefitDetail(selectedBenefit : String){
         val intent = Intent(this, BenefitsActivity::class.java)
@@ -140,6 +141,7 @@ class HomeActivity : BaseActivity(), Observer {
         setSelected(R.id.navigation_home);
 
     }
+
 
 
 

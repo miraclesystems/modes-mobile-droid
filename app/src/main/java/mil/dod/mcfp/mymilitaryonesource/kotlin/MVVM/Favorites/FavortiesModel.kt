@@ -11,3 +11,4 @@ data class FavoriteItem(
     var name : String?,
     var type : String?
 )
+

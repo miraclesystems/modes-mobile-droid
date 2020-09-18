@@ -19,11 +19,17 @@ import kotlinx.android.synthetic.main.activity_guides.*
 
 class guidesActivity : BaseActivity() {
 
+    var standAlone : Boolean = false
 
     var viewModel : GuidesViewModel = GuidesViewModel()
     var guide : Guide? = null
 
+
+
+
     override var myPageRefIndex = 1
+
+
 
     fun loadInAppBrowser(url : String){
 
@@ -46,7 +52,7 @@ class guidesActivity : BaseActivity() {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+        //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
         ft.replace(id.main_container, GuieesListGuidesByCategoryFragement())
 
         ft.commit()
@@ -65,7 +71,7 @@ class guidesActivity : BaseActivity() {
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+        //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
         ft.replace(id.fragment_container, GuidesCategoriesListFragment())
 
         ft.commit()
@@ -73,12 +79,12 @@ class guidesActivity : BaseActivity() {
 
     fun loadGuideDetail(){
 
-
+        this.standAlone = intent?.getBooleanExtra("standAlone", false)!!
         guide = viewModel.getGuide()
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+       // ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.main_container, GuidesDetailFragment())
 
         ft.commit()
@@ -89,18 +95,36 @@ class guidesActivity : BaseActivity() {
     fun loadGuideList(){
 
         guide = viewModel.getGuide()
+
+        buttonAll.setBackgroundResource(drawable.category_selector_box)
+
+
+        buttonAll.setTextColor(Color.WHITE)
+        buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+
+        // buttonCategories.setBackgroundResource(0)
+
+        buttonCategories.setBackgroundResource(drawable.category_selector_box_u)
+
+        buttonCategories.layoutParams.height = 140
+        //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+        buttonCategories.setTextColor(Color.parseColor("#194867"))
+
+
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.fragment_container, GuidesListFragment())
 
         ft.commit()
     }
 
-    fun loadBenefitDetail(selectedBenefit : String){
+    fun loadBenefitDetail(selectedBenefit : String, standAlone : Boolean){
 
         val intent = Intent(this, BenefitsActivity::class.java)
+
+        intent.putExtra("standAlone", standAlone)
         intent.putExtra("benefit", selectedBenefit)
         startActivity(intent)
     }
@@ -111,7 +135,10 @@ class guidesActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentLayout(activity_guides)
 
+
         var selectedGuide : String? = intent?.getStringExtra("guide")
+
+
 
         Log.d("selected_guide",selectedGuide.toString())
 
@@ -125,7 +152,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(id.fragment_container, GuidesCategoriesListFragment())
 
             ft.commit()
@@ -154,7 +181,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(id.fragment_container, GuidesListFragment())
 
             ft.commit()
@@ -184,7 +211,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(id.fragment_container, GuidesCategoriesListFragment())
 
             ft.commit()
