@@ -9,12 +9,12 @@
     <ListView
         android:id="@+id/listBenefits"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:nestedScrollingEnabled="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="88dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="15dp"/>
 </LinearLayout>
