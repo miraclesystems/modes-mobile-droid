@@ -23,89 +23,104 @@
                     android:layout_height="64dp"
                     android:orientation="horizontal"
                     android:background="#12334A">
+
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="172dp"
                         android:layout_height="30dp"
-                        android:layout_marginTop="20dp"
                         android:layout_marginLeft="16dp"
-                        android:scaleType="fitStart"
-                        android:background="@drawable/ic_headerlogo" />
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/ic_headerlogo"
+                        android:contentDescription="my mos logo"
+                        android:scaleType="fitStart" />
                 </LinearLayout>
 
 
                 <FrameLayout
                     android:id="@+id/main_container"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    >
-                    <RelativeLayout
-                        android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/relativeLayout2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        >
+                        tools:layout_editor_absoluteY="10dp">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="25dp"
-                            android:background="@drawable/benefits_focused_ic"
-                            android:layout_alignParentLeft="true"
-                            android:layout_marginRight="5dp" />
                         <TextView
                             android:id="@+id/headerText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:layout_marginTop="20dp"
-                            android:layout_centerHorizontal="true"
+                            android:layout_marginEnd="116dp"
+                            android:layout_marginRight="116dp"
+                            android:fontFamily="@font/worksans_bold"
                             android:text="BENEFITS FINDER"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
                             android:textColor="#194867"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.163" />
 
-                            />
-                        <RelativeLayout
-                            android:layout_below="@id/headerText"
-                            android:layout_width="250dp"
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="31dp"
+                            android:layout_height="33dp"
+                            android:layout_marginEnd="12dp"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/milife_focused_ic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/headerText"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.134" />
+
+                        <TextView
+                            android:id="@+id/buttonAll"
+                            android:layout_width="120dp"
+                            android:layout_height="39dp"
+                            android:layout_marginTop="76dp"
+                            android:background="@drawable/category_selector_box_u"
+                            android:clickable="true"
+                            android:contentDescription="view all button"
+                            android:fontFamily="@font/worksans_regular"
+                            android:onClick="onClick"
+                            android:paddingTop="10dp"
+                            android:text="View All"
+                            android:textAlignment="center"
+                            android:textColor="#194867"
+                            android:textSize="13sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.145"
+                            app:layout_constraintStart_toEndOf="@+id/buttonCategories"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/buttonCategories"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:layout_centerHorizontal="true"
-                            android:background="@android:color/transparent">
-                            <TextView
-                                android:id="@+id/buttonCategories"
-                                android:layout_width="120dp"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:text="By Category"
-                                android:textColor="@color/white"
-                                android:textSize="13sp"
-                                android:paddingTop="10dp"
-                                android:textAlignment="center"
-                                android:minHeight="18sp"
-                                android:onClick="onClick"
-                                android:clickable="true"
-                                android:background="@drawable/category_selector_box"
-                                />
-                            <TextView
-                                android:id="@+id/buttonAll"
-                                android:layout_width="120dp"
-                                android:layout_height="39dp"
-                                android:layout_alignParentRight="true"
-                                android:text="View All"
-                                android:textAlignment="center"
-                                android:paddingTop="10dp"
-                                android:textColor="#194867"
-                                android:textSize="13sp"
-                                android:onClick="onClick"
-                                android:clickable="true"
-                                android:background="#D6DDE2"/>
-
-                        </RelativeLayout>
+                            android:layout_marginStart="68dp"
+                            android:layout_marginLeft="68dp"
+                            android:layout_marginTop="76dp"
+                            android:background="@drawable/category_selector_box"
+                            android:clickable="true"
+                            android:contentDescription="by category button"
+                            android:fontFamily="@font/worksans_regular"
+                            android:minHeight="18sp"
+                            android:onClick="onClick"
+                            android:paddingTop="10dp"
+                            android:text="By Category"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
 
-
-                    </RelativeLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </FrameLayout>
 
                 <FrameLayout

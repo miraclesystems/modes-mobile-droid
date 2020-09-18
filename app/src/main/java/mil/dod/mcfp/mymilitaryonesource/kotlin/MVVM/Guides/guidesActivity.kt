@@ -19,11 +19,17 @@ import kotlinx.android.synthetic.main.activity_guides.*
 
 class guidesActivity : BaseActivity() {
 
+    var standAlone : Boolean = false
 
     var viewModel : GuidesViewModel = GuidesViewModel()
     var guide : Guide? = null
 
+
+
+
     override var myPageRefIndex = 1
+
+
 
     fun loadInAppBrowser(url : String){
 
@@ -73,7 +79,7 @@ class guidesActivity : BaseActivity() {
 
     fun loadGuideDetail(){
 
-
+        this.standAlone = intent?.getBooleanExtra("standAlone", false)!!
         guide = viewModel.getGuide()
         // Begin the transaction
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
@@ -118,9 +124,7 @@ class guidesActivity : BaseActivity() {
 
         val intent = Intent(this, BenefitsActivity::class.java)
 
-
-            intent.putExtra("standAlone", standAlone)
-
+        intent.putExtra("standAlone", standAlone)
         intent.putExtra("benefit", selectedBenefit)
         startActivity(intent)
     }
@@ -131,7 +135,10 @@ class guidesActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentLayout(activity_guides)
 
+
         var selectedGuide : String? = intent?.getStringExtra("guide")
+
+
 
         Log.d("selected_guide",selectedGuide.toString())
 

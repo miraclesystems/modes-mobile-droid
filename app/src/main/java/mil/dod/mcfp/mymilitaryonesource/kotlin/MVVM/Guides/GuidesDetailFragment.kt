@@ -19,6 +19,9 @@ import kotlinx.android.synthetic.main.layout_guides_list.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.image
 import kotlinx.android.synthetic.main.listview_item.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsLoadingActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import java.io.InputStream
 import java.lang.Exception
@@ -174,16 +177,30 @@ class GuidesDetailFragment : Fragment() {
         view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
             var benefit = model?.listRelatedBenefits?.get(i)?.benefit
-            guidesActivity.loadBenefitDetail(benefit!!, true)
+            guidesActivity.loadBenefitDetail(benefit!!, false)
 
         }
 
         view.button_back.setOnClickListener {
-            var transaction = guidesActivity.supportFragmentManager.beginTransaction()
-            transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-            guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
 
-            guidesActivity.loadGuideList()
+            //var HomeActivity = activity as HomeActivity
+
+            if(!guidesActivity.standAlone){
+                guidesActivity.loadCategories()
+                var transaction = guidesActivity.supportFragmentManager.beginTransaction()
+                transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+                guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            }
+            else{
+
+                getActivity()!!.finish()
+
+
+            }
+
+
+            //guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+            //guidesActivity.loadGuideList()
 
 
         }

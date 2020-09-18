@@ -3,17 +3,15 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import mil.dod.mcfp.mymilitaryonesource.R
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_benefit_detail.view.*
-import kotlinx.android.synthetic.main.fragment_benefit_detail.view.button_back
-import kotlinx.android.synthetic.main.fragment_benefit_detail.view.button_favorite
-import kotlinx.android.synthetic.main.fragment_benefit_detail.view.button_more_benefits
 import kotlinx.android.synthetic.main.fragment_guides_detail.*
+import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,6 +72,7 @@ class BenefitDetailFragment : Fragment() {
 
         view.button_back.setOnClickListener {
 
+
             if(!benefitsActivity.standAlone){
                 benefitsActivity.loadCategories()
                 var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
@@ -88,6 +87,9 @@ class BenefitDetailFragment : Fragment() {
 
 
         }
+
+
+
 
         view.button_favorite.setOnClickListener {
 
@@ -105,6 +107,8 @@ class BenefitDetailFragment : Fragment() {
 
         return view
     }
+
+
 
     companion object {
         /**

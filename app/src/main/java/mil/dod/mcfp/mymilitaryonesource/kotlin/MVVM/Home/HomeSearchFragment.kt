@@ -63,6 +63,7 @@ class HomeSearchFragment : Fragment() {
         search_text.requestFocus()
         search_text.requestFocusFromTouch()
 
+
     }
 
 
@@ -176,8 +177,7 @@ class HomeSearchFragment : Fragment() {
             AdapterView.OnItemClickListener { parent, view, position, id ->
 
                 // JS: Hide keyboard when item in search is selected
-                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
 
                 loadTopics = false
                 if(false){
@@ -195,7 +195,12 @@ class HomeSearchFragment : Fragment() {
 
                     searchList.adapter = adapter
                     searchList.requestLayout()
+                    val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                    imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
+
                 } else{
+
 
 
                     var transaction = homeActivity.supportFragmentManager.beginTransaction()
@@ -208,7 +213,14 @@ class HomeSearchFragment : Fragment() {
 
                     homeActivity.loadViewTopic()
                     loadTopics = false
+
+                    val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                    imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
                 }
+
+                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
             }
 
         return view

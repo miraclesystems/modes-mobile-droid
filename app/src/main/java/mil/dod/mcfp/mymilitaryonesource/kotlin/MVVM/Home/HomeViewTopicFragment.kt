@@ -4,16 +4,23 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_base.*
+import kotlinx.android.synthetic.main.activity_home.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_home_view_topic.*
 import kotlinx.android.synthetic.main.fragment_home_view_topic.view.*
+import kotlinx.android.synthetic.main.fragment_home_view_topic.view.button_search
 import kotlinx.android.synthetic.main.home_benefits_grid_item_layout.view.*
 import kotlinx.android.synthetic.main.home_view_guides_card_layout.view.*
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsLoadingActivity
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +44,8 @@ class HomeViewTopicFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
     }
 
     override fun onResume() {
@@ -45,6 +54,12 @@ class HomeViewTopicFragment : Fragment() {
         textHeader.setText("Showing results for \"" + homeActivity.topic + "\"")
 
         super.onResume()
+
+
+
+        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,6 +73,7 @@ class HomeViewTopicFragment : Fragment() {
         // Inflate the layout for this fragment
        var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)
 
+
         var homeViewActivity = activity as HomeActivity
         val adapter = HomeViewGuidesListAdapter(homeViewActivity, homeViewActivity.viewModel.getGuides(homeViewActivity.topic).toTypedArray(), homeViewActivity.viewModel.getGuideImages(homeViewActivity.topic).toTypedArray())
         view.listGuides.adapter = adapter
@@ -65,7 +81,7 @@ class HomeViewTopicFragment : Fragment() {
             val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
-            homeViewActivity.loadGuideDetail(view.name.text.toString())
+            homeViewActivity.loadGuideDetail(view.name.text.toString(),true)
             //Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
         }
 
@@ -96,6 +112,7 @@ class HomeViewTopicFragment : Fragment() {
             homeViewActivity.callSupport()
         }
 
+
         view.button_onesource.setOnClickListener {
             val url = "https://www.militaryonesource.mil/"
             val intent = Intent(Intent.ACTION_VIEW)
@@ -104,6 +121,8 @@ class HomeViewTopicFragment : Fragment() {
         }
 
         return view
+
+
     }
 
     companion object {

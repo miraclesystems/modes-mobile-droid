@@ -95,16 +95,20 @@ class HomeViewCardsListAdapter(val items: List<HomePageCardModel>, val context: 
             val cardType = items[position].cardType
             val cardTitle = items[position].cardTitle
             val activity = holder.itemView.context as Activity
+            var standAlone = true
+
 
             when (cardType) {
                 "BENEFITS" -> {
                     val intent = Intent(activity, BenefitsActivity::class.java)
                     intent.putExtra("benefit", cardTitle)
+                    intent.putExtra("standAlone", standAlone)
                     context.startActivity(intent)
                 }
                 "MILLIFE GUIDES" -> {
-                    val intent = Intent(activity, BenefitsActivity::class.java)
+                    val intent = Intent(activity, guidesActivity::class.java)
                     intent.putExtra("guide", cardTitle)
+                    intent.putExtra("standAlone", standAlone)
                     context.startActivity(intent)
                 }
                 "CONNECT" -> {

@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    >
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="152dp"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:outlineProvider="bounds">
+        android:layout_height="118dp"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/Title"
-            android:layout_width="272dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/worksans_bold"
+            android:maxLines="2"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
             android:text="Benefit Title"
             android:textColor="#194867"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@id/Title"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:ellipsize="none"
             android:fontFamily="@font/worksans_regular"
+            android:maxLines="3"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+
             android:singleLine="false"
             android:text="Description"
             android:textColor="#194867"

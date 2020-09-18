@@ -10,6 +10,8 @@ import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.BaseActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.BenefitsViewModel
 import kotlinx.android.synthetic.main.activity_guides.*
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides.GuidesCategoriesListFragment
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides.GuidesListFragment
 import java.util.*
 
 
@@ -88,21 +90,27 @@ class BenefitsActivity : BaseActivity(), Observer {
         buttonAll.setOnClickListener {
 
             Log.d("degug", "button all clicked")
-            buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+
 
             buttonAll.setBackgroundResource(R.drawable.category_selector_box)
+
+
             buttonAll.setTextColor(Color.WHITE)
             buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
-            buttonCategories.setBackgroundResource(0)
-            buttonCategories.layoutParams.height = 100
-            buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
+            // buttonCategories.setBackgroundResource(0)
+
+            buttonCategories.setBackgroundResource(R.drawable.category_selector_box_u)
+
+            buttonCategories.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonCategories.setTextColor(Color.parseColor("#194867"))
 
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsListFragment())
 
             ft.commit()
@@ -116,24 +124,28 @@ class BenefitsActivity : BaseActivity(), Observer {
             Log.d("degug", "button categories clicked")
 
             buttonCategories.setBackgroundResource(R.drawable.category_selector_box)
+
+
+
             buttonCategories.setTextColor(Color.WHITE)
             buttonCategories.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
 
-            buttonAll.setBackgroundResource(0)
-            buttonAll.layoutParams.height = 100
-            buttonAll.setBackgroundColor(Color.parseColor("#D6DDE2"))
+            buttonAll.setBackgroundResource(R.drawable.category_selector_box_u)
+
+
+            buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            //buttonAll.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonAll.setTextColor(Color.parseColor("#194867"))
 
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
             ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
 
             ft.commit()
 
         }
-
 
     }
 

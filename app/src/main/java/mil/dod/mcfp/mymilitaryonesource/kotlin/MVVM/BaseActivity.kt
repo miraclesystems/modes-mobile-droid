@@ -36,19 +36,20 @@ open class BaseActivity : AppCompatActivity() {
 
     open var myPageRefIndex:Int = 0
 
+
     private val mOnNavigationItemSelectedListener: BottomNavigationView.OnNavigationItemSelectedListener =
         object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 val prevNav = selectedNav
                 val currentNav: Int = item.getItemId()
 
-                if (currentNav == prevNav) return false
+               // if (currentNav == prevNav) return false
                 when (item.getItemId()) {
                     R.id.navigation_home -> {
                         val ii = Intent(this@BaseActivity, HomeActivity::class.java)
                         startActivity(ii)
                         overridePendingTransition(0, 0)
-                        return true
+                        return false
                     }
                     R.id.navigation_milife -> {
                         if (prevNav != R.id.navigation_home) finish()
@@ -113,6 +114,8 @@ open class BaseActivity : AppCompatActivity() {
             mDrawerLayout.closeDrawers()
         }
         */
+
+
 
 
 

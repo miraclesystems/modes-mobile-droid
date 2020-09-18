@@ -22,14 +22,16 @@
                     android:layout_height="64dp"
                     android:orientation="horizontal"
                     android:background="#12334A">
+
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="172dp"
                         android:layout_height="30dp"
-                        android:layout_marginTop="20dp"
                         android:layout_marginLeft="16dp"
-                        android:scaleType="fitStart"
-                        android:background="@drawable/ic_headerlogo" />
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/ic_headerlogo"
+                        android:contentDescription="my mos logo"
+                        android:scaleType="fitStart" />
                 </LinearLayout>
 
 

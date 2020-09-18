@@ -13,8 +13,11 @@ class WebviewActivity : AppCompatActivity() {
         var url : String? = intent?.getStringExtra("URL")
 
         if (url != null) {
+            val setting = webView.settings;
+            setting.javaScriptEnabled = true
+
             webView.loadUrl(url)
-            webView.scrollTo(0, 500)
+            //webView.scrollTo(0, 500)
         }
 
         button_back.setOnClickListener {
