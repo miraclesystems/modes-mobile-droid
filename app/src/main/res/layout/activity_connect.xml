@@ -302,6 +302,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:background="@drawable/facebook_ic"
+                        android:contentDescription="facebook"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/twitter"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -315,6 +316,7 @@
                         android:layout_marginEnd="24dp"
                         android:layout_marginRight="24dp"
                         android:background="@drawable/twitter_ic"
+                        android:contentDescription="twitter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/youtube"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -326,6 +328,7 @@
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
                         android:background="@drawable/youtube_ic"
+                        android:contentDescription="youtube"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/pinterest"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -337,6 +340,7 @@
                         android:layout_marginEnd="28dp"
                         android:layout_marginRight="28dp"
                         android:background="@drawable/pinterest_ic"
+                        android:contentDescription="pinterest"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/instagram"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -348,6 +352,7 @@
                         android:layout_marginEnd="4dp"
                         android:layout_marginRight="4dp"
                         android:background="@drawable/instagram_ic"
+                        android:contentDescription="instagram"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

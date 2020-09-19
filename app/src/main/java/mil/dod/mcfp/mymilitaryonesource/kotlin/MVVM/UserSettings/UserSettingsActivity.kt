@@ -104,11 +104,7 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
-
-
+        
         setContentView(R.layout.activity_user_settings)
 
 // Create persistent LocationManager reference

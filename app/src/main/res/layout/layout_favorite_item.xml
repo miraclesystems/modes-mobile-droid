@@ -21,18 +21,19 @@
 
             android:text="name of favorite"
             />
-        
+
         <Button
             android:id="@+id/button_favorite"
             android:layout_width="18dp"
             android:layout_height="16dp"
-            android:background="@drawable/favorite_selected"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
             android:layout_marginTop="12dp"
-            android:focusable="false"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/favorite_selected"
+            android:contentDescription="favorites"
+            android:focusable="false" />
 
         
     </RelativeLayout>

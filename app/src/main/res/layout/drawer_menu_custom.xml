@@ -13,46 +13,51 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="end"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="0dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="0dp"
         android:background="@drawable/close_white_x"
 
-        />
+        android:contentDescription="close" />
 
     <TextView
         android:id="@+id/txtHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationThemeBold"
-        android:text="myMilitary OneSource" />
+        android:contentDescription="my military one source button"
+        android:text="myMilitary OneSource"
+        android:theme="@style/SideNavigationThemeBold" />
 
     <TextView
         android:id="@+id/txtGuides"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationTheme"
-        android:text="MilLife Guides" />
+        android:contentDescription="milife guides button"
+        android:text="MilLife Guides"
+        android:theme="@style/SideNavigationTheme" />
 
     <TextView
         android:id="@+id/txtBenefits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationTheme"
-        android:text="Benefits Finder" />
+        android:contentDescription="benefits finder button"
+        android:text="Benefits Finder"
+        android:theme="@style/SideNavigationTheme" />
 
     <TextView
         android:id="@+id/txtFavorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationTheme"
-        android:text="Favorites" />
+        android:contentDescription="favorties button"
+        android:text="Favorites"
+        android:theme="@style/SideNavigationTheme" />
 
     <TextView
         android:id="@+id/txtConnect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationTheme"
-        android:text="Connect" />
+        android:contentDescription="connect button"
+        android:text="Connect"
+        android:theme="@style/SideNavigationTheme" />
 
     <View
         android:layout_width="match_parent"
@@ -67,22 +72,25 @@
         android:id="@+id/txtAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationThemeBold"
-        android:text="About my Military OneSource" />
+        android:contentDescription="about my military one source button"
+        android:text="About my Military OneSource"
+        android:theme="@style/SideNavigationThemeBold" />
 
     <TextView
         android:id="@+id/txtSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationTheme"
-        android:text="Settings" />
+        android:contentDescription="settings button"
+        android:text="Settings"
+        android:theme="@style/SideNavigationTheme" />
 
     <TextView
         android:id="@+id/txtFeedback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationTheme"
-        android:text="Feedback" />
+        android:contentDescription="feedback open in external browser"
+        android:text="Feedback"
+        android:theme="@style/SideNavigationTheme" />
 
     <View
         android:layout_width="match_parent"
@@ -97,8 +105,9 @@
         android:id="@+id/txtMilNetwork"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/SideNavigationThemeBold"
-        android:text="Military OneSource Network" />
+        android:contentDescription="military one source network"
+        android:text="Military OneSource Network"
+        android:theme="@style/SideNavigationThemeBold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,18 +117,21 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink1"
             android:layout_width="72dp"
             android:layout_height="21dp"
             android:background="@drawable/netlink_1"
-/>      <ImageButton
+            android:contentDescription="american forces travel open in external browser" />
+
+        <ImageButton
             android:id="@+id/btn_NetLink2"
             android:layout_width="73dp"
             android:layout_height="23dp"
-            android:background="@drawable/netlink_2"
             android:layout_marginLeft="50dp"
-            />
+            android:background="@drawable/netlink_2"
+            android:contentDescription="blog brigade open in external browser" />
     </LinearLayout>
 
     <LinearLayout
@@ -130,20 +142,22 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink3"
             android:layout_width="60dp"
             android:layout_height="9dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/netlink_3"
-            />
+            android:contentDescription="efmp and me military one source open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_NetLink4"
             android:layout_width="73dp"
             android:layout_height="17dp"
-            android:background="@drawable/netlink_4"
             android:layout_marginLeft="68dp"
-        />
+            android:background="@drawable/netlink_4"
+            android:contentDescription="military installations military one source open in external browser" />
     </LinearLayout>
 
     <LinearLayout
@@ -154,20 +168,22 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink5"
             android:layout_width="60dp"
             android:layout_height="14dp"
             android:background="@drawable/netlink_5"
-            />
+            android:contentDescription="one source member connect military one source open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_NetLink6"
             android:layout_width="40dp"
             android:layout_height="25dp"
+            android:layout_marginLeft="66dp"
             android:layout_marginTop="-4dp"
             android:background="@drawable/netlink_6"
-            android:layout_marginLeft="66dp"
-            />
+            android:contentDescription="military spouce emplyment partnership military one source open in external browser" />
     </LinearLayout>
 
     <LinearLayout
@@ -178,19 +194,21 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink7"
             android:layout_width="44dp"
             android:layout_height="15dp"
             android:background="@drawable/netlink_7"
-            />
+            android:contentDescription="milife learning open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_NetLink8"
             android:layout_width="59dp"
             android:layout_height="18dp"
-            android:background="@drawable/netlink_8"
             android:layout_marginLeft="84dp"
-            />
+            android:background="@drawable/netlink_8"
+            android:onClick="my career advancement account open in external browser" />
     </LinearLayout>
 
     <LinearLayout
@@ -201,19 +219,21 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink9"
             android:layout_width="49dp"
             android:layout_height="18dp"
             android:background="@drawable/netlink_9"
-            />
+            android:contentDescription="plan my move open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_NetLink10"
             android:layout_width="87dp"
             android:layout_height="19dp"
-            android:background="@drawable/netlink_10"
             android:layout_marginLeft="79dp"
-            />
+            android:background="@drawable/netlink_10"
+            android:contentDescription="spouse education opportunities open in external browser" />
     </LinearLayout>
 
     <LinearLayout
@@ -224,20 +244,22 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink11"
             android:layout_width="117dp"
             android:layout_height="18dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/netlink_11"
-            />
+            android:contentDescription="education directory for children with special needs open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_NetLink12"
             android:layout_width="45dp"
             android:layout_height="23dp"
-            android:background="@drawable/netlink_12"
             android:layout_marginLeft="13dp"
-            />
+            android:background="@drawable/netlink_12"
+            android:contentDescription="military state police source open in external browser" />
     </LinearLayout>
 
     <LinearLayout
@@ -248,20 +270,22 @@
         android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_NetLink13"
             android:layout_width="73dp"
             android:layout_height="18dp"
             android:background="@drawable/netlink_13"
-            />
+            android:contentDescription="military one source open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_NetLink14"
             android:layout_width="90dp"
             android:layout_height="17dp"
+            android:layout_marginLeft="60dp"
             android:layout_marginTop="2dp"
             android:background="@drawable/netlink_14"
-            android:layout_marginLeft="60dp"
-            />
+            android:contentDescription="plan my deployment open in external browser" />
     </LinearLayout>
 
 
@@ -277,40 +301,45 @@
 
         android:orientation="horizontal"
         >
+
         <ImageButton
             android:id="@+id/btn_Facebook"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/facebook_icon"
-            />
+            android:contentDescription="facebook open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_Twitter"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/twitter_ic"
             android:layout_marginLeft="10dp"
-            />
+            android:background="@drawable/twitter_ic"
+            android:contentDescription="twitter open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_YouTube"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/youtube_ic"
             android:layout_marginLeft="10dp"
-            />
+            android:background="@drawable/youtube_ic"
+            android:contentDescription="youtube open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_Pinterest"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/pinterest_ic"
             android:layout_marginLeft="10dp"
-            />
+            android:background="@drawable/pinterest_ic"
+            android:contentDescription="pinterest open in external browser" />
+
         <ImageButton
             android:id="@+id/btn_Instagram"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/instagram_ic"
             android:layout_marginLeft="10dp"
-            />
+            android:background="@drawable/instagram_ic"
+            android:contentDescription="instagram open in external browser" />
     </LinearLayout>
 
 

@@ -15,6 +15,7 @@
         android:layout_marginLeft="16dp"
         android:nestedScrollingEnabled="true"
         android:layout_marginBottom="88dp"
+        android:scrollbars="none"
         android:divider="@android:color/transparent"
         android:dividerHeight="15dp"/>
 </LinearLayout>

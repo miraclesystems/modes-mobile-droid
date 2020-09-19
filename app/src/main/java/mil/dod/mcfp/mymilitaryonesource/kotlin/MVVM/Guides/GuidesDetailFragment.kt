@@ -126,6 +126,8 @@ class GuidesDetailFragment : Fragment() {
 
         view.articles_header.text = model!!.ArticleHeader
         view.button_more_articles.text = model!!.MoreArticlesText
+        view.button_more_articles.setContentDescription("${model!!.MoreArticlesText} opening in external browser ")
+
         model!!.listArticles = listArticles
         var articlesListAdapter = ArticlesListAdapter(guidesActivity.applicationContext, model!!.listArticles!!)
         view.listArticles.adapter = articlesListAdapter

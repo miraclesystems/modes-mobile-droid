@@ -9,15 +9,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/button_back"
             android:layout_width="25dp"
             android:layout_height="20dp"
-            android:background="@drawable/back_gray"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
-            />
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back_gray"
+            android:contentDescription="back" />
 
         <ImageView
             android:id="@+id/icon"

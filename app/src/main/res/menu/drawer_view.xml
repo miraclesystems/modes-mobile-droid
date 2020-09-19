@@ -5,22 +5,26 @@
         >
         <item
             android:id="@+id/nav_home"
-            android:title="my Military OneSource"
-            />
+            android:contentDescription="button"
+            android:title="my Military OneSource" />
         <item
-        android:id="@+id/nav_Guides"
-        android:title="MilLife Guides" />
+            android:id="@+id/nav_Guides"
+            android:contentDescription="button"
+            android:title="MilLife Guides" />
 
         <item
             android:id="@+id/nav_Benefits"
+            android:contentDescription="button"
             android:title="Benefits Finder" />
 
         <item
-        android:id="@+id/nav_Favorites"
-        android:title="Favorites" />
+            android:id="@+id/nav_Favorites"
+            android:contentDescription="button"
+            android:title="Favorites" />
 
         <item
             android:id="@+id/nav_Connect"
+            android:contentDescription="button"
             android:title="Connect" />
 
         <item
@@ -31,14 +35,17 @@
             />
         <item
             android:id="@+id/nav_About"
+            android:contentDescription="button"
             android:title="About my Military OneSource" />
 
         <item
             android:id="@+id/nav_Settings"
+            android:contentDescription="button"
             android:title="Settings" />
 
         <item
             android:id="@+id/nav_Feedback"
+            android:contentDescription="button"
             android:title="Feedback" />
 
         <item
@@ -46,6 +53,7 @@
             android:title="" />
         <item
             android:id="@+id/nav_MilNetwork"
+            android:contentDescription="button"
             android:title="Military OneSource Network" />
 
 

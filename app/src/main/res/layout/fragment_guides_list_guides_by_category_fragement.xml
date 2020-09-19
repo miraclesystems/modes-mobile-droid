@@ -9,52 +9,52 @@
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent">
+
        <Button
            android:id="@+id/button_back"
            android:layout_width="25dp"
            android:layout_height="20dp"
-           android:background="@drawable/back_gray"
            android:layout_alignParentLeft="true"
-           android:layout_marginTop="16dp"
            android:layout_marginLeft="16dp"
-           />
+           android:layout_marginTop="16dp"
+           android:background="@drawable/back_gray"
+           android:contentDescription="back" />
 
        <ImageView
            android:id="@+id/icon"
            android:layout_width="48dp"
            android:layout_height="42dp"
-           android:scaleType="fitXY"
-           android:background="@drawable/milife_focused_ic"
            android:layout_below="@id/button_back"
-           android:layout_marginTop="20dp"
            android:layout_marginLeft="16dp"
-           />
-       
+           android:layout_marginTop="18dp"
+           android:background="@drawable/milife_focused_ic"
+           android:scaleType="fitXY" />
+
        <TextView
            android:id="@+id/category_name"
            android:layout_width="wrap_content"
-           android:layout_height="25dp"
-           android:layout_toRightOf="@id/icon"
+           android:layout_height="wrap_content"
            android:layout_below="@id/button_back"
-           android:layout_marginTop="18dp"
            android:layout_marginLeft="10dp"
+           android:layout_marginTop="18dp"
+           android:layout_toRightOf="@id/icon"
+           android:fontFamily="@font/worksans_bold"
            android:text="CATEGORY NAME"
-           android:textSize="20sp"
            android:textColor="#D43E51"
-           />
+           android:textSize="20sp" />
 
        <TextView
            android:id="@+id/headerText"
            android:layout_width="wrap_content"
-           android:layout_height="25dp"
-           android:layout_toRightOf="@id/icon"
+           android:layout_height="wrap_content"
            android:layout_below="@id/button_back"
            android:layout_marginLeft="10dp"
            android:layout_marginTop="40dp"
+           android:layout_toRightOf="@id/icon"
+           android:fontFamily="@font/worksans_bold"
            android:text="MILLIFE GUIDES"
-           android:textSize="20sp"
            android:textColor="#194867"
-           />
+           android:textSize="20sp" />
 
        <ListView
            android:id="@+id/listGuides"
@@ -64,6 +64,7 @@
            android:layout_marginTop="20dp"
            android:divider="@android:color/transparent"
            android:dividerHeight="15dp"
+           android:scrollbars="none"
            android:nestedScrollingEnabled="true" />
 
 

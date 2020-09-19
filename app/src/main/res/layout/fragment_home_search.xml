@@ -102,6 +102,8 @@
             android:layout_height="wrap_content"
             android:importantForAccessibility="noHideDescendants"
             android:background="@color/white"
+            android:layout_marginBottom="88dp"
+
 
             />
 
