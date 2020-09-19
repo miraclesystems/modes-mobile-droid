@@ -2,17 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@android:color/transparent"
-    android:clipToPadding="false"
-
     >
 
     <ListView
         android:id="@+id/gvCategories"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:columnWidth="156dp"
         android:layout_gravity="center"
         android:horizontalSpacing="15dp"
@@ -21,12 +19,13 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginBottom="88dp"
         android:divider="@android:color/transparent"
         android:nestedScrollingEnabled="true"
+        android:scrollbars="none"
         android:dividerHeight="10dp"
         />
-
-
-
-
+    
+    
+    
 </LinearLayout>

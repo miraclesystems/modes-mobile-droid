@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.fragment_guides_list.*
 
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_guides_list.view.*
@@ -44,6 +45,10 @@ class GuidesListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        var guidesActivity = activity as guidesActivity
+        adapter = GuidesListAdapter(guidesActivity.applicationContext, guidesActivity.viewModel.getAllGuides())
+
+        listGuides.adapter = adapter
 
     }
     override fun onCreateView(

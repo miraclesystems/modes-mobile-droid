@@ -123,14 +123,16 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
     override fun update(o: Observable?, arg: Any?) {
 
+        var userSettingsActivity = activity as UserSettingsActivity
+        userSettingsActivity.viewModel.deleteObserver(this)
+
         if(pbLoading != null) {
             pbLoading.visibility = ProgressBar.GONE
         }
 
         if(pbLoading != null)
             pbLoading.visibility = ProgressBar.VISIBLE
-        var userSettingsActivity = activity as UserSettingsActivity
-        userSettingsActivity.viewModel.deleteObserver(this)
+
         when (o){
             is UserSettingsViewModel -> {
                 if (arg is Boolean) {
@@ -163,34 +165,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     userSettingsActivity.listNames = listNames
                     userSettingsActivity.loadSearchByPostalCode()
 
-                    /*
-                    // Finally, data bind the spinner object with dapter
-                    spinner.adapter = adapter;
-
-                    // Set an on item selected listener for spinner object
-                    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                        override fun onNothingSelected(p0: AdapterView<*>?) {
-                            //TODO("Not yet implemented")
-                        }
-
-                        override fun onItemSelected(
-                            parent: AdapterView<*>,
-                            view: View,
-                            position: Int,
-                            id: Long
-                        ) {
-                            // Display the selected item text on text view
-                            search_installations.setText(listNames.get(position))
-                            spinner.visibility = View.INVISIBLE
-                        }
-
-
-                    }
-
-
-                    spinner.visibility = View.VISIBLE
-                    spinner.performClick()
-                    */
 
                     Log.d("debug", "stop")
                     true
@@ -249,7 +223,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         listNames.clear()
 
         var userSettingsActivity = activity as UserSettingsActivity
-        userSettingsActivity.viewModel.addObserver(this)
+
 
         view.button_location.setOnClickListener(){
 
@@ -258,6 +232,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     Manifest.permission.ACCESS_FINE_LOCATION
                 )
             ) {
+                userSettingsActivity.viewModel.addObserver(this)
                 getLastLocation()
             }
 
@@ -302,9 +277,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
                 Log.d("debug_item", itemValue)
 
-
-
-
                 for(location in userSettingsActivity.viewModel.model.items!!){
 
                     if(location?.name == itemValue){
@@ -313,11 +285,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                         PreferencesUtil.save("installation_name", location.name.toString())
 
                         // x = PreferencesUtil.getValueString("installation")
-
-
-
-
-
 
                     }
 

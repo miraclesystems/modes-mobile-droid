@@ -1,19 +1,31 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 
+import android.Manifest
 import android.annotation.SuppressLint
-import android.app.PendingIntent.getActivity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
+import android.os.Looper
+import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.location.LocationRequest
+import kotlinx.android.synthetic.main.activity_user_settings.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
-import kotlinx.android.synthetic.main.activity_user_settings.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 import java.util.*
 import kotlin.collections.ArrayList
@@ -31,7 +43,12 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
     var page3Completed = false
     public var viewModel = UserSettingsViewModel()
 
+    var currentLocation : Location? = null
+
     var pageNumber = 1
+
+    private var locationManager : LocationManager? = null
+    var locationListener : LocationListener? = null
 
     @SuppressLint("NewApi")
     override fun onResume() {
@@ -57,15 +74,92 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
 
          */
     }
+    @SuppressLint("MissingPermission")
+    @RequiresApi(Build.VERSION_CODES.P)
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (requestCode == 42) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                // Granted. Start getting the location information
+                if(isLocationEnabled(locationManager!!))
+                {
+                    locationManager?.requestSingleUpdate(
+                        LocationManager.GPS_PROVIDER,
+                        locationListener!!,
+                        null
+                    );
+                    //getLocationDetails()
+                    Log.d("debug", "stop")
+                }
+                else
+                {
+                    Toast.makeText(this, "Turn on location", Toast.LENGTH_LONG).show()
+                    val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    startActivity(intent)
+                }
+
+            }
+        }
+    }
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        //JS Clear all previous saved preferences on run of app
-        PreferencesUtil.clearAll()
-
+        
         setContentView(R.layout.activity_user_settings)
 
+// Create persistent LocationManager reference
+        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
+
+
+
+        locationListener = object : LocationListener {
+
+            override fun onLocationChanged(p0: Location) {
+
+                Log.d("debug", "location changed")
+                currentLocation = p0
+                locationManager?.removeUpdates(locationListener!!)
+            }
+
+            override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
+                Log.d("debug", "location changed")
+            }
+
+            override fun onProviderEnabled(provider: String) {
+                Log.d("debug", "location changed")
+            }
+
+            override fun onProviderDisabled(provider: String) {
+                Log.d("debug", "location changed")
+            }
+        }
+        //locationManager?.requestLocationUpdates(LocationManager.GPS_PROVIDER , 0L, 0f, locationListener!!)
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION), 42)
+
+        }
+        else {
+            locationManager?.requestSingleUpdate(
+                LocationManager.GPS_PROVIDER,
+                locationListener!!,
+                null
+            );
+        }
 
 
         viewModel.getInstallations()
@@ -115,6 +209,7 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
             }
         }
     }
+
 
 
     fun loadSearchByPostalCode(){

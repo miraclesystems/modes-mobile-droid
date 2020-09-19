@@ -27,7 +27,7 @@ class FavoritesActivity : BaseActivity(), Observer {
     }
 
     fun makeCall(phoneNumber : String){
-        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber))
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber))
         startActivity(intent)
     }
 
@@ -35,6 +35,7 @@ class FavoritesActivity : BaseActivity(), Observer {
 
         val intent = Intent(this, guidesActivity::class.java)
         intent.putExtra("guide", selectedGuide)
+        intent.putExtra("standAlone", true)
         startActivity(intent)
     }
 
@@ -42,6 +43,8 @@ class FavoritesActivity : BaseActivity(), Observer {
 
         val intent = Intent(this, BenefitsActivity::class.java)
         intent.putExtra("benefit", selectedBenefit)
+        intent.putExtra("standAlone", true)
+
         startActivity(intent)
     }
 
@@ -57,7 +60,7 @@ class FavoritesActivity : BaseActivity(), Observer {
             // Begin the transaction
             val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
             // Replace the contents of the container with the new fragment
-            ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             ft.replace(R.id.layout1, FavoritesInstallationsNoneFragment())
 
             // Complete the changes added above
@@ -66,7 +69,7 @@ class FavoritesActivity : BaseActivity(), Observer {
 
         var ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.layout2, FavoritesGuidesListFragment())
 
         // Complete the changes added above
@@ -75,7 +78,7 @@ class FavoritesActivity : BaseActivity(), Observer {
 
         ft = supportFragmentManager.beginTransaction()
         // Replace the contents of the container with the new fragment
-        ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+        //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
         ft.replace(R.id.layout3, FavoritesBenefitsListFragment())
 
         // Complete the changes added above
@@ -105,7 +108,7 @@ class FavoritesActivity : BaseActivity(), Observer {
                     // Begin the transaction
                     val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
                     // Replace the contents of the container with the new fragment
-                    ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+                    //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
                     ft.replace(R.id.layout1, FavoritesInstallationsFragment())
 
                     // Complete the changes added above

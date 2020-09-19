@@ -24,12 +24,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="14dp"
+                android:background="#194867"
+                android:fontFamily="@font/worksans_bold"
                 android:paddingLeft="16dp"
+                android:paddingTop="10dp"
                 android:text="YOUR MILLIFE GUIDES"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:background="#194867"/>
+                android:textStyle="bold" />
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,21 +42,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="No MiLifeGuides Favorited"
+                    android:fontFamily="@font/worksans_regular"
                     android:gravity="center_horizontal"
+                    android:text="No MiLifeGuides Favorited"
                     android:textColor="#194867"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    android:typeface="normal" />
+
                 <TextView
                     android:id="@+id/line2"
-                    android:layout_below="@id/line1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/line1"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="12dp"
-                    android:text="To favorite a guide, click the ♡\nin the corner of the guide"
+                    android:fontFamily="@font/worksans_regular"
                     android:gravity="center_horizontal"
+                    android:text="To favorite a guide, click the ♡\nin the corner of the guide"
                     android:textColor="#194867"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
             </RelativeLayout>
 

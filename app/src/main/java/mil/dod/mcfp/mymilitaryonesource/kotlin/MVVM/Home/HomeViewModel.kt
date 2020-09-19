@@ -105,21 +105,25 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
         return list
     }
 
-    fun getGuideImages(topic: String): MutableList<Int>{
+    fun getGuideImages(topic: String): MutableList<String>{
 
-        val imageId = arrayListOf<Int>(
 
-        )
 
+
+        var list = arrayListOf<String>()
 
         var result = ModesDb.getGuidesByKeyWordSearch(topic)
         while(result!!.moveToNext()){
 
-            imageId.add(R.drawable.guides_image_placeholder)
+            var id = result.getInt(result.getColumnIndex("ID"))
+            var guide = result.getString(result.getColumnIndex("Guide Image"))
+            list.add(guide)
 
         }
 
-        return imageId
+        return list
+
+
 
     }
 

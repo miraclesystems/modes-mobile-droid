@@ -9,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.fragment_guides_categories_list.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_guides_categories_list.view.*
 import kotlinx.android.synthetic.main.layout_categories_gridview.view.*
+import kotlinx.android.synthetic.main.layout_guides_list.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +32,10 @@ class GuidesCategoriesListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        var guidesActivity = activity as guidesActivity
+        var adapter = CateogriesAdapter(guidesActivity.applicationContext, guidesActivity.viewModel.getGuideCategories())
+
+        gvCategories.adapter = adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +63,10 @@ class GuidesCategoriesListFragment : Fragment() {
             Log.d("debug", "stop")
 
 
-            guidesActivity.viewModel.selectedCategory = guidesActivity.viewModel.categories[i]
+
+
+            guidesActivity.viewModel.selectedCategory  =  view.category.text.toString()
+            //guidesActivity.viewModel.selectedCategory = guidesActivity.viewModel.categories[i]
 
             guidesActivity.loadGuidesListByCategory()
 
