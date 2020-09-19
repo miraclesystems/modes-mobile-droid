@@ -20,6 +20,7 @@ import java.util.*
 class BenefitsActivity : BaseActivity(), Observer {
 
     var viewModel = BenefitsViewModel()
+    var categoriesShown = true
 
     override var myPageRefIndex = 2
     var standAlone : Boolean = false
@@ -68,6 +69,7 @@ class BenefitsActivity : BaseActivity(), Observer {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentLayout(R.layout.activity_benefits)
+        categoriesShown = true
 
         this.standAlone = intent?.getBooleanExtra("standAlone", false)!!
         var selectedBenefit : String? = intent?.getStringExtra("benefit")
@@ -89,6 +91,7 @@ class BenefitsActivity : BaseActivity(), Observer {
 
         buttonAll.setOnClickListener {
 
+            categoriesShown = false
             Log.d("degug", "button all clicked")
             //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
 
@@ -123,6 +126,7 @@ class BenefitsActivity : BaseActivity(), Observer {
         buttonCategories.setOnClickListener {
             Log.d("degug", "button categories clicked")
 
+            categoriesShown = true
             buttonCategories.setBackgroundResource(R.drawable.category_selector_box)
 
 
@@ -154,19 +158,35 @@ class BenefitsActivity : BaseActivity(), Observer {
 
     }
 
+
+    fun forceResume(){
+        onResume()
+    }
     override fun onResume() {
         super.onResume()
         setSelected(R.id.navigation_benefits);
 
-        if(viewModel.selectedBenefit == null || viewModel.selectedBenefit.length == 0) {
-            // Begin the transaction
-            val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
-            // Replace the contents of the container with the new fragment
-            //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
-            ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
-            ft.commit()
-        }
 
+        if(!standAlone){
+
+            if (viewModel.selectedBenefit == null || viewModel.selectedBenefit.length == 0 || categoriesShown) {
+                // Begin the transaction
+                val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+                // Replace the contents of the container with the new fragment
+                //ft.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
+                ft.replace(R.id.fragment_container, BenefitsCategoriesListFragment())
+                ft.commit()
+            } else {
+
+                // Begin the transaction
+                val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
+                // Replace the contents of the container with the new fragment
+                //ft.setCustomAnimations(anim.slide_up, anim.slide_down);
+                ft.replace(R.id.fragment_container, BenefitsListFragment())
+
+                ft.commit()
+            }
+        }
     }
 
     override fun update(o: Observable?, arg: Any?) {

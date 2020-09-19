@@ -70,8 +70,21 @@ class UserSettingsSearchByPostalCode : Fragment() {
                 // value of item that is clicked
                 val itemValue = searchList.getItemAtPosition(position) as String
 
+                //PreferencesUtil.save("installation", itemValue)
 
-                PreferencesUtil.save("installation", itemValue)
+
+                for(location in userSettingsActivty.viewModel.model.items!!){
+
+                    if(location?.name == itemValue){
+                        var x = PreferencesUtil.getValueString("installation")
+                        PreferencesUtil.save("installation", location.id.toString())
+                        PreferencesUtil.save("installation_name", location.name.toString())
+
+                        // x = PreferencesUtil.getValueString("installation")
+
+                    }
+
+                }
 
                 Log.d("installation_name", PreferencesUtil.getValueString("installation").toString())
 

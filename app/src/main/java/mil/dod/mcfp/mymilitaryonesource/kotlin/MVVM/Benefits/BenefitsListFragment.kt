@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.fragment_benefit_detail.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_benefits_list.view.*
 import kotlinx.android.synthetic.main.layout_benefits.view.*
+import kotlinx.android.synthetic.main.layout_guides_list.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,7 +51,9 @@ class BenefitsListFragment : Fragment() {
 
         view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
-            benefitsActivity.viewModel.selectedBenefit = benefitsActivity.viewModel.getAllBenefits()[i].Benefit!!
+            benefitsActivity.viewModel.selectedBenefit = view.Title.text.toString()
+
+            //benefitsActivity.viewModel.selectedBenefit = benefitsActivity.viewModel.getAllBenefits()[i].Benefit!!
             var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
             transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
             benefitsActivity.supportFragmentManager.beginTransaction().remove(this).commit()

@@ -74,10 +74,12 @@ class BenefitDetailFragment : Fragment() {
 
 
             if(!benefitsActivity.standAlone){
-                benefitsActivity.loadCategories()
+                //benefitsActivity.loadCategories()
                 var transaction = benefitsActivity.supportFragmentManager.beginTransaction()
                 transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
                 benefitsActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+
+                benefitsActivity.forceResume()
             }
             else{
                 benefitsActivity.onBackPressed()

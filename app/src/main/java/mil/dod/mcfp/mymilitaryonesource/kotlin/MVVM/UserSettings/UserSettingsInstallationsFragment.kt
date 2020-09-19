@@ -3,9 +3,11 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 import android.Manifest
 import android.app.Activity
 import android.content.ContentValues.TAG
-import android.content.Context.MODE_WORLD_READABLE
+import android.content.Context
+import android.content.Context.LOCATION_SERVICE
 import android.content.pm.PackageManager
 import android.location.Geocoder
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,14 +21,13 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
-import mil.dod.mcfp.mymilitaryonesource.R
+import com.google.android.gms.location.*
 import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
-import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.button_location
+import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 import java.util.*
 import kotlin.collections.ArrayList
@@ -48,6 +49,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
     private var param2: String? = null
 
     private var listNames = ArrayList<String>()
+
 
 
     var fusedLocationClient: FusedLocationProviderClient? = null
@@ -104,13 +106,13 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
+// Create persistent LocationManager reference
+        // Create persistent LocationManager reference
 
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
 
-        var userSettingsActivity = activity as UserSettingsActivity
-        userSettingsActivity.viewModel.addObserver(this)
+
     }
 
     override fun update(o: Observable?, arg: Any?) {
@@ -218,24 +220,28 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
         fun getLastLocation() {
             pbLoading.visibility = ProgressBar.VISIBLE
-            fusedLocationClient!!.lastLocation
-                .addOnCompleteListener(activity!!) { task ->
-                    if (task.isSuccessful && task.result != null) {
+            //fusedLocationClient!!.lastLocation
+                //.addOnCompleteListener(activity!!) { task ->
+                    //if (task.isSuccessful && task.result != null) {
                         Log.d(TAG, "getLastLocation")
+                        var userSettingsActivity = activity as UserSettingsActivity
                         val geocoder = Geocoder(activity!!.applicationContext, Locale.ENGLISH)
-                        val addresses = geocoder.getFromLocation(task.result!!.latitude, task.result!!.longitude, 1)
+                        val addresses = geocoder.getFromLocation(userSettingsActivity.currentLocation!!.latitude,userSettingsActivity.currentLocation!!.longitude, 1)
                         userSettingsActivity.city = addresses[0].locality
                         val zipcode = addresses[0].postalCode
                         Log.d("debug", addresses[0].postalCode)
 
-                        var userSettingsActivity = activity as UserSettingsActivity
+
+
+                        userSettingsActivity.viewModel.addObserver(this)
                         userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
 
-                    } else {
-                        Log.w(TAG, "getLastLocation:exception", task.exception)
+                    //} else {
+                        pbLoading.visibility = ProgressBar.INVISIBLE
+                    //    Log.w(TAG, "getLastLocation:exception", task.exception)
 
-                    }
-                }
+                    //}
+                //}
         }
 
 
@@ -304,36 +310,7 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                 // Set the drop down view resource
                 adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
 
-                /*
-                // Finally, data bind the spinner object with dapter
-                spinner.adapter = adapter;
 
-                // Set an on item selected listener for spinner object
-                spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onNothingSelected(p0: AdapterView<*>?) {
-                        //TODO("Not yet implemented")
-                    }
-
-                    override fun onItemSelected(
-                        parent: AdapterView<*>,
-                        view: View,
-                        position: Int,
-                        id: Long
-                    ) {
-                        // Display the selected item text on text view
-                        search_installations.setText(listNames.get(position))
-                        spinner.visibility = View.INVISIBLE
-                    }
-
-
-                }
-
-
-                spinner.visibility = View.VISIBLE
-                spinner.performClick()
-                Log.d("debug", "stop")
-
-                 */
                 true
             } else {
                 false
@@ -342,40 +319,6 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
 
 
 
-        /*
-        view.search_installations.addTextChangedListener(object : TextWatcher {
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                // Fires right as the text is being changed (even supplies the range of text)
-            }
-
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
-                // Fires right before text is changing
-            }
-
-            override fun afterTextChanged(s: Editable) {
-
-                if(s.length >= 3) {
-
-            }
-        })
-
-
-         */
-
-        /*
-        view.button_page1.setOnClickListener { view ->
-
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage1()
-        }
-
-
-        view.button_page3.setOnClickListener { view ->
-
-            var userSettingsActivity = activity as UserSettingsActivity
-            userSettingsActivity.loadPage3()
-        }
-        */
 
         return view
     }

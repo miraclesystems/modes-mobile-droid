@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import kotlinx.android.synthetic.main.fragment_benefit_detail.view.*
+import kotlinx.android.synthetic.main.fragment_benefits_categories_list.*
 import kotlinx.android.synthetic.main.fragment_benefits_list.view.*
 import kotlinx.android.synthetic.main.layout_categories_gridview.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
@@ -35,6 +37,13 @@ class BenefitsCategoriesListFragment : Fragment() {
         }
     }
 
+    override fun onResume(){
+        super.onResume()
+        var benefitsActivity = activity as BenefitsActivity
+        var adapter = CategoriesAdapter(benefitsActivity.applicationContext, benefitsActivity.viewModel.getCategories())
+
+        listBenefits.adapter = adapter
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -77,7 +77,10 @@ object ModesDb {
 
 
     fun getBenefitCategories(): Cursor?{
-        return db.rawQuery("SELECT DISTINCT category from benefits", null)
+        return db.rawQuery("select distinct category from benefits order by category ASC;", null)
+    }
+    fun getGuidesCategories(): Cursor?{
+        return db.rawQuery("select distinct category from guides order by category ASC;", null)
     }
 
     fun getBenefitByCategory(category : String): Cursor?{

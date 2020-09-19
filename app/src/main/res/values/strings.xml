@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">mode-mobile-droid</string>
+    <string name="app_name">My Military OneSource</string>
     <string name="title_activity_base">BaseActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
