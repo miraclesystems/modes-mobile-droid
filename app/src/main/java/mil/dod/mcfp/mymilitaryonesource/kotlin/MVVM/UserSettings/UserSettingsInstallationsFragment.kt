@@ -3,11 +3,9 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings
 import android.Manifest
 import android.app.Activity
 import android.content.ContentValues.TAG
-import android.content.Context
-import android.content.Context.LOCATION_SERVICE
+import android.content.DialogInterface
 import android.content.pm.PackageManager
 import android.location.Geocoder
-import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,9 +19,9 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.activity_user_settings.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.view.*
@@ -182,13 +180,14 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                     ActivityCompat.
                     shouldShowRequestPermissionRationale(activity!!, it)}
             ) {
-                val dialog = AlertDialog.Builder(activity!!.applicationContext, R.style.Theme_AppCompat_Light)
+                var userSettingsActivity = activity as UserSettingsActivity
+                val dialog = AlertDialog.Builder(userSettingsActivity, R.style.Theme_AppCompat_Light)
 
                 .setTitle("Permission")
                     .setMessage("Permission needed!")
                     .setPositiveButton("OK", {id, v ->
                         ActivityCompat.requestPermissions(
-                            activity!!, perm, PERMISSION_ID)
+                            userSettingsActivity, perm, PERMISSION_ID)
                     })
                     .setNegativeButton("No", {id, v -> })
                     .create()
@@ -226,18 +225,40 @@ class UserSettingsInstallationsFragment : Fragment(), Observer {
                         Log.d(TAG, "getLastLocation")
                         var userSettingsActivity = activity as UserSettingsActivity
                         val geocoder = Geocoder(activity!!.applicationContext, Locale.ENGLISH)
-                        val addresses = geocoder.getFromLocation(userSettingsActivity.currentLocation!!.latitude,userSettingsActivity.currentLocation!!.longitude, 1)
-                        userSettingsActivity.city = addresses[0].locality
-                        val zipcode = addresses[0].postalCode
-                        Log.d("debug", addresses[0].postalCode)
+
+                            if(userSettingsActivity.currentLocation != null) {
+                                val addresses = geocoder.getFromLocation(
+                                    userSettingsActivity.currentLocation!!.latitude,
+                                    userSettingsActivity.currentLocation!!.longitude,
+                                    1
+                                )
+                                userSettingsActivity.city = addresses[0].locality
+                                val zipcode = addresses[0].postalCode
+
+                                Log.d("debug", addresses[0].postalCode)
 
 
 
-                        userSettingsActivity.viewModel.addObserver(this)
-                        userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
+                                userSettingsActivity.viewModel.addObserver(this)
+                                userSettingsActivity.viewModel.getInstallationsByPostal(zipcode, 25)
+                            }
+                            else{
+                                pbLoading.visibility = ProgressBar.INVISIBLE
+                                val alertDialogBuilder =
+                                    AlertDialog.Builder(userSettingsActivity)
+                                alertDialogBuilder.setPositiveButton("OK",  DialogInterface.OnClickListener { dialogInterface, i ->
+
+
+                                })
+                                alertDialogBuilder.setMessage("No Location Data")
+
+                                val alertDialog =
+                                    alertDialogBuilder.create()
+                                alertDialog.show()
+                            }
 
                     //} else {
-                        pbLoading.visibility = ProgressBar.INVISIBLE
+                        //
                     //    Log.w(TAG, "getLastLocation:exception", task.exception)
 
                     //}
