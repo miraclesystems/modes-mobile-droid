@@ -15,6 +15,8 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.BaseActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.WebviewActivity
 import kotlinx.android.synthetic.main.activity_guides.*
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsCategoriesListFragment
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsListFragment
 
 
 class guidesActivity : BaseActivity() {
@@ -24,7 +26,7 @@ class guidesActivity : BaseActivity() {
     var viewModel : GuidesViewModel = GuidesViewModel()
     var guide : Guide? = null
 
-
+    var categoriesShown = true
 
 
     override var myPageRefIndex = 1
@@ -131,11 +133,14 @@ class guidesActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.M)
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentLayout(activity_guides)
 
 
+        this.standAlone = intent?.getBooleanExtra("standAlone", false)!!
         var selectedGuide : String? = intent?.getStringExtra("guide")
 
 
@@ -163,7 +168,7 @@ class guidesActivity : BaseActivity() {
             Log.d("degug", "button all clicked")
             //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
 
-
+            categoriesShown = false
             buttonAll.setBackgroundResource(drawable.category_selector_box)
 
 
@@ -194,6 +199,7 @@ class guidesActivity : BaseActivity() {
         buttonCategories.setOnClickListener {
             Log.d("degug", "button categories clicked")
 
+            categoriesShown = true
             buttonCategories.setBackgroundResource(drawable.category_selector_box)
 
 
@@ -219,10 +225,22 @@ class guidesActivity : BaseActivity() {
         }
     }
 
+
+    fun forceResume(){
+        onResume()
+    }
     override fun onResume() {
         super.onResume()
         setSelected(id.navigation_milife);
 
+        if(viewModel.selectedGuide == null || viewModel.selectedGuide.length == 0 || categoriesShown) {
+            // Begin the transaction
+            loadCategories()
+        }
+        else{
+
+           loadGuideList()
+        }
 
     }
 

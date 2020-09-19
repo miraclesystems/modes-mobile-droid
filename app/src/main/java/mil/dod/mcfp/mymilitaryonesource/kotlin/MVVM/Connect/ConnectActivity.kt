@@ -47,7 +47,7 @@ class ConnectActivity : BaseActivity() {
 
         fun callPhone(){
 
-            val callIntent = Intent(Intent.ACTION_CALL)
+            val callIntent = Intent(Intent.ACTION_DIAL)
             callIntent.data = Uri.parse("tel:$phoneNum")
             startActivity(callIntent)
 

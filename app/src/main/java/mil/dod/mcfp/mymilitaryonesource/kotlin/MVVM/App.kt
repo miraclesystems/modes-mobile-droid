@@ -1,10 +1,7 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM
 
 import android.app.Application
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ActsDbHelper
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.BASE_URL
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PROD_BASE_URL
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.*
 
 
 class App : Application() {
@@ -32,6 +29,7 @@ class App : Application() {
 
 
 
+        //PreferencesUtil.init(this.applicationContext)
         // get teh database
         var dbHelper = ActsDbHelper(this.applicationContext)
         var db = dbHelper.readableDatabase

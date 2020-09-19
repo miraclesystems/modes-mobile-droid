@@ -1,11 +1,15 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
+import android.Manifest.permission.CALL_PHONE
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -17,6 +21,7 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides.guidesActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import java.util.*
+import java.util.jar.Manifest
 
 
 class HomeActivity : BaseActivity(), Observer {
@@ -32,9 +37,12 @@ class HomeActivity : BaseActivity(), Observer {
     override var myPageRefIndex = 0
 
 
+    @RequiresApi(Build.VERSION_CODES.M)
     fun callSupport(){
-        val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "800-342-9647"))
+        val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "800-342-9647"))
         startActivity(intent)
+
+
     }
     fun loadGuideDetail(selectedGuide : String, standAlone : Boolean){
 

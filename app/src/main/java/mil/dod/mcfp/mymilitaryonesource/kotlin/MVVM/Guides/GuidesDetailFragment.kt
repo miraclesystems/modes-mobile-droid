@@ -3,6 +3,7 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -177,7 +178,7 @@ class GuidesDetailFragment : Fragment() {
         view.listBenefits.setOnItemClickListener { adapterView, view, i, l ->
 
             var benefit = model?.listRelatedBenefits?.get(i)?.benefit
-            guidesActivity.loadBenefitDetail(benefit!!, false)
+            guidesActivity.loadBenefitDetail(benefit!!, true)
 
         }
 
@@ -186,10 +187,11 @@ class GuidesDetailFragment : Fragment() {
             //var HomeActivity = activity as HomeActivity
 
             if(!guidesActivity.standAlone){
-                guidesActivity.loadCategories()
+                //guidesActivity.loadCategories()
                 var transaction = guidesActivity.supportFragmentManager.beginTransaction()
                 transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
                 guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
+                guidesActivity.forceResume()
             }
             else{
 
@@ -222,7 +224,7 @@ class GuidesDetailFragment : Fragment() {
         view.button_call.setOnClickListener {
 
             try {
-                val intent = Intent(Intent.ACTION_CALL)
+                val intent = Intent(Intent.ACTION_DIAL)
                 intent.setData(Uri.parse("tel:8003429647"))
                 startActivity(intent)
 
@@ -397,6 +399,10 @@ class GuidesDetailFragment : Fragment() {
 
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var item = inflator.inflate(R.layout.layout_experts_text_items, parent, false)
+
+            if(position == 0){
+                item.label.setTypeface(null, Typeface.BOLD)
+            }
             item.label.text = title
 
 

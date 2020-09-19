@@ -30,7 +30,7 @@ class GuidesViewModel {
 
         var list = mutableListOf<String>()
 
-        var results = ModesDb.getBenefitCategories()
+        var results = ModesDb.getGuidesCategories()
 
         while(results!!.moveToNext()){
 
@@ -125,13 +125,13 @@ class GuidesViewModel {
 
 
         guide.ExpertsHeader = guide.ExpertsText!![0]
-        guide.ExpertsHeader1 = guide.ExpertsText!![1]
+        //guide.ExpertsHeader1 = guide.ExpertsText!![2]
 
         var list = mutableListOf<String>()
 
         var count = 0
         for (expert in guide.ExpertsText!!) {
-            if (count == 0 || count == 1 || expert == " ") {
+            if (count == 0 || count == 1  || expert == " ") {
                 count++
                 continue
             } else if (expert == "") {

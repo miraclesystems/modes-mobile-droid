@@ -329,6 +329,7 @@
                     <TextView
                         android:id="@+id/hereareafew"
                         android:layout_width="280dp"
+
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
                         android:textColor="#194867"

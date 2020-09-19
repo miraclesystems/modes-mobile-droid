@@ -19,6 +19,11 @@ object PreferencesUtil {
         preferences = App.applicationContext().getSharedPreferences(NAME, MODE)
     }
 
+    fun init(context: Context) {
+        preferences = App.applicationContext().getSharedPreferences(NAME, MODE)
+    }
+
+
     /**
      * SharedPreferences extension function, so we won't need to call edit() and apply()
      * ourselves on every SharedPreferences operation.
@@ -31,18 +36,16 @@ object PreferencesUtil {
 
 
     fun save(KEY_NAME: String, value: String) {
-        val editor: SharedPreferences.Editor = preferences.edit()
-
-        Log.d("prefs", value)
 
 
-        editor.putString(KEY_NAME, value)
+        val prefsEditor: SharedPreferences.Editor = preferences.edit()
+        with(prefsEditor) {
+            putString(KEY_NAME, value)
+            commit()
+        }
 
-        editor.commit()
+
     }
-
-
-
     fun clearAll() {
         val editor: SharedPreferences.Editor = preferences.edit()
 
@@ -51,7 +54,6 @@ object PreferencesUtil {
     }
 
    fun getValueString(KEY_NAME: String): String? {
-
         return preferences.getString(KEY_NAME, null)
     }
 
