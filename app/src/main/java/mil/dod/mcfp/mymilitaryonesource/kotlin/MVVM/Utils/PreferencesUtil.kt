@@ -3,6 +3,10 @@ package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
+
 import kotlinx.android.synthetic.main.fragment_user_settings_installation.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.App
 
@@ -14,13 +18,16 @@ object PreferencesUtil {
 
     // list of app specific preferences
     private val IS_FIRST_RUN_PREF = Pair("is_first_run", false)
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
     init {
         preferences = App.applicationContext().getSharedPreferences(NAME, MODE)
+        firebaseAnalytics = Firebase.analytics
     }
 
     fun init(context: Context) {
         preferences = App.applicationContext().getSharedPreferences(NAME, MODE)
+
     }
 
 
@@ -38,6 +45,19 @@ object PreferencesUtil {
     fun save(KEY_NAME: String, value: String) {
 
 
+        var fbKey = ""
+        if(KEY_NAME == "USER_DESCRIPTION"){
+            fbKey = "audienceType"
+        }
+        else if(KEY_NAME == "installation"){
+            fbKey = "installationName"
+        }
+        else if(KEY_NAME == "branch"){
+            fbKey = "branchName"
+        }
+
+
+        firebaseAnalytics.setUserProperty(fbKey, value)
         val prefsEditor: SharedPreferences.Editor = preferences.edit()
         with(prefsEditor) {
             putString(KEY_NAME, value)
