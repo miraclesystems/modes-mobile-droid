@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:layout_marginBottom="88dp"
+
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -150,7 +151,7 @@
                 <ListView
                     android:id="@+id/listArticles"
                     android:layout_width="328dp"
-                    android:layout_height="350dp"
+                    android:layout_height="370dp"
                     android:layout_below="@id/layout2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
@@ -159,7 +160,7 @@
                     android:nestedScrollingEnabled="true"
                     android:layout_marginBottom="10dp"
                     android:divider="@android:color/transparent"
-                    android:dividerHeight="15dp">
+                    android:dividerHeight="0dp">
 
 
                 </ListView>
@@ -232,13 +233,14 @@
                     android:nestedScrollingEnabled="true"
                     android:layout_marginBottom="10dp"
                     android:divider="@android:color/transparent"
-                    android:dividerHeight="15dp">
+                    android:dividerHeight="0dp">
 
 
                 </ListView>
 
                 <Button
                     android:id="@+id/button_more_benefits"
+                    android:layout_marginTop="10dp"
                     android:layout_width="195dp"
                     android:layout_height="32dp"
                     android:layout_below="@id/listBenefits"
