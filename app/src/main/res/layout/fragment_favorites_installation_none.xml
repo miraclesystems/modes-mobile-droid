@@ -48,6 +48,7 @@
 
 
             <Button
+                android:id="@+id/addinstallation"
                 android:layout_width="156dp"
                 android:layout_height="36dp"
                 android:layout_below="@id/no_installation"

@@ -101,7 +101,7 @@ class GuidesDetailFragment : Fragment() {
         view.guide_header.text = model!!.GuideHeader
 
         var listArticles = mutableListOf<Article>()
-        for (x in 0 until 3){
+        for (x in 0 until 4){
 
             when(x){
                 0->{

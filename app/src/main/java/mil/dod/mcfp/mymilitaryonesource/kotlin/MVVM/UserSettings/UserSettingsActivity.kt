@@ -165,8 +165,17 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         viewModel.getInstallations()
         viewModel.addObserver(this)
 
+
+        val page=intent.getIntExtra("pageNumber", 0)
         //loadSearch()
-        loadPage1()
+
+        if(page == 2){
+            loadPage2()
+        }
+        else{
+            loadPage1()
+        }
+
 
         imageView.setOnClickListener {
 

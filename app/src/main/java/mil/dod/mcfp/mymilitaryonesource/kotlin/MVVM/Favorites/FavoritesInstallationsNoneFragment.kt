@@ -1,11 +1,14 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Favorites
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_favorites_installation_none.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +38,21 @@ class FavoritesInstallationsNoneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorites_installation_none, container, false)
+        var view : View =  inflater.inflate(R.layout.fragment_favorites_installation_none, container, false)
+
+        view.addinstallation.setOnClickListener {
+
+            var favoritesActivity = activity as FavoritesActivity
+            //startActivity(Intent(favoritesActivity, UserSettingsActivity::class.java))
+
+            val intent = Intent(favoritesActivity, UserSettingsActivity::class.java)
+            intent.putExtra("pageNumber",2)
+            startActivity(intent)
+
+
+        }
+
+        return view
     }
 
     companion object {
