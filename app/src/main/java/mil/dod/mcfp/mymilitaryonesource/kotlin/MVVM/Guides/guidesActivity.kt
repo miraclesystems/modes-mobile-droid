@@ -28,10 +28,14 @@ class guidesActivity : BaseActivity() {
 
     var categoriesShown = true
 
+    var stopped = false
+
 
     override var myPageRefIndex = 1
-
-
+    override fun onStop() {
+        super.onStop()
+        stopped = true
+    }
 
     fun loadInAppBrowser(url : String){
 
@@ -226,6 +230,8 @@ class guidesActivity : BaseActivity() {
     }
 
 
+
+
     fun forceResume(){
         onResume()
     }
@@ -233,9 +239,17 @@ class guidesActivity : BaseActivity() {
         super.onResume()
         setSelected(id.navigation_milife);
 
-        if(viewModel.selectedGuide == null || viewModel.selectedGuide.length == 0 || categoriesShown) {
+
+        if(stopped){
+            stopped = false
+            return
+        }
+        if(viewModel.selectedGuide == null || viewModel.selectedGuide.length == 0 || categoriesShown ) {
             // Begin the transaction
             loadCategories()
+        }
+        else if (viewModel.selectedCategory != null || viewModel.selectedCategory.length != 0){
+            loadGuidesListByCategory()
         }
         else{
 
