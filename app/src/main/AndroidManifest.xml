@@ -25,6 +25,22 @@
 
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
         tools:ignore="LockedOrientationActivity">
+
+
+        <!--  Add preview activity. -->
+        <activity
+            android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+            android:noHistory="true">  <!-- optional, removes the previewActivity from the activity stack. -->
+            <intent-filter>
+                <data android:scheme="mil.dod.mcfp.mymilitaryonesource" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
+
+
         <activity
             android:name=".kotlin.MVVM.Utils.AboutActivity"
             android:screenOrientation="portrait"
