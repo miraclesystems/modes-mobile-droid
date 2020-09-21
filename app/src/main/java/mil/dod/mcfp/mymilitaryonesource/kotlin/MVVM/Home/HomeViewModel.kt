@@ -24,7 +24,12 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
         var list =  mutableListOf<HomePageCardModel>()
 
         ///testing code
-        var result = ModesDb.getBenefitsByAudience("spouse")
+        var audience = PreferencesUtil.getValueString("USER_DESCRIPTION")
+        if(audience == null){
+            audience = ""
+        }
+        var result =
+            ModesDb.getBenefitsByAudience(audience!!)
 
         //Log.d("resul",result!!.count.toString())
 
@@ -43,7 +48,7 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
 
 
-        result = ModesDb.getGuidesByAudience("spouse")
+        result = ModesDb.getGuidesByAudience(audience)
         while(result!!.moveToNext()){
 
             var id = result.getInt(result.getColumnIndex("ID"))

@@ -75,14 +75,14 @@
         >
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="340dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:id="@+id/layout1">
 
                 </FrameLayout>
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:id="@+id/layout2">
 
@@ -90,7 +90,7 @@
                 <FrameLayout
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:id="@+id/layout3">
 
                 </FrameLayout>

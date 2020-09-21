@@ -75,15 +75,33 @@ class HomeViewTopicFragment : Fragment() {
 
 
         var homeViewActivity = activity as HomeActivity
-        val adapter = HomeViewGuidesListAdapter(homeViewActivity, homeViewActivity.viewModel.getGuides(homeViewActivity.topic).toTypedArray(), homeViewActivity.viewModel.getGuideImages(homeViewActivity.topic).toTypedArray())
-        view.listGuides.adapter = adapter
-        view.listGuides.setOnItemClickListener(){adapterView, view, position, id ->
-            val itemAtPos = adapterView.getItemAtPosition(position)
-            val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
-            homeViewActivity.loadGuideDetail(view.name.text.toString(),true)
-            //Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
+        if(homeViewActivity.viewModel.getGuides(homeViewActivity.topic).toTypedArray().count() == 0){
+
+            view.millifeHeader.visibility = View.INVISIBLE
+            view.millifeIcon.visibility = View.INVISIBLE
+            view.listGuides.layoutParams.height = 0
+            view.millifeHeader.layoutParams.height = 0
+            view.millifeIcon.layoutParams.height = 0
+
+
         }
+        else {
+            val adapter = HomeViewGuidesListAdapter(
+                homeViewActivity,
+                homeViewActivity.viewModel.getGuides(homeViewActivity.topic).toTypedArray(),
+                homeViewActivity.viewModel.getGuideImages(homeViewActivity.topic).toTypedArray()
+            )
+            view.listGuides.adapter = adapter
+            view.listGuides.setOnItemClickListener() { adapterView, view, position, id ->
+                val itemAtPos = adapterView.getItemAtPosition(position)
+                val itemIdAtPos = adapterView.getItemIdAtPosition(position)
+
+                homeViewActivity.loadGuideDetail(view.name.text.toString(), true)
+                //Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
+            }
+        }
+
 
 
         view.gridBenefits.adapter = HomeViewBenefitsListAdapter(homeViewActivity, homeViewActivity.viewModel.getBenefits(homeViewActivity.topic).toTypedArray())
