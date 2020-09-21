@@ -100,7 +100,9 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="25dp"
                     android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/worksans_regular"
+                    android:lineSpacingExtra="4sp"
                     android:text="@string/guide_overview_placehodler"
                     android:textAlignment="textStart"
                     android:textColor="#4A4A4A"
@@ -150,7 +152,7 @@
 
                 <ListView
                     android:id="@+id/listArticles"
-                    android:layout_width="328dp"
+                    android:layout_width="match_parent"
                     android:layout_height="370dp"
                     android:layout_below="@id/layout2"
                     android:layout_centerHorizontal="true"
@@ -159,15 +161,14 @@
                     android:layout_marginLeft="16dp"
                     android:nestedScrollingEnabled="true"
                     android:layout_marginBottom="10dp"
-                    android:divider="@android:color/transparent"
-                    android:dividerHeight="0dp">
-
+                    android:dividerHeight="0dp"
+                    >
 
                 </ListView>
 
                 <Button
                     android:id="@+id/button_more_articles"
-                    android:layout_width="195dp"
+                    android:layout_width="210dp"
                     android:layout_height="32dp"
                     android:layout_below="@id/listArticles"
                     android:layout_centerHorizontal="true"
@@ -176,7 +177,9 @@
                     android:text="See more moving articles"
                     android:textAllCaps="false"
                     android:textColor="#194867"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:layout_marginBottom="20dp"
+                    />
 
 
             </RelativeLayout>
@@ -223,8 +226,8 @@
 
                 <ListView
                     android:id="@+id/listBenefits"
-                    android:layout_width="328dp"
-                    android:layout_height="350dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/layout4"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
@@ -234,14 +237,12 @@
                     android:layout_marginBottom="10dp"
                     android:divider="@android:color/transparent"
                     android:dividerHeight="0dp">
-
-
                 </ListView>
 
                 <Button
                     android:id="@+id/button_more_benefits"
                     android:layout_marginTop="10dp"
-                    android:layout_width="195dp"
+                    android:layout_width="210dp"
                     android:layout_height="32dp"
                     android:layout_below="@id/listBenefits"
                     android:layout_centerHorizontal="true"
@@ -250,13 +251,15 @@
                     android:text="See more moving benefits"
                     android:textAllCaps="false"
                     android:textColor="#194867"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:layout_marginBottom="10dp"
+                    />
 
                 </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/layout5"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/layout3"
                 android:background="@drawable/ic_gradient_background_guides"
                 >
@@ -341,7 +344,9 @@
                         android:text="Experts Header"
                         android:textAlignment="center"
                         android:textColor="#194867"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="4sp"
+                        />
 
                     <TextView
                         android:id="@+id/hereareafew"

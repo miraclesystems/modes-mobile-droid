@@ -255,7 +255,7 @@ class UserSettingsActivity : AppCompatActivity(), Observer {
         // Complete the changes added above
         ft.commit()
 
-        resetFocus()
+        //resetFocus()
     }
 
 

@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_home_view_topic.view.button_searc
 import kotlinx.android.synthetic.main.home_benefits_grid_item_layout.view.*
 import kotlinx.android.synthetic.main.home_view_guides_card_layout.view.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsLoadingActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.DynamicListHeight
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -71,7 +72,7 @@ class HomeViewTopicFragment : Fragment() {
 
 
         // Inflate the layout for this fragment
-       var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)
+        var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)
 
 
         var homeViewActivity = activity as HomeActivity
@@ -93,6 +94,7 @@ class HomeViewTopicFragment : Fragment() {
                 homeViewActivity.viewModel.getGuideImages(homeViewActivity.topic).toTypedArray()
             )
             view.listGuides.adapter = adapter
+
             view.listGuides.setOnItemClickListener() { adapterView, view, position, id ->
                 val itemAtPos = adapterView.getItemAtPosition(position)
                 val itemIdAtPos = adapterView.getItemIdAtPosition(position)
@@ -103,14 +105,17 @@ class HomeViewTopicFragment : Fragment() {
         }
 
 
+        DynamicListHeight.setListViewHeightBasedOnChildren(view.listGuides)
+
 
         view.gridBenefits.adapter = HomeViewBenefitsListAdapter(homeViewActivity, homeViewActivity.viewModel.getBenefits(homeViewActivity.topic).toTypedArray())
+
         view.gridBenefits.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)
             val itemIdAtPos = adapterView.getItemIdAtPosition(position)
 
 
-            homeViewActivity.loadBenefitDetail(view.title.text.toString())
+            homeViewActivity.loadBenefitDetail(view.title.text.toString(), true)
             //Toast.makeText(homeViewActivity.applicationContext, "Click on item at $itemAtPos its item id $itemIdAtPos", Toast.LENGTH_LONG).show()
         }
 
@@ -157,10 +162,10 @@ class HomeViewTopicFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             HomeViewTopicFragment()
                 .apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    arguments = Bundle().apply {
+                        putString(ARG_PARAM1, param1)
+                        putString(ARG_PARAM2, param2)
+                    }
                 }
-            }
     }
 }

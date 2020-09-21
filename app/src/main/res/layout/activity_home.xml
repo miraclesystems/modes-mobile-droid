@@ -6,11 +6,9 @@
     android:layout_height="match_parent"
     android:clickable="true"
     tools:context=".kotlin.MVVM.Home.HomeActivity"
-    android:fitsSystemWindows="true"
-
     >
 
-    <FrameLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
 
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -135,7 +133,7 @@
         </LinearLayout>
 
 
-    </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

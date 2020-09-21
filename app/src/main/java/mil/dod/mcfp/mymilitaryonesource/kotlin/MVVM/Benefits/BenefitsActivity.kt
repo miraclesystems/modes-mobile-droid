@@ -93,8 +93,6 @@ class BenefitsActivity : BaseActivity(), Observer {
         buttonAll.setOnClickListener {
 
             categoriesShown = false
-            Log.d("degug", "button all clicked")
-            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
 
 
             buttonAll.setBackgroundResource(R.drawable.category_selector_box)

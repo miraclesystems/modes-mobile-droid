@@ -12,6 +12,7 @@
     <color name="modes_red">#D43E51</color>
     <color name="modes_blue">#194867</color>
     <color name="modes_darkgray">#4A4A4A</color>
+    <color name="modes_blue_header">#194867</color>
 
 
 </resources>

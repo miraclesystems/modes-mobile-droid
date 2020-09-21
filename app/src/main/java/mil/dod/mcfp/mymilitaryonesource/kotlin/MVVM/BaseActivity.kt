@@ -30,6 +30,7 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.drawer_menu_custom.*
 import kotlinx.android.synthetic.main.nav_header.inside_menu_icon
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.WebviewActivity
 
 
 open class BaseActivity : AppCompatActivity() {
@@ -229,9 +230,9 @@ open class BaseActivity : AppCompatActivity() {
 
 
         txtFeedback.setOnClickListener(){
-            val browserIntent = Intent(Intent.ACTION_VIEW)
-            browserIntent.data = Uri.parse("https://survey.foresee.com/f/M40JDlKiHK")
-            startActivity(browserIntent)
+            val intent = Intent(baseContext, WebviewActivity::class.java)
+            intent.putExtra("URL", "https://survey.foresee.com/f/M40JDlKiHK")
+            startActivity(intent)
         }
 
 

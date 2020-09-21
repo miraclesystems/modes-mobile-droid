@@ -11,13 +11,9 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
     var dataLoaded = false
-
-
-
     var listSuggestedTopics =   mutableListOf<String>()
     var model = HomeModel()
     var audience = PreferencesUtil.getValueString("USER_DESCRIPTION")
-
 
     fun getSuggestedCards():List<HomePageCardModel>{
 
@@ -69,7 +65,6 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
             HomePageCardModel(1, "MILLIFE GUIDES", "Another Random Guide", recommended = false),
             HomePageCardModel(1, "ABOUT US", "Give us your feedback", recommended = false)
             )
-
          */
 
         return list
@@ -198,6 +193,8 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
     fun getSuggestedTopic():MutableList<String>{
 
+        listSuggestedTopics = mutableListOf<String>()
+
         listSuggestedTopics.add("COVID-19")
         listSuggestedTopics.add("Divorce")
         listSuggestedTopics.add("Relationships")
@@ -222,6 +219,9 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
         setChanged() //Inherited from Observable()
         notifyObservers(dataLoaded)
     }
+
+
+
 
     override fun onSuccess(jsonString: String) {
         TODO("Not yet implemented")

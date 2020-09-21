@@ -33,6 +33,7 @@ class GuidesCategoriesListFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         var guidesActivity = activity as guidesActivity
+
         var adapter = CateogriesAdapter(guidesActivity.applicationContext, guidesActivity.viewModel.getGuideCategories())
 
         gvCategories.adapter = adapter

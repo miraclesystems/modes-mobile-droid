@@ -23,6 +23,7 @@ import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsLoadingActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.DynamicListHeight
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import java.io.InputStream
 import java.lang.Exception
@@ -49,6 +50,8 @@ class GuidesDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -144,7 +147,10 @@ class GuidesDetailFragment : Fragment() {
 
         view.button_more_benefits.text  = model!!.MoreBenefitsText
         var benefitsAdapter = BenefitsAdapter(guidesActivity.applicationContext, model!!.listRelatedBenefits!!)
+
         view.listBenefits.adapter = benefitsAdapter
+        DynamicListHeight.setListViewHeightBasedOnChildren(view.listBenefits)
+
 
         var relatedWebsitesAdapter = RelatedWebsitesAdapter(guidesActivity.applicationContext, model!!.RelatedWebsitesText!!)
         view.listWebsites.adapter = relatedWebsitesAdapter
@@ -285,7 +291,7 @@ class GuidesDetailFragment : Fragment() {
             val article = this.articles[position]
 
             var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            var item = inflator.inflate(R.layout.layout_guides_list, parent, false)
+            var item = inflator.inflate(R.layout.layout_articles_list, parent, false)
             item.guide.text = article.name
 
             try {
