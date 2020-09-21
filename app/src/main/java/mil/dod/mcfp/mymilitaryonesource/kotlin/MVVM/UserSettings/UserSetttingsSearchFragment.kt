@@ -256,6 +256,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         listNames.add(0, "")
 
 
+        Collections.sort(listNames)
         val adapter = ArrayAdapter(
             activity!!.applicationContext,
             R.layout.listview_item, listNames
@@ -345,6 +346,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
                 listNames.add(0, "")
 
+                Collections.sort(listNames)
 
                 val adapter = ArrayAdapter(
                     activity!!.applicationContext,
