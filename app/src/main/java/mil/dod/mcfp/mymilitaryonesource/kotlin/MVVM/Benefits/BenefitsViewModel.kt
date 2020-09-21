@@ -77,7 +77,7 @@ class BenefitsViewModel : Observable(), WebServiceConnectorDelegate {
     fun getAllBenefits(): MutableList<Benefit>{
 
         var list = mutableListOf<Benefit>()
-        var results = ModesDb.getAllBenefits()
+        var results = ModesDb.getAllBenefitsNonRandom()
 
         while(results!!.moveToNext()){
 

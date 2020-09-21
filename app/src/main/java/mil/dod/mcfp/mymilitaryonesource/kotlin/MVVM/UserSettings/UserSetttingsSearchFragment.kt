@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -358,6 +360,47 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 false
             }
         }
+
+        view.search_text.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+
+                var userSettingsActivity = activity as UserSettingsActivity
+                var model = userSettingsActivity.viewModel.model
+
+                var filteredList =
+                    model.items!!.filter { it!!.name!!.contains(
+                        view.search_text.text.toString(),
+                        ignoreCase = true
+                    ) }
+
+                listNames.clear()
+
+                for (item in filteredList) {
+                    listNames.add(item!!.name!!)
+
+                }
+
+                listNames.add(0, "")
+
+
+                val adapter = ArrayAdapter(
+                    activity!!.applicationContext,
+                    R.layout.listview_item, listNames
+                )
+
+                view.searchList.adapter = adapter
+            }
+        })
 
 
         return view

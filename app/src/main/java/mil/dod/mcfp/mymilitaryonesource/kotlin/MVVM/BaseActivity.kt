@@ -46,7 +46,11 @@ open class BaseActivity : AppCompatActivity() {
                // if (currentNav == prevNav) return false
                 when (item.getItemId()) {
                     R.id.navigation_home -> {
+
+
+
                         val ii = Intent(this@BaseActivity, HomeActivity::class.java)
+                        ii.putExtra("ReloadData", false)
                         startActivity(ii)
                         overridePendingTransition(0, 0)
                         return false

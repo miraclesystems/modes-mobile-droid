@@ -34,6 +34,8 @@ class HomeActivity : BaseActivity(), Observer {
 
     var Me = this
 
+    var reloadData = false
+
     override var myPageRefIndex = 0
 
 
@@ -98,7 +100,8 @@ class HomeActivity : BaseActivity(), Observer {
         super.onCreate(savedInstanceState)
         setContentLayout(R.layout.activity_home);
 
-
+        val bundle: Bundle? = intent.extras
+        reloadData = intent.getBooleanExtra("ReloadData", false)
 
         button_search.setOnClickListener {
             // Begin the transaction
