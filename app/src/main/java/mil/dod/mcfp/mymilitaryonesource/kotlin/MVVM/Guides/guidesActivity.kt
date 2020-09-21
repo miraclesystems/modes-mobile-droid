@@ -248,7 +248,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             loadCategories()
         }
-        else if (viewModel.selectedCategory != null || viewModel.selectedCategory.length != 0){
+        else if (viewModel.selectedCategory != null && viewModel.selectedCategory.length != 0){
             loadGuidesListByCategory()
         }
         else{
