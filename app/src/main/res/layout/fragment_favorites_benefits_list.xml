@@ -47,7 +47,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/worksans_regular"
                     android:gravity="center_horizontal"
-                    android:text="No Benefits Favorited"
+                    android:text="No benefits saved"
                     android:textColor="#194867"
                     android:textSize="14sp" />
 
@@ -60,7 +60,7 @@
                     android:layout_marginBottom="12dp"
                     android:fontFamily="@font/worksans_regular"
                     android:gravity="center_horizontal"
-                    android:text="To favorite a benefit, click the ♡\nin the corner of the benefit"
+                    android:text="To save a benefit to your favorites, tap on the ♡\nin the corner of the benefit description screen"
                     android:textColor="#194867"
                     android:textSize="14sp" />
 

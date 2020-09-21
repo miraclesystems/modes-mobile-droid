@@ -66,6 +66,7 @@ class GuidesCategoriesListFragment : Fragment() {
 
 
             guidesActivity.viewModel.selectedCategory  =  view.category.text.toString()
+            guidesActivity.viewModel.selectedGuide = ""
             //guidesActivity.viewModel.selectedCategory = guidesActivity.viewModel.categories[i]
 
             guidesActivity.loadGuidesListByCategory()

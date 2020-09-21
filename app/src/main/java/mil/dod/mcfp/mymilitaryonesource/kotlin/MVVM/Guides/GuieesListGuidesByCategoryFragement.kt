@@ -12,6 +12,7 @@ import android.widget.BaseAdapter
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_guides_list_guides_by_category_fragement.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.*
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsActivity
 import java.io.InputStream
 import java.lang.Exception
 
@@ -35,6 +36,9 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
 
     override fun onResume() {
         super.onResume()
+
+        var guidesActivity = activity as guidesActivity
+        guidesActivity.viewModel.selectedGuide = ""
 
     }
 
