@@ -81,6 +81,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="settings button"
+        android:textStyle="bold"
         android:text="Settings"
         android:theme="@style/SideNavigationTheme" />
 
@@ -90,6 +91,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="feedback open in external browser"
         android:text="Feedback"
+        android:textStyle="bold"
         android:theme="@style/SideNavigationTheme" />
 
     <View

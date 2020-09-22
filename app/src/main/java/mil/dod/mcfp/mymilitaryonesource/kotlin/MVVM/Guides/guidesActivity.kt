@@ -237,12 +237,12 @@ class guidesActivity : BaseActivity() {
             stopped = false
             return
         }
-        if(viewModel.selectedGuide == null || viewModel.selectedGuide.length == 0 || categoriesShown ) {
+        if (viewModel.selectedCategory != null && viewModel.selectedCategory.length != 0){
+            loadGuidesListByCategory()
+        }
+        else if(viewModel.selectedGuide == null || viewModel.selectedGuide.length == 0 ||categoriesShown ) {
             // Begin the transaction
             loadCategories()
-        }
-        else if (viewModel.selectedCategory != null && viewModel.selectedCategory.length != 0){
-            loadGuidesListByCategory()
         }
         else{
 
