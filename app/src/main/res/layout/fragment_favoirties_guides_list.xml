@@ -45,7 +45,7 @@
                     android:layout_marginTop="12dp"
                     android:fontFamily="@font/worksans_regular"
                     android:gravity="center_horizontal"
-                    android:text="No MilLife guides saved"
+                    android:text="No MilLife Guides favorited"
                     android:textColor="#194867"
                     android:textSize="14sp"
                     android:typeface="normal" />
@@ -59,7 +59,7 @@
                     android:layout_marginBottom="12dp"
                     android:fontFamily="@font/worksans_regular"
                     android:gravity="center_horizontal"
-                    android:text="To save a guide to your favorites, tap on the ♡\nin the top corner of the guide screen"
+                    android:text="To favorite and save a guide, tap on the ♡\nin the corner of the guide screen."
                     android:textColor="#194867"
                     android:textSize="14sp" />
 

@@ -21,7 +21,7 @@
     <string name="home_search">"   Search MilLife Guides &amp; Benefits"</string>
     <string name="version">"version 1.0.0"</string>
     <string name="search_inst">"  Search installations"</string>
-    <string name="onsesource_link"><u>Get more search results on\n MiltaryOnseSource.mil</u></string>
+    <string name="onsesource_link"><u>Get more search results on\n MilitaryOneSource.mil</u></string>
     <string name="search_empty">No results found for %s, search again or select a topic below.</string>
 
     <string name="guide_overview_placehodler">
