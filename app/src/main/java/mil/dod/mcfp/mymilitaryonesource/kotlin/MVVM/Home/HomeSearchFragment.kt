@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_home_search.view.*
 import kotlinx.android.synthetic.main.fragment_user_settings_branch.*
 import kotlinx.android.synthetic.main.listview_item.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.HelperUtils
 
 
  // TODO: Rename parameter arguments, choose names that match
@@ -76,13 +77,6 @@ class HomeSearchFragment : Fragment() {
         var view : View = inflater.inflate(R.layout.fragment_home_search, container, false)
         //container!!.getFocusedChild().setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
         //view.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
-
-
-        /*
-        JS: Trying to fix issue of this fragment not being refreshed and populating the same suggested topics on top
-        of already existing topics which causes the duplicate issue. Maybe there is a better way to do it
-        instead of manually restarting the activity? This seems to fix the issue.
-        */
 
         fun refreshActivity() {
 
@@ -267,9 +261,6 @@ class HomeSearchFragment : Fragment() {
         view.searchList.onItemClickListener =
             AdapterView.OnItemClickListener { parent, view, position, id ->
 
-                // JS: Hide keyboard when item in search is selected
-
-
                 loadTopics = false
                 if(false){
                     loadTopics = true
@@ -286,8 +277,8 @@ class HomeSearchFragment : Fragment() {
 
                     searchList.adapter = adapter
                     searchList.requestLayout()
-                    val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-                    imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
+                    HelperUtils.hideKeyboard(homeActivity)
 
 
                 } else{
@@ -303,15 +294,15 @@ class HomeSearchFragment : Fragment() {
                     homeActivity.topic = view.label.text.toString()
 
                     homeActivity.loadViewTopic()
+                    HelperUtils.hideKeyboard(homeActivity)
+
                     loadTopics = false
 
-                    val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-                    imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
 
                 }
 
-                val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-                imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+
             }
 
         return view

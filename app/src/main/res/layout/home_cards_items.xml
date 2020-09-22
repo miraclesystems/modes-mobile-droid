@@ -48,6 +48,7 @@
                 android:id="@+id/header"
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"
+                android:fontFamily="@font/worksans_bold"
                 android:text="HEADER"
                 android:textColor="#194867"
                 android:textSize="10sp"

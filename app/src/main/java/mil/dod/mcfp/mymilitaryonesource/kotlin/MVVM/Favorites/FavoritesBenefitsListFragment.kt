@@ -18,6 +18,7 @@ import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.view.listFavorites
 import kotlinx.android.synthetic.main.layout_favorite_item.view.*
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.DynamicListHeight
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -100,6 +101,8 @@ class FavoritesBenefitsListFragment : Fragment() {
         var adapter = BenefitsFavoritListAdapter(favoritesActivity.applicationContext, favoritesActivity.viewModel.getFavoriteBenefits())
         adapter.fragment = this
         view.listFavorites.adapter = adapter
+        DynamicListHeight.setListViewHeightBasedOnChildren(view.listFavorites)
+
         list = view.listFavorites
 
 

@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_guides_detail.*
 import kotlinx.android.synthetic.main.fragment_guides_detail.view.*
@@ -160,6 +161,10 @@ class GuidesDetailFragment : Fragment() {
         view.expertsHeader.text = model!!.ExpertsHeader
         var expertsAdapter = ExpertsAdapters(guidesActivity.applicationContext, model!!.ExpertsText!!)
         view.listExperts.adapter = expertsAdapter
+        val empty = TextView(context)
+        empty.height = 150
+        view.listExperts.addFooterView(empty);
+        DynamicListHeight.setListViewHeightBasedOnChildren(view.listExperts)
 
 
         view.hereareafew.text = model!!.ExpertsHeader1
