@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import mil.dod.mcfp.mymilitaryonesource.R
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home.HomeActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsActivity
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 
 class SplashActivity : AppCompatActivity() {
 
@@ -25,7 +27,17 @@ class SplashActivity : AppCompatActivity() {
 
             /// TODO: Check the user preferences to determine if UserSettings needs to presented
 
-            startActivity(Intent(this, UserSettingsActivity::class.java))
+
+           if(PreferencesUtil.getValueString("USER_DESCRIPTION") != null) {
+
+               startActivity(Intent(this, HomeActivity::class.java))
+
+           } else {
+               startActivity(Intent(this, UserSettingsActivity::class.java))
+           }
+
+
+
             //startActivity(Intent(this, HomeActivity::class.java))
 
             //startActivity(Intent(this, guidesActivity::class.java))

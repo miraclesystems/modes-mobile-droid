@@ -102,10 +102,10 @@
         <ListView
             android:id="@+id/searchList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:importantForAccessibility="noHideDescendants"
-            android:background="@color/white"
+            android:layout_height="match_parent"
             android:layout_marginBottom="88dp"
+            android:background="@color/white"
+            android:importantForAccessibility="noHideDescendants"
 
 
             />

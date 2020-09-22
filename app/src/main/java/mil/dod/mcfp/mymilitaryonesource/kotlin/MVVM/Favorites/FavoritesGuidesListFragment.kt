@@ -16,7 +16,10 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.ModesDb
 import kotlinx.android.synthetic.main.fragment_favoirties_guides_list.view.*
 import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.*
 import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.listFavorites
+import kotlinx.android.synthetic.main.fragment_guides_detail.view.*
 import kotlinx.android.synthetic.main.layout_favorite_item.view.*
+import kotlinx.android.synthetic.main.layout_favorite_item.view.button_favorite
+import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.DynamicListHeight
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -98,7 +101,11 @@ class FavoritesGuidesListFragment : Fragment() {
 
         var adapter = GuidesFavoriteListAdapter(favoritesActivity.applicationContext, favoritesActivity.viewModel.getFavoriteGuides())
         view.listFavorites.adapter = adapter
+
+        DynamicListHeight.setListViewHeightBasedOnChildren(view.listFavorites)
+
         adapter.fragment = this
+
         list = view.listFavorites
 
 

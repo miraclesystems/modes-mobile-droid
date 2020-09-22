@@ -41,42 +41,45 @@
                     android:layout_height="wrap_content"
                     >
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="25dp"
-                    android:background="@drawable/connect_focused_ic"
-                    android:layout_toLeftOf="@id/headerText"
-                    android:layout_marginRight="10dp" />
-                <TextView
-                    android:id="@+id/headerText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_centerHorizontal="true"
-                    android:text="CONNECT"
-                    android:textSize="20sp"
-                    android:textColor="#194867"
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_toLeftOf="@id/headerText"
+                        android:background="@drawable/connect_focused_ic" />
 
-                    />
+                    <TextView
+                        android:id="@+id/headerText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/worksans_bold"
+                        android:text="CONNECT"
+                        android:textColor="#194867"
+
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/connect_text"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/headerText"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:textAlignment="center"
                         android:layout_gravity="center_vertical|end"
-                        android:layout_marginStart="55dp"
+                        android:layout_marginStart="17dp"
                         android:layout_marginLeft="55dp"
                         android:layout_marginTop="17dp"
-                        android:layout_marginEnd="52dp"
+                        android:layout_marginBottom="22dp"
+                        android:layout_marginEnd="17dp"
                         android:layout_marginRight="52dp"
+                        android:fontFamily="@font/worksans_regular"
                         android:text="@string/connect_head"
+                        android:textAlignment="center"
                         android:textColor="@color/modes_darkgray"
                         android:textSize="12sp" />
 
@@ -84,11 +87,12 @@
 
 
 
+
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/button_call"
                     android:layout_width="324dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="4dp"
                     android:background="@drawable/connect_rect_lg"
                     android:clickable="true"

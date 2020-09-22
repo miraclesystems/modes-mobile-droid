@@ -153,13 +153,12 @@
                 <ListView
                     android:id="@+id/listArticles"
                     android:layout_width="match_parent"
-                    android:layout_height="370dp"
+                    android:layout_height="384dp"
                     android:layout_below="@id/layout2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginLeft="16dp"
-                    android:nestedScrollingEnabled="true"
                     android:layout_marginBottom="10dp"
                     android:dividerHeight="0dp"
                     >
@@ -178,6 +177,8 @@
                     android:textAllCaps="false"
                     android:textColor="#194867"
                     android:textSize="10sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:layout_marginBottom="20dp"
                     />
 
@@ -252,6 +253,8 @@
                     android:textAllCaps="false"
                     android:textColor="#194867"
                     android:textSize="10sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:layout_marginBottom="10dp"
                     />
 
@@ -337,7 +340,7 @@
                     <TextView
                         android:id="@+id/expertsHeader"
                         android:layout_width="280dp"
-                        android:layout_height="64dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@id/image_experts"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/worksans_regular"
@@ -369,17 +372,17 @@
                 <ListView
                     android:id="@+id/listExperts"
                     android:layout_width="328dp"
-                    android:layout_height="350dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/layout8"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="10dp"
+                    android:clipToPadding="false"
                     android:clickable="false"
                     android:divider="#D3DBE1"
-                    android:dividerHeight="2dp"
-                    android:nestedScrollingEnabled="true"></ListView>
+                    android:dividerHeight="2dp"></ListView>
                 <RelativeLayout
                     android:layout_below="@id/listExperts"
                     android:layout_width="328dp"

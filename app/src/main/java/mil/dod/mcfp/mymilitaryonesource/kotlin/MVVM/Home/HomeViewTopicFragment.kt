@@ -14,9 +14,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_home.view.*
+import kotlinx.android.synthetic.main.fragment_guides_detail.view.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import kotlinx.android.synthetic.main.fragment_home_view_topic.*
 import kotlinx.android.synthetic.main.fragment_home_view_topic.view.*
+import kotlinx.android.synthetic.main.fragment_home_view_topic.view.button_call
 import kotlinx.android.synthetic.main.fragment_home_view_topic.view.button_search
 import kotlinx.android.synthetic.main.home_benefits_grid_item_layout.view.*
 import kotlinx.android.synthetic.main.home_view_guides_card_layout.view.*
@@ -58,18 +60,11 @@ class HomeViewTopicFragment : Fragment() {
 
 
 
-        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // JS: For some reason when this view is created a keyboard is shown, not sure why so I'm hiding it
-        val imm = context?.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager?
-        imm?.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-
 
         // Inflate the layout for this fragment
         var view : View =  inflater.inflate(R.layout.fragment_home_view_topic, container, false)
@@ -109,6 +104,7 @@ class HomeViewTopicFragment : Fragment() {
 
 
         view.gridBenefits.adapter = HomeViewBenefitsListAdapter(homeViewActivity, homeViewActivity.viewModel.getBenefits(homeViewActivity.topic).toTypedArray())
+        DynamicListHeight.setGridViewHeightBasedOnChildren(view.gridBenefits)
 
         view.gridBenefits.setOnItemClickListener(){adapterView, view, position, id ->
             val itemAtPos = adapterView.getItemAtPosition(position)

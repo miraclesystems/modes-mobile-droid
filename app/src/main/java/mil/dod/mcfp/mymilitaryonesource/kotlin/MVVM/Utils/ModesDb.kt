@@ -27,7 +27,7 @@ object ModesDb {
     }
     fun getAllBenefitsNonRandom(): Cursor?{
 
-        return db.rawQuery("SELECT * FROM benefits", null)
+        return db.rawQuery("SELECT * FROM benefits order by Benefit ASC", null)
 
     }
 
@@ -79,7 +79,7 @@ object ModesDb {
 
     fun getAllGuiides(): Cursor?{
 
-        return db.rawQuery("SELECT * FROM guides", null)
+        return db.rawQuery("SELECT * FROM guides order by Guide ASC", null)
     }
 
     fun getGuidesByCategory(category : String): Cursor?{
