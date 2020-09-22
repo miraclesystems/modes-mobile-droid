@@ -50,12 +50,13 @@
            android:layout_below="@id/category_name"
            android:layout_marginLeft="10dp"
            android:layout_marginTop="5dp"
+           android:layout_marginBottom="5dp"
            android:layout_toRightOf="@id/icon"
+           android:contentDescription="Mil Life Guides"
            android:fontFamily="@font/worksans_bold"
            android:text="MILLIFE GUIDES"
-           android:textColor="#194867"
-           android:layout_marginBottom="5dp"
 
+           android:textColor="#194867"
            android:textSize="20sp" />
 
 

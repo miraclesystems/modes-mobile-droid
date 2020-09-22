@@ -8,7 +8,9 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/gradient_background"
+    android:importantForAccessibility="yes"
+    tools:context="Connecting you to your best mil life">
 
 
     <!-- Don't worry about the id names I have named the id's with reference to the file name for consistency -->
@@ -18,7 +20,7 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_marginTop="208dp"
-        android:contentDescription="Milife logo for app"
+        android:importantForAccessibility="no"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +34,11 @@
         android:alpha=".5"
         android:fontFamily="@font/worksans_regular"
         android:gravity="center"
+        android:importantForAccessibility="no"
+        android:lineSpacingExtra="12sp"
         android:text="@string/splashHeaderText"
         android:textColor="#EFF4F7"
         android:textSize="24sp"
-        android:lineSpacingExtra="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +49,7 @@
         android:layout_width="132dp"
         android:layout_height="80dp"
         android:layout_marginBottom="92dp"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +59,7 @@
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="0dp" />
 
@@ -62,10 +67,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/version"
-        android:textSize="12sp"
-        android:textColor="#76B8E2"
         android:fontFamily="@font/worksans_regular"
+        android:importantForAccessibility="no"
+        android:text="@string/version"
+        android:textColor="#76B8E2"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
