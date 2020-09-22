@@ -74,7 +74,9 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
                 transaction.setCustomAnimations(R.anim.slide_up, R.anim.slide_down);
                 guidesActivity.supportFragmentManager.beginTransaction().remove(this).commit()
 
-                guidesActivity.loadCategories()
+                guidesActivity.viewModel.selectedCategory = ""
+                guidesActivity.forceResume()
+                //guidesActivity.loadCategories()
 
             }
 

@@ -45,6 +45,7 @@
                 android:contentDescription="close" />
         </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,110 +58,106 @@
             android:id="@+id/headerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+
             android:layout_centerHorizontal="true"
-            android:text="SETTINGS"
+            android:layout_marginTop="20dp"
             android:lines="1"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:text="SETTINGS"
             android:textColor="#194867"
-            />
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/bodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:textStyle="normal"
-            android:textSize="12sp"
+            android:layout_marginTop="20dp"
             android:lineHeight="17sp"
-            android:textColor="#4A4A4A"
             android:text="@string/settings"
-            />
+            android:textColor="#4A4A4A"
+            android:textSize="12sp"
+            android:textStyle="normal" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="#194867"
                 android:text="Role: "
-                />
+                android:textColor="#194867"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtRole"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_centerHorizontal="true"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:textColor="#194867"
+                android:layout_marginLeft="5dp"
                 android:text="Service member "
-                />
+                android:textColor="#194867"
+                android:textSize="15sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="5dp"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="#194867"
                 android:text="Installation: "
-                />
+                android:textColor="#194867"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtInstallation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_centerHorizontal="true"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:textColor="#194867"
+                android:layout_marginLeft="5dp"
                 android:text="Fort Bragg"
-                />
+                android:textColor="#194867"
+                android:textSize="15sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="5dp"
-            >
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:textColor="#194867"
                 android:text="Branch: "
-                />
+                android:textColor="#194867"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtBranch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_centerHorizontal="true"
-                android:textStyle="normal"
-                android:textSize="15sp"
-                android:textColor="#194867"
+                android:layout_marginLeft="5dp"
                 android:text="Navy"
-                />
+                android:textColor="#194867"
+                android:textSize="15sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <TextView
@@ -168,11 +165,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textStyle="normal"
-            android:textSize="12sp"
-            android:textColor="#194867"
+            android:gravity="center"
+            android:background="@drawable/ic_grey_rounded_button"
             android:text="Edit personalization"
-            />
+            android:textColor="#194867"
+            android:textSize="12sp"
+            android:textStyle="normal" />
 
 
     </LinearLayout>

@@ -152,7 +152,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                         listNames.add(item!!.name!!)
                     }
 
-                    listNames.add(0, "")
 
                     // Initializing an ArrayAdapter
                     val adapter = ArrayAdapter(
@@ -257,7 +256,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
         }
 
-        listNames.add(0, "")
+
 
 
         Collections.sort(listNames)
@@ -348,7 +347,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
                 }
 
-                listNames.add(0, "")
+
 
                 Collections.sort(listNames)
 
@@ -395,9 +394,6 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                     listNames.add(item!!.name!!)
 
                 }
-
-                listNames.add(0, "")
-
 
                 val adapter = ArrayAdapter(
                     activity!!.applicationContext,
