@@ -215,7 +215,7 @@
                         android:layout_marginRight="20dp"
                         android:accessibilityHeading="true"
                         android:fontFamily="@font/worksans_bold"
-                        android:text="Related Benefits"
+                        android:text="RELATED BENEFITS"
                         android:textAlignment="textStart"
                         android:textColor="#194867"
                         android:textSize="18sp"
