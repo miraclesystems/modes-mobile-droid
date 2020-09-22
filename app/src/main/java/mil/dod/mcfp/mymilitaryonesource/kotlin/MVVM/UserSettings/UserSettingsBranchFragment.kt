@@ -100,7 +100,7 @@ class UserSettingsBranchFragment : Fragment() {
             "Army",
             "Marine Corps",
             "Navy",
-            "Air-Force",
+            "Air Force",
             "Coast Guard",
             "National Guard",
             "Reserves",
