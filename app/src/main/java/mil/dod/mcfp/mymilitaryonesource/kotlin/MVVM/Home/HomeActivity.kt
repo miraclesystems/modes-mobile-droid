@@ -1,27 +1,22 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Home
 
-import android.Manifest.permission.CALL_PHONE
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_home.*
 import mil.dod.mcfp.mymilitaryonesource.R
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.BaseActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides.guidesActivity
-import kotlinx.android.synthetic.main.activity_home.*
 import java.util.*
-import java.util.jar.Manifest
 
 
 class HomeActivity : BaseActivity(), Observer {
@@ -34,6 +29,9 @@ class HomeActivity : BaseActivity(), Observer {
 
     var Me = this
 
+    var reloadData = false
+
+
     override var myPageRefIndex = 0
 
 
@@ -44,7 +42,7 @@ class HomeActivity : BaseActivity(), Observer {
 
 
     }
-    fun loadGuideDetail(selectedGuide : String, standAlone : Boolean){
+    fun loadGuideDetail(selectedGuide: String, standAlone: Boolean){
 
         val intent = Intent(this, guidesActivity::class.java)
         intent.putExtra("standAlone", standAlone)
@@ -52,8 +50,9 @@ class HomeActivity : BaseActivity(), Observer {
         startActivity(intent)
 
     }
-    fun loadBenefitDetail(selectedBenefit : String){
+    fun loadBenefitDetail(selectedBenefit: String, standAlone: Boolean){
         val intent = Intent(this, BenefitsActivity::class.java)
+        intent.putExtra("standAlone", standAlone)
         intent.putExtra("benefit", selectedBenefit)
         startActivity(intent)
     }
@@ -82,7 +81,6 @@ class HomeActivity : BaseActivity(), Observer {
         ft.replace(R.id.container, HomeSearchFragment())
 
 
-
         // or ft.add(R.id.your_placeholder, new FooFragment());
         // Complete the changes added above
         // or ft.add(R.id.your_placeholder, new FooFragment());
@@ -98,7 +96,8 @@ class HomeActivity : BaseActivity(), Observer {
         super.onCreate(savedInstanceState)
         setContentLayout(R.layout.activity_home);
 
-
+        val bundle: Bundle? = intent.extras
+        reloadData = intent.getBooleanExtra("ReloadData", false)
 
         button_search.setOnClickListener {
             // Begin the transaction
@@ -133,14 +132,16 @@ class HomeActivity : BaseActivity(), Observer {
         list_recycler_view.layoutManager = mLayoutManager
         list_recycler_view.itemAnimator = DefaultItemAnimator()
         list_recycler_view.adapter  = HomeViewCardsListAdapter(viewModel.getSuggestedCards(), Me) as RecyclerView.Adapter<*>
-
         viewModel.addObserver(this)
-
-        Log.d(viewModel.getValue().toString(),"tooooo")
-
 
 
     }
+
+
+
+
+
+
 
 
 

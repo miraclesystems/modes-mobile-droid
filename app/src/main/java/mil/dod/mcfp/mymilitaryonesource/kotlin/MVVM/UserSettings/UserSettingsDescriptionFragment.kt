@@ -101,7 +101,7 @@ class UserSettingsDescriptionFragment : Fragment() {
             button_family.setSelected(false)
             button_spouse.setSelected(false)
             button_other.setSelected(false)
-            page2("member")
+            page2("Service Member")
         }
 
         view.button_family.setOnClickListener { view ->
@@ -109,7 +109,7 @@ class UserSettingsDescriptionFragment : Fragment() {
             button_serviceMember.setSelected(false)
             button_spouse.setSelected(false)
             button_other.setSelected(false)
-            page2("family")
+            page2("Family Member")
 
         }
 
@@ -118,7 +118,7 @@ class UserSettingsDescriptionFragment : Fragment() {
             button_family.setSelected(false)
             button_serviceMember.setSelected(false)
             button_other.setSelected(false)
-            page2("spouse")
+            page2("Military Spouse")
 
         }
         view.button_other.setOnClickListener{
@@ -126,7 +126,7 @@ class UserSettingsDescriptionFragment : Fragment() {
             button_family.setSelected(false)
             button_serviceMember.setSelected(false)
             button_spouse.setSelected(false)
-            page2("other")
+            page2("Other")
         }
 
 

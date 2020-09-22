@@ -24,6 +24,7 @@ class BenefitsActivity : BaseActivity(), Observer {
 
     override var myPageRefIndex = 2
     var standAlone : Boolean = false
+    var stopped = false
 
     fun loadBenefitsByCategory(){
         // Begin the transaction
@@ -92,8 +93,6 @@ class BenefitsActivity : BaseActivity(), Observer {
         buttonAll.setOnClickListener {
 
             categoriesShown = false
-            Log.d("degug", "button all clicked")
-            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
 
 
             buttonAll.setBackgroundResource(R.drawable.category_selector_box)
@@ -159,6 +158,10 @@ class BenefitsActivity : BaseActivity(), Observer {
     }
 
 
+    override fun onStop() {
+        super.onStop()
+        stopped = true
+    }
     fun forceResume(){
         onResume()
     }
@@ -167,6 +170,10 @@ class BenefitsActivity : BaseActivity(), Observer {
         setSelected(R.id.navigation_benefits);
 
 
+        if(stopped)
+        {
+            return
+        }
         if(!standAlone){
 
             if (viewModel.selectedBenefit == null || viewModel.selectedBenefit.length == 0 || categoriesShown) {

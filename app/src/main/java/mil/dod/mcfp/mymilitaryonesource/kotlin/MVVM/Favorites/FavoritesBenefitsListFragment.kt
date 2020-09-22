@@ -11,6 +11,7 @@ import android.widget.BaseAdapter
 import android.widget.ListView
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.fragment_favoirties_guides_list.*
+import kotlinx.android.synthetic.main.fragment_favoirties_guides_list.view.*
 import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.*
 import kotlinx.android.synthetic.main.fragment_favorites_benefits_list.listFavorites
 import mil.dod.mcfp.mymilitaryonesource.R
@@ -91,6 +92,10 @@ class FavoritesBenefitsListFragment : Fragment() {
 
 
 
+        var height = favoritesActivity.viewModel.getFavoriteBenefits().count() * 150
+        if(height > 0){
+            view.listFavorites.layoutParams.height = height
+        }
 
         var adapter = BenefitsFavoritListAdapter(favoritesActivity.applicationContext, favoritesActivity.viewModel.getFavoriteBenefits())
         adapter.fragment = this

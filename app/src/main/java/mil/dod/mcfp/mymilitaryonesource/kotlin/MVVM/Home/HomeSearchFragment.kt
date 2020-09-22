@@ -106,11 +106,74 @@ class HomeSearchFragment : Fragment() {
 
 
         view.search_text.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
+            override fun afterTextChanged(s: Editable) {
+
+                if(searchList.getAdapter().getCount() == 0){
+
+
+                    Log.d("dbug", "text entered after -->" + s)
+                    var topic = s.toString().trim()
+                    val arg = "\"$topic\""
+                    val title = getResources().getString(R.string.search_empty, arg)
+                    sectionHeaderNone.setText(title)
+                    sectionHeaderView.visibility = View.VISIBLE
+                    sectionHeader.setText("SUGGESTED TOPICS")
+                    loadTopics = true
+
+
+                    var homeActivity = activity as HomeActivity
+                    val adapter = ArrayAdapter(
+                        activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+                    )
+                    searchList.adapter = adapter
+                    searchList.requestLayout()
+
+                }
+
+            }
             override fun beforeTextChanged(
                 s: CharSequence, start: Int,
                 count: Int, after: Int
             ) {
+
+                if(after < count){
+                    if(after == 0) {
+
+                        var topic = s.toString().trim()
+                        val arg = "\"$topic\""
+                        val title = getResources().getString(R.string.search_empty, arg)
+                        sectionHeaderNone.setText(title)
+                        sectionHeaderView.visibility = View.VISIBLE
+                        sectionHeader.setText("SUGGESTED TOPICS")
+                        loadTopics = true
+
+
+                        var homeActivity = activity as HomeActivity
+                        val adapter = ArrayAdapter(
+                            activity!!.applicationContext,
+                            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+                        )
+                        searchList.adapter = adapter
+                        searchList.requestLayout()
+                    }
+
+
+
+                    var topic = s.toString().trim()
+                    sectionHeader.setText("TOPICS RELATED TO")
+                    selectedTopic = topic as String
+
+                    var homeActivity = activity as HomeActivity
+                    val adapter = ArrayAdapter(
+                        activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
+                    )
+
+                    searchList.adapter = adapter
+
+                }
+
             }
 
             override fun onTextChanged(
@@ -118,9 +181,31 @@ class HomeSearchFragment : Fragment() {
                 before: Int, count: Int
             ) {
 
-                if (s.count() >= 1) {
-                    Log.d("dbug", "text entered -->" + s)
+                if (s.count() == 0) {
+                    var topic = s.toString().trim()
 
+                    Log.d("dbug", "text entered 1 -->" + s)
+                    sectionHeaderView.visibility = View.GONE
+                    sectionHeader.setText("SUGGESTED TOPICS")
+                    loadTopics = true
+
+
+                    var homeActivity = activity as HomeActivity
+                    val adapter = ArrayAdapter(
+                        activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+                    )
+                    searchList.adapter = adapter
+                    searchList.requestLayout()
+
+
+
+                } else if(searchList.getAdapter().getCount() > 0){
+
+
+                    Log.d("dbug", "text entered 2 -->" + s)
+                    Log.d("dbug", searchList.getAdapter().getCount().toString())
+                    sectionHeaderView.visibility = View.GONE
                     var topic = s.toString().trim()
                     sectionHeader.setText("TOPICS RELATED TO \"" + topic + "\"")
                     selectedTopic = topic as String
@@ -131,33 +216,39 @@ class HomeSearchFragment : Fragment() {
                         R.layout.listview_item, homeActivity.viewModel.getTopics(topic)
                     )
 
-
                     searchList.adapter = adapter
-                    // Log.d("topic", searchList.getAdapter().getCount().toString())
-                    if (searchList.getAdapter().getCount() == 0) {
-                        val arg = "\"$topic\""
-                        val title = getResources().getString(R.string.search_empty, arg)
-                        sectionHeaderNone.setText(title)
-                        sectionHeader.setText("SUGGESTED TOPICS")
-                        sectionHeaderView.visibility = View.VISIBLE
-                        loadTopics = true
 
 
-                        var homeActivity = activity as HomeActivity
-                        val adapter = ArrayAdapter(
-                            activity!!.applicationContext,
-                            R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
-                        )
 
-                        searchList.adapter = adapter
-                        searchList.requestLayout()
+                } else if(searchList.getAdapter().getCount() == 0){
+
+                    Log.d("dbug", "text entered 3 -->" + s)
+                    var topic = s.toString().trim()
+                    val arg = "\"$topic\""
+                    val title = getResources().getString(R.string.search_empty, arg)
+                    sectionHeaderNone.setText(title)
+                    sectionHeaderView.visibility = View.VISIBLE
 
 
-                    }
+                    sectionHeader.setText("SUGGESTED TOPICS")
+                    loadTopics = true
 
+
+                    var homeActivity = activity as HomeActivity
+                    val adapter = ArrayAdapter(
+                        activity!!.applicationContext,
+                        R.layout.listview_item, homeActivity.viewModel.getSuggestedTopic()
+                    )
+                    searchList.adapter = adapter
                     searchList.requestLayout()
+                    //Log.d("textchanged", searchList.getAdapter().getCount().toString())
+
+
+
 
                 }
+
+
             }
         })
 

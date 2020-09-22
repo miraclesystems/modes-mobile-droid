@@ -1,20 +1,23 @@
 package mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Guides
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import mil.dod.mcfp.mymilitaryonesource.R
+import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_guides_list_guides_by_category_fragement.view.*
 import kotlinx.android.synthetic.main.layout_guides_list.view.*
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.UserSettings.UserSettingsActivity
+import mil.dod.mcfp.mymilitaryonesource.R
 import java.io.InputStream
-import java.lang.Exception
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,9 +67,7 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
 
         var guidesActivity = activity as guidesActivity
 
-
         view.button_back.setOnClickListener {
-
             view.button_back.setOnClickListener {
 
                 var transaction = guidesActivity.supportFragmentManager.beginTransaction()
@@ -80,10 +81,15 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
         }
 
 
-        view.category_name.text = guidesActivity.viewModel.selectedCategory
+
+        view.category_name.setText(guidesActivity.viewModel.selectedCategory)
 
 
-        adapter = GuidesListAdapter(guidesActivity.applicationContext, guidesActivity.viewModel.getGuiesByCategory(guidesActivity.viewModel.selectedCategory))
+        adapter = GuidesListAdapter(
+            guidesActivity.applicationContext, guidesActivity.viewModel.getGuiesByCategory(
+                guidesActivity.viewModel.selectedCategory
+            )
+        )
 
         view.listGuides.adapter = adapter
 
@@ -155,7 +161,6 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
             var item = inflator.inflate(R.layout.layout_guides_list, parent, false)
             item.guide.text = guide.Guide
 
-
             try {
                 val ims: InputStream = this.context!!.getAssets()
                     .open("small-images/" + guide!!.GuideImage + "-200x200.jpg")
@@ -168,7 +173,7 @@ class GuieesListGuidesByCategoryFragement : Fragment() {
                 item.image.setImageDrawable(d)
                 ims.close()
             }
-            catch (e : Exception){
+            catch (e: Exception){
                 Log.d("debug ", e.localizedMessage)
             }
 

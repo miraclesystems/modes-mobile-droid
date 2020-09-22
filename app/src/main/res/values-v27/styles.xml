@@ -3,10 +3,17 @@
 <resources>
 
     <style name="ActivityTheme">
-        <item name="android:windowLayoutInDisplayCutoutMode">
-            shortEdges
-        </item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="AppFullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
 
 </resources>

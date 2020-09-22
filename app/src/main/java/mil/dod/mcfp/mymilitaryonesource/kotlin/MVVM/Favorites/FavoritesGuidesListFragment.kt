@@ -68,6 +68,8 @@ class FavoritesGuidesListFragment : Fragment() {
         else {
             listFavorites?.isVisible = true
             noGuides?.isVisible = false
+
+
         }
 
         var adapter = GuidesFavoriteListAdapter(
@@ -87,6 +89,13 @@ class FavoritesGuidesListFragment : Fragment() {
         val view : View =  inflater.inflate(R.layout.fragment_favoirties_guides_list, container, false)
 
         var favoritesActivity = activity as FavoritesActivity
+
+
+        var height = favoritesActivity.viewModel.getFavoriteGuides().count() * 150
+        if(height > 0){
+            view.listFavorites.layoutParams.height = height
+        }
+
         var adapter = GuidesFavoriteListAdapter(favoritesActivity.applicationContext, favoritesActivity.viewModel.getFavoriteGuides())
         view.listFavorites.adapter = adapter
         adapter.fragment = this

@@ -31,7 +31,7 @@
         android:id="@+id/txtGuides"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="milife guides button"
+        android:contentDescription="mil life guides button"
         android:text="MilLife Guides"
         android:theme="@style/SideNavigationTheme" />
 
@@ -47,7 +47,7 @@
         android:id="@+id/txtFavorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="favorties button"
+        android:contentDescription="favorites button"
         android:text="Favorites"
         android:theme="@style/SideNavigationTheme" />
 

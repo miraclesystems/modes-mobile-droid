@@ -7,6 +7,8 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +24,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -54,18 +57,18 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         // and API 19 (KitKat). It is safe to use them, as they are inlined
         // at compile-time and do nothing on earlier devices.
         val flags =
-            View.SYSTEM_UI_FLAG_LOW_PROFILE or
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+          //  View.SYSTEM_UI_FLAG_LOW_PROFILE or
+            //        View.SYSTEM_UI_FLAG_FULLSCREEN or
+              //      View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                //    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
+                  //  View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
                     View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
         activity?.window?.decorView?.systemUiVisibility = flags
         (activity as? AppCompatActivity)?.supportActionBar?.hide()
     }
     private val showPart2Runnable = Runnable {
         // Delayed display of UI elements
-        fullscreenContentControls?.visibility = View.VISIBLE
+     //   fullscreenContentControls?.visibility = View.VISIBLE
     }
     private var visible: Boolean = false
     private val hideRunnable = Runnable { hide() }
@@ -218,11 +221,14 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         var view: View = inflater.inflate(R.layout.fragment_user_setttings_search, container, false)
 
 
+
         fusedLocationClient = LocationServices.
         getFusedLocationProviderClient(activity as Activity)
         listNames.clear()
 
         var userSettingsActivity = activity as UserSettingsActivity
+
+
 
 
         view.button_location.setOnClickListener(){
@@ -254,6 +260,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
         listNames.add(0, "")
 
 
+        Collections.sort(listNames)
         val adapter = ArrayAdapter(
             activity!!.applicationContext,
             R.layout.listview_item, listNames
@@ -343,6 +350,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
                 listNames.add(0, "")
 
+                Collections.sort(listNames)
 
                 val adapter = ArrayAdapter(
                     activity!!.applicationContext,
@@ -358,6 +366,47 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
                 false
             }
         }
+
+        view.search_text.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+
+                var userSettingsActivity = activity as UserSettingsActivity
+                var model = userSettingsActivity.viewModel.model
+
+                var filteredList =
+                    model.items!!.filter { it!!.name!!.contains(
+                        view.search_text.text.toString(),
+                        ignoreCase = true
+                    ) }
+
+                listNames.clear()
+
+                for (item in filteredList) {
+                    listNames.add(item!!.name!!)
+
+                }
+
+                listNames.add(0, "")
+
+
+                val adapter = ArrayAdapter(
+                    activity!!.applicationContext,
+                    R.layout.listview_item, listNames
+                )
+
+                view.searchList.adapter = adapter
+            }
+        })
 
 
         return view
@@ -393,7 +442,7 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
 
 
-            activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+            //activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
             var userSettingsActivity = activity as UserSettingsActivity
             userSettingsActivity.viewModel.getInstallations()
@@ -414,11 +463,11 @@ class UserSetttingsSearchFragment : Fragment(), Observer {
 
     override fun onPause() {
         super.onPause()
-        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+       // activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         // Clear the systemUiVisibility flag
-        activity?.window?.decorView?.systemUiVisibility = 0
-        show()
+        //activity?.window?.decorView?.systemUiVisibility = 0
+        //show()
     }
 
     override fun onDestroy() {

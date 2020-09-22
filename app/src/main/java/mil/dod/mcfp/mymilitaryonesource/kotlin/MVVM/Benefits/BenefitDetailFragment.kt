@@ -82,7 +82,10 @@ class BenefitDetailFragment : Fragment() {
                 benefitsActivity.forceResume()
             }
             else{
-                benefitsActivity.onBackPressed()
+                //benefitsActivity.onBackPressed()
+                getActivity()!!.finish()
+
+
             }
 
 

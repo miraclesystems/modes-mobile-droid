@@ -11,20 +11,21 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.PreferencesUtil
 class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
     var dataLoaded = false
-
-
-
     var listSuggestedTopics =   mutableListOf<String>()
     var model = HomeModel()
     var audience = PreferencesUtil.getValueString("USER_DESCRIPTION")
-
 
     fun getSuggestedCards():List<HomePageCardModel>{
 
         var list =  mutableListOf<HomePageCardModel>()
 
         ///testing code
-        var result = ModesDb.getBenefitsByAudience("spouse")
+        var audience = PreferencesUtil.getValueString("USER_DESCRIPTION")
+        if(audience == null){
+            audience = ""
+        }
+        var result =
+            ModesDb.getBenefitsByAudience(audience!!)
 
         //Log.d("resul",result!!.count.toString())
 
@@ -43,7 +44,7 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
 
 
-        result = ModesDb.getGuidesByAudience("spouse")
+        result = ModesDb.getGuidesByAudience(audience)
         while(result!!.moveToNext()){
 
             var id = result.getInt(result.getColumnIndex("ID"))
@@ -64,7 +65,6 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
             HomePageCardModel(1, "MILLIFE GUIDES", "Another Random Guide", recommended = false),
             HomePageCardModel(1, "ABOUT US", "Give us your feedback", recommended = false)
             )
-
          */
 
         return list
@@ -193,6 +193,8 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
 
     fun getSuggestedTopic():MutableList<String>{
 
+        listSuggestedTopics = mutableListOf<String>()
+
         listSuggestedTopics.add("COVID-19")
         listSuggestedTopics.add("Divorce")
         listSuggestedTopics.add("Relationships")
@@ -217,6 +219,9 @@ class HomeViewModel : Observable(), WebServiceConnectorDelegate {
         setChanged() //Inherited from Observable()
         notifyObservers(dataLoaded)
     }
+
+
+
 
     override fun onSuccess(jsonString: String) {
         TODO("Not yet implemented")

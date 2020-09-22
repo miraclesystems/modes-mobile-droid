@@ -15,17 +15,14 @@ import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.BaseActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsActivity
 import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Utils.WebviewActivity
 import kotlinx.android.synthetic.main.activity_guides.*
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsCategoriesListFragment
-import mil.dod.mcfp.mymilitaryonesource.kotlin.MVVM.Benefits.BenefitsListFragment
+
 
 
 class guidesActivity : BaseActivity() {
 
     var standAlone : Boolean = false
-
     var viewModel : GuidesViewModel = GuidesViewModel()
     var guide : Guide? = null
-
     var categoriesShown = true
 
     var stopped = false
@@ -169,10 +166,10 @@ class guidesActivity : BaseActivity() {
 
         buttonAll.setOnClickListener {
 
-            Log.d("degug", "button all clicked")
-            //buttonCategories.setBackgroundColor(Color.parseColor("#D6DDE2"))
-
             categoriesShown = false
+
+
+
             buttonAll.setBackgroundResource(drawable.category_selector_box)
 
 
@@ -207,13 +204,9 @@ class guidesActivity : BaseActivity() {
             buttonCategories.setBackgroundResource(drawable.category_selector_box)
 
 
-
             buttonCategories.setTextColor(Color.WHITE)
             buttonCategories.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-
             buttonAll.setBackgroundResource(drawable.category_selector_box_u)
-
-
             buttonAll.layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
             //buttonAll.setBackgroundColor(Color.parseColor("#D6DDE2"))
             buttonAll.setTextColor(Color.parseColor("#194867"))
@@ -248,7 +241,7 @@ class guidesActivity : BaseActivity() {
             // Begin the transaction
             loadCategories()
         }
-        else if (viewModel.selectedCategory != null || viewModel.selectedCategory.length != 0){
+        else if (viewModel.selectedCategory != null && viewModel.selectedCategory.length != 0){
             loadGuidesListByCategory()
         }
         else{

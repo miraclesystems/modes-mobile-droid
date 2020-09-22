@@ -53,6 +53,7 @@
                     android:background="@drawable/search" />
 
                 <ImageView
+                    android:id="@+id/millifeIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/textHeader"
@@ -77,7 +78,7 @@
                 <ListView
                     android:id="@+id/listGuides"
                     android:layout_width="wrap_content"
-                    android:layout_height="300dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/millifeHeader"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
@@ -115,7 +116,7 @@
                 <GridView
                     android:id="@+id/gridBenefits"
                     android:layout_width="wrap_content"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/guidesHeader"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"

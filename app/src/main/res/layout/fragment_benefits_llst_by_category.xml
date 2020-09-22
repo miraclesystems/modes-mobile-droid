@@ -71,7 +71,7 @@
             android:layout_marginLeft="16dp"
             android:nestedScrollingEnabled="true"
             android:layout_below="@id/headerText"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="88dp"
             android:divider="@android:color/transparent"
             android:dividerHeight="15dp"/>
 
